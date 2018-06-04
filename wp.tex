@@ -120,8 +120,7 @@ Moreover, according to~\textcite{kaskaloglu2014},
 ``an increase in transaction fees of Bitcoin is inevitable.''
 
 Thus, the speed is low and the processing fees are high.
-Zold was created as an attempt to resolve these two problems
-with existing Blockchain-based digital currencies.
+Zold was created as an attempt to resolve these two problems.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -133,12 +132,12 @@ Unlike \emph{all} other crypto currencies, there is no central ledger in Zold.
 Each wallet has its own personal ledger.
 All transactions in each ledger are confirmed by
 \href{https://en.wikipedia.org/wiki/RSA_(cryptosystem)}{RSA signatures} of their owners.
-Section~\ref{sec:wallets} explains how it works.
+Section~\ref{sec:wallets} explains how this works.
 
 \textbf{Proof of work}.
 Similar to many other digital currencies---including Bitcoin, Etherium, Plancoin, Monero, Trinity, Plancoin, Dero,
-and many others---Zold nodes find consensus by comparing the amount of CPU power invested
-by each of them into finding hash suffixes, performing certain expensive and meaningless calculations.
+and many others---Zold nodes find consensus by using the CPU power invested
+by each of them to perform certain expensive and meaningless calculations that result in finding hash suffixes.
 Section~\ref{sec:score} describes the algorithm being used.
 
 \textbf{Root Wallet}.
@@ -184,31 +183,31 @@ and many others.
 The only way to get ZLD is to receive it from someone else.
 The root wallet belongs to the issuer and may have a negative balance,
 which can grow according to a pre-defined restrictive formula, explained in Section~\ref{sec:formula}.
-All other wallets may only have positive balances.
+All other wallets can only have positive balances.
 
 \textbf{Taxes}.
 Unlike many other payment systems, Zold doesn't require its users
-to pay transaction fees. Instead, wallets have to pay regular ``taxes'' for the
-service of their maintenances. Taxes amounts depend on the amount
-of transactions in a wallet and the age of the wallet.
+to pay transaction fees. Instead, wallets have to pay regular ``taxes'' for their maintenance. 
+The amount of Taxes depends two factors: 1) the number
+of transactions in a particular wallet and 2) the age of the wallet.
 Section~\ref{sec:taxes} provides more details.
 
 \textbf{No Trust}.
-The network of communicating nodes maintains wallets of users.
+The network of communicating nodes maintain the wallets of Zold users.
 Anyone can add a node to the network.
 It is assumed that any node may contain corrupted data, either by mistake or intentionally.
 Section~\ref{sec:remotes} explains how nodes communicate and rate each other.
 
 \textbf{Open Source}.
-Zold is a command line tool. Its entire code base is open
-and hosted at the GitHub \href{https://github.com/yegor256/zold}{yegor256/zold}
+Zold is a command line tool. Its entire code base is open source
+and hosted on its GitHub \href{https://github.com/yegor256/zold}{yegor256/zold}
 repository.
 
 \textbf{Capacity}.
 One currency unit is called ZLD.
 One ZLD by convention equals to $2^{32}$ \emph{zents} (4,294,967,296).
 All amounts are stored as signed 64-bit integers.
-Thus, the technical capacity of the currency is 2,147,483,648 ZLD (two billion).%
+Therefore, the technical capacity of the currency is 2,147,483,648 ZLD (two billion).%
 \footnote{%
   To compare, the total supply of some crypto currencies is:
   Bitcoin: 21m BTC,
@@ -222,7 +221,7 @@ Thus, the technical capacity of the currency is 2,147,483,648 ZLD (two billion).
 }
 
 \textbf{Hexspeak}.
-Wallet ID is a 16-digit hexadecimal number, which is not restricted by any formula.
+A user's Wallet ID is a 16-digit hexadecimal number, which is not restricted by any formula.
 A user may make up any number, even using
 \href{https://en.wikipedia.org/wiki/Hexspeak}{Hexspeak}.
 
