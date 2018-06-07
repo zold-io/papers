@@ -294,7 +294,7 @@ with six zeroes.
 When the first suffix is found, the score is 1. Then, to
 increase the score by one, the next suffix has to be found, which
 can be added to the first 64 characters of the previous hash
-in order to obtain a new hash with trailing zeros, for example:
+in order to obtain a new hash with trailing zeros. For example:
 
 \begin{minted}{text}
 2018-05-17T03:50:59Z b2.zold.io 4096 THdonv1E@abcdabcdabcdabcd 16bda66 13d284b
@@ -308,7 +308,7 @@ ce420bfdd2f6530db795e7ff4aa508bb0092735dd63d209da218cb78b000000
 
 And so on.
 
-The score is valid only when the starting time point is earlier than
+The score is valid only when the starting point is earlier than
 the current time, but not earlier than 24 hours ago. The \emph{strength} of the score
 is the amount of the trailing zeros in the hash. In the example above the
 strength is six. The larger the strength, the more CPU power it takes to earn
@@ -364,19 +364,18 @@ contains fields separated by a semi-colon:
     684 symbols in \href{https://en.wikipedia.org/wiki/Base64}{Base64}.
 \end{enumerate}
 
-Transactions with positive amount don't have signatures.
+Transactions with positive amounts do not have signatures.
 Their IDs point to ID fields of corresponding beneficiaries' wallets.
 
 The \dd{prefix} is a piece of text randomly selected from the RSA key
-of the beneficiary wallet. It is used for security reasons, in order
-to make impossible ``wallet masquerading'' (pushing a new wallet with the
+of the beneficiary wallet. It is used for security reasons in order
+to prohibit ``wallet masquerading'' (pushing a new wallet with the
 same ID, but a different key).
 
-The combination \dd{id}+\dd{bnf} must be unique in the entire wallet.
+The combination \dd{id}+\dd{bnf} must be unique throughout each wallet.
 
 The \href{https://en.wikipedia.org/wiki/RSA_(cryptosystem)}{RSA}
-signature is calculated using the private key of the
-wallet and the following fields of transaction, separated by spaces:
+signature is calculated using a combination of the wallet's private key and the following fields of a transaction, separated by spaces:
 \dd{bnf}, \dd{id}, \dd{time}, \dd{amount}, \dd{prefix}, \dd{bnf}, \dd{details}.
 
 For example, this text may be used as a signing input:
@@ -387,7 +386,7 @@ For example, this text may be used as a signing input:
 
 Each transaction takes 1284 symbols at most.
 
-The order of transactions is not important, as long as their final balance is positive.
+The order of transactions is not important, as long as the final balance is positive.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
