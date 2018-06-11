@@ -426,7 +426,7 @@ The limitation is hardwired in Zold software and can't be eliminated.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Taxes}\label{sec:taxes}
 
-Each wallet must have to pay \emph{taxes} in order to be promoted by nodes.
+Each wallet must pay \emph{taxes} in order to be promoted by nodes.
 The maximum amount of tax debt a node can tolerate is 1 ZLD. This means
 that if the debt is smaller, all nodes must promote the wallet to their
 remote nodes. If the debt is bigger, a node will reject the wallet,
@@ -443,8 +443,8 @@ $T$ is the total number of transactions in the wallet.
 $F$ is the fee per transaction/hour, which is equal to 7.48 zents
 (a one-year-old wallet with 4096 transactions must pay approximately 16 ZLD taxes annually).
 
-In order to pay taxes the owner of the wallet has to select any remote
-node from the network, which has a score of 16 or more. Then, it has to
+In order to pay taxes the owner of the wallet must select a remote
+node from the network with a score of 16 or more. Then, it has to
 take the invoice from the score, request the node to lock the score
 for a minute, and send the payment of 1 ZLD or less
 to that node. The score with exactly 16 suffixes
