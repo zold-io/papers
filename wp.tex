@@ -396,9 +396,9 @@ The order of transactions is not important, as long as their final balance is po
 
 The only way to get ZLD is to receive it from the \emph{root} wallet
 with a system pre-defined ID \dd{0000000000000000}.
-This wallet is the only one that may have a negative ballance.
+This is the only wallet on the Zold network that can carry a negative ballance.
 However, to prevent an uncontrolled emission of ZLD, the balance
-of this wallet must satisfy the formula:
+of this wallet must satisfy the following formula:
 
 $$t = \frac{h}{24 \times 1024}; \quad z = 2^{63} \times (1 - 2^{-t}).$$
 
@@ -486,7 +486,7 @@ remote node \emph{quality} (in order of importance):
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Fetch, Merge, and Propagate}
 
-First, to see a wallet, it has to be \emph{fetched} from a number of remote
+In order to see a wallet, it has to be \emph{fetched} from a number of remote
 nodes. The nodes may provide different versions of the same wallet, either
 because some data is corrupted or because modifications were made to the same
 wallet from different parts of the network. Each version retrieved from the
@@ -505,8 +505,8 @@ The fetch operation ends at this point. The next step is to \emph{merge}
 all three copies into the local one, if it exists. The algorithm of merging
 is the following.
 
-First, the copy of the wallet we are merging into, is added to the list,
-with the score zero:
+First, the copy of the wallet into which we are merging is added to the list,
+with the score of zero:
 
 \begin{minted}{text}
 copy-0: 55,991 bytes, 0 servers, 0 score
@@ -519,8 +519,7 @@ Then, the copy with the highest score is assumed to be the correct one,
 which is the \dd{copy-1} in this example.
 
 Then, all other copies, in the order of their scores, are merged into the
-correct one, transaction by transaction, applied the following rules
-consequently:
+correct one, transaction by transaction, and the following rules are applied:
 
 \begin{enumerate}
 \item If the transaction already exists, it's ignored;
@@ -533,9 +532,9 @@ the maximum ID in the ledger, it gets ignored as a fraudulent one (``double spen
 \item Otherwise, it gets added to the end of the ledger.
 \end{enumerate}
 
-When merge is done, the modifications get \emph{propagated} to other wallets
+When the merge process is complete, the modifications get \emph{propagated} to other wallets
 available locally. Each transaction that has a negative amount is
-copied to the ledger of their receiving wallets (with a reversed sign),
+copied to the ledger of their receiving wallets (with a reversed sign)
 if it doesn't yet exist there.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
