@@ -463,14 +463,14 @@ Duplicate tax payments are ignored.
 \section{Remote Nodes}\label{sec:remotes}
 
 Each node maintains a list of \emph{remote nodes} (their host names and TCP port numbers),
-their scores and their availability information. When the node is just installed,
+their scores and their availability information. When the node is first installed,
 the list contains a limited amount of pre-defined addresses. The list is
-updated both by user request and automatically in order to give priority
+updated by manual user request and automatically in order to give priority
 to high-score nodes and the nodes with the highest availability.
-Moreover, the node adds new elements to the list retrieving them from all
+Moreover, the node adds new elements to the list by retrieving them from all other
 available remote nodes.
 
-The built-in mechanism pays attention to the following factors of
+The built-in mechanism focuses on the following factors of
 remote node \emph{quality} (in order of importance):
 
 \begin{enumerate}
@@ -488,7 +488,7 @@ remote node \emph{quality} (in order of importance):
 
 In order to see a wallet, it has to be \emph{fetched} from a number of remote
 nodes. The nodes may provide different versions of the same wallet, either
-because some data is corrupted or because modifications were made to the same
+because certain data is corrupted or because modifications were made to the same
 wallet from different parts of the network. Each version retrieved from the
 network is stored in a local \emph{copy} and gets a score assigned to it.
 The score of the local copy is a summary of all scores of the nodes that
@@ -503,7 +503,7 @@ copy-3: 97,132 bytes, 2 servers, 37 score
 
 The fetch operation ends at this point. The next step is to \emph{merge}
 all three copies into the local one, if it exists. The algorithm of merging
-is the following.
+is as follows:
 
 First, the copy of the wallet into which we are merging is added to the list,
 with the score of zero:
@@ -546,7 +546,7 @@ To send money from one wallet to another, the owner of the sending wallet
 has to add a negative transaction to it and sign it with the private RSA key.
 
 At any moment of time any node may decide to push a wallet to another node.
-The receiving node accepts it, merges with the local version, and keeps locally.
+The receiving node accepts it, merges with the local version, and keeps it locally.
 Then, it \emph{promotes} the wallet to all known remote nodes.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
