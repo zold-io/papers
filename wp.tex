@@ -120,8 +120,7 @@ Moreover, according to~\textcite{kaskaloglu2014},
 ``an increase in transaction fees of Bitcoin is inevitable.''
 
 Thus, the speed is low and the processing fees are high.
-Zold was created as an attempt to resolve these two problems
-with existing Blockchain-based digital currencies.
+Zold was created as an attempt to resolve these two problems.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -133,12 +132,12 @@ Unlike \emph{all} other crypto currencies, there is no central ledger in Zold.
 Each wallet has its own personal ledger.
 All transactions in each ledger are confirmed by
 \href{https://en.wikipedia.org/wiki/RSA_(cryptosystem)}{RSA signatures} of their owners.
-Section~\ref{sec:wallets} explains how it works.
+Section~\ref{sec:wallets} explains how this works.
 
 \textbf{Proof of work}.
 Similar to many other digital currencies---including Bitcoin, Etherium, Monero, Trinity, Plancoin, Dero,
-and many others---Zold nodes find consensus by comparing the amount of CPU power invested
-by each of them into finding hash suffixes, performing certain expensive and meaningless calculations.
+and many others---Zold nodes find consensus by using the CPU power invested
+by each of them to perform certain expensive and meaningless calculations that result in finding hash suffixes.
 Section~\ref{sec:score} describes the algorithm being used.
 
 \textbf{Root Wallet}.
@@ -184,31 +183,31 @@ and many others.
 The only way to get ZLD is to receive it from someone else.
 The root wallet belongs to the issuer and may have a negative balance,
 which can grow according to a pre-defined restrictive formula, explained in Section~\ref{sec:formula}.
-All other wallets may only have positive balances.
+All other wallets can only have positive balances.
 
 \textbf{Taxes}.
 Unlike many other payment systems, Zold doesn't require its users
-to pay transaction fees. Instead, wallets have to pay regular ``taxes'' for the
-service of their maintenances. Taxes amounts depend on the amount
-of transactions in a wallet and the age of the wallet.
+to pay transaction fees. Instead, wallets have to pay regular ``taxes'' for their maintenance. 
+The amount of Taxes depends two factors: 1) the number
+of transactions in a particular wallet and 2) the age of the wallet.
 Section~\ref{sec:taxes} provides more details.
 
 \textbf{No Trust}.
-The network of communicating nodes maintains wallets of users.
+The network of communicating nodes maintain the wallets of Zold users.
 Anyone can add a node to the network.
 It is assumed that any node may contain corrupted data, either by mistake or intentionally.
 Section~\ref{sec:remotes} explains how nodes communicate and rate each other.
 
 \textbf{Open Source}.
-Zold is a command line tool. Its entire code base is open
-and hosted at the GitHub \href{https://github.com/yegor256/zold}{yegor256/zold}
+Zold is a command line tool. Its entire code base is open source
+and hosted on its GitHub \href{https://github.com/yegor256/zold}{yegor256/zold}
 repository.
 
 \textbf{Capacity}.
 One currency unit is called ZLD.
 One ZLD by convention equals to $2^{32}$ \emph{zents} (4,294,967,296).
 All amounts are stored as signed 64-bit integers.
-Thus, the technical capacity of the currency is 2,147,483,648 ZLD (two billion).%
+Therefore, the technical capacity of the currency is 2,147,483,648 ZLD (two billion).%
 \footnote{%
   To compare, the total supply of some crypto currencies is:
   Bitcoin: 21m BTC,
@@ -222,7 +221,7 @@ Thus, the technical capacity of the currency is 2,147,483,648 ZLD (two billion).
 }
 
 \textbf{Hexspeak}.
-Wallet ID is a 16-digit hexadecimal number, which is not restricted by any formula.
+A user's Wallet ID is a 16-digit hexadecimal number, which is not restricted by any formula.
 A user may make up any number, even using
 \href{https://en.wikipedia.org/wiki/Hexspeak}{Hexspeak}.
 
@@ -241,18 +240,18 @@ Its fundamental principle is that each block of data must have a special
 number attached to it, known as \emph{nonce}, which is rather difficult to calculate,
 because it requires a lot of CPU power. It is assumed that at any moment
 of time the majority of nodes in the network invest their CPU power into
-calculating the nonces for the data that is not corrupted. If and when for any reason
-some data gets corrupted, the amount of CPU power a part of the network
+calculating the nonces for uncorrupted data. If and when for any reason
+certain data does get corrupted, the amount of CPU power that the corrupted part of the network
 decides to invest into its nonces calculation would be smaller than what
-the other part of the network invests into legal data. The latter part
+the other part of the network invests into correct data. The latter part
 will quickly dominate the former and the nodes with corrupted data will
 be ostracized and eventually ignored~\parencite{nakamoto2008}.
 
-Zold has borrowed this principle, although modified it. It also requires
+Zold has borrowed elements of this principle, but has also modified it. Zold also requires
 its nodes to invest their CPU power into meaninless and repetative
-calculations just to help us identify which part of the network they belong to:
+calculations in order to identify which part of the network they belong to:
 corrupted or not. Each Zold node has to calculate its \emph{score},
-which is as big as much CPU power the node has invested into its calculation.
+which is indicative of the CPU power the node has invested into its calculation.
 
 Similar to Bitcoin nonces, Zold nodes repeatedly calculate cryptographic hashes,
 looking for consecutive zeros inside them. First, in order to calculate a score,
@@ -309,9 +308,9 @@ ce420bfdd2f6530db795e7ff4aa508bb0092735dd63d209da218cb78b000000
 
 And so on.
 
-The score is valid only when the starting time point is earlier than
+The score is only valid when the starting time is earlier than
 the current time, but not earlier than 24 hours ago. The \emph{strength} of the score
-is the amount of the trailing zeros in the hash. In the example above the
+is the amount of trailing zeros in the hash. In the example above the
 strength is six. The larger the strength, the more CPU power it takes to earn
 the score. All nodes in the network must have the same strength of their scores.
 
@@ -397,9 +396,9 @@ The order of transactions is not important, as long as their final balance is po
 
 The only way to get ZLD is to receive it from the \emph{root} wallet
 with a system pre-defined ID \dd{0000000000000000}.
-This wallet is the only one that may have a negative ballance.
+This is the only wallet on the Zold network that can carry a negative ballance.
 However, to prevent an uncontrolled emission of ZLD, the balance
-of this wallet must satisfy the formula:
+of this wallet must satisfy the following formula:
 
 $$t = \frac{h}{24 \times 1024}; \quad z = 2^{63} \times (1 - 2^{-t}).$$
 
@@ -427,7 +426,7 @@ The limitation is hardwired in Zold software and can't be eliminated.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Taxes}\label{sec:taxes}
 
-Each wallet must have to pay \emph{taxes} in order to be promoted by nodes.
+Each wallet must pay \emph{taxes} in order to be promoted by nodes.
 The maximum amount of tax debt a node can tolerate is 1 ZLD. This means
 that if the debt is smaller, all nodes must promote the wallet to their
 remote nodes. If the debt is bigger, a node will reject the wallet,
@@ -444,8 +443,8 @@ $T$ is the total number of transactions in the wallet.
 $F$ is the fee per transaction/hour, which is equal to 7.48 zents
 (a one-year-old wallet with 4096 transactions must pay approximately 16 ZLD taxes annually).
 
-In order to pay taxes the owner of the wallet has to select any remote
-node from the network, which has a score of 16 or more. Then, it has to
+In order to pay taxes the owner of the wallet must select a remote
+node from the network with a score of 16 or more. Then, it has to
 take the invoice from the score, request the node to lock the score
 for a minute, and send the payment of 1 ZLD or less
 to that node. The score with exactly 16 suffixes
@@ -464,14 +463,14 @@ Duplicate tax payments are ignored.
 \section{Remote Nodes}\label{sec:remotes}
 
 Each node maintains a list of \emph{remote nodes} (their host names and TCP port numbers),
-their scores and their availability information. When the node is just installed,
+their scores and their availability information. When the node is first installed,
 the list contains a limited amount of pre-defined addresses. The list is
-updated both by user request and automatically in order to give priority
+updated by manual user request and automatically in order to give priority
 to high-score nodes and the nodes with the highest availability.
-Moreover, the node adds new elements to the list retrieving them from all
+Moreover, the node adds new elements to the list by retrieving them from all other
 available remote nodes.
 
-The built-in mechanism pays attention to the following factors of
+The built-in mechanism focuses on the following factors of
 remote node \emph{quality} (in order of importance):
 
 \begin{enumerate}
@@ -487,9 +486,9 @@ remote node \emph{quality} (in order of importance):
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Fetch, Merge, and Propagate}
 
-First, to see a wallet, it has to be \emph{fetched} from a number of remote
+In order to see a wallet, it has to be \emph{fetched} from a number of remote
 nodes. The nodes may provide different versions of the same wallet, either
-because some data is corrupted or because modifications were made to the same
+because certain data is corrupted or because modifications were made to the same
 wallet from different parts of the network. Each version retrieved from the
 network is stored in a local \emph{copy} and gets a score assigned to it.
 The score of the local copy is a summary of all scores of the nodes that
@@ -504,10 +503,10 @@ copy-3: 97,132 bytes, 2 servers, 37 score
 
 The fetch operation ends at this point. The next step is to \emph{merge}
 all three copies into the local one, if it exists. The algorithm of merging
-is the following.
+is as follows:
 
-First, the copy of the wallet we are merging into, is added to the list,
-with the score zero:
+First, the copy of the wallet into which we are merging is added to the list,
+with the score of zero:
 
 \begin{minted}{text}
 copy-0: 55,991 bytes, 0 servers, 0 score
@@ -520,8 +519,7 @@ Then, the copy with the highest score is assumed to be the correct one,
 which is the \dd{copy-1} in this example.
 
 Then, all other copies, in the order of their scores, are merged into the
-correct one, transaction by transaction, applied the following rules
-consequently:
+correct one, transaction by transaction, and the following rules are applied:
 
 \begin{enumerate}
 \item If the transaction already exists, it's ignored;
@@ -534,9 +532,9 @@ the maximum ID in the ledger, it gets ignored as a fraudulent one (``double spen
 \item Otherwise, it gets added to the end of the ledger.
 \end{enumerate}
 
-When merge is done, the modifications get \emph{propagated} to other wallets
+When the merge process is complete, the modifications get \emph{propagated} to other wallets
 available locally. Each transaction that has a negative amount is
-copied to the ledger of their receiving wallets (with a reversed sign),
+copied to the ledger of their receiving wallets (with a reversed sign)
 if it doesn't yet exist there.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -548,7 +546,7 @@ To send money from one wallet to another, the owner of the sending wallet
 has to add a negative transaction to it and sign it with the private RSA key.
 
 At any moment of time any node may decide to push a wallet to another node.
-The receiving node accepts it, merges with the local version, and keeps locally.
+The receiving node accepts it, merges with the local version, and keeps it locally.
 Then, it \emph{promotes} the wallet to all known remote nodes.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -564,7 +562,7 @@ HTTP headers.
 \dd{GET /} is a home page of a node that returns
 JSON/\href{https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1}{200}
 response with the
-information about the node, for example (other details may be added in
+information about the node. For example (other details may be added in
 further versions):
 
 \begin{minted}{json}
@@ -626,24 +624,24 @@ or
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Incentives}\label{sec:incentives}
 
-It is obvious that anonymous users will participate in Zold and maintain
-their nodes only if they have enough financial motivation to do that. Simply
+Anonymous users will only participate in Zold and maintain
+their nodes if they have enough financial motivation to do so. Simply
 put, their expenses must be lower than the income they are getting in
-form of taxes. This Section analyzes the most obvious questions users
+the form of taxes. This Section analyzes the most obvious questions users
 may have, regarding their motivation.
 
 \subsection{To Stay Online}
 
 What is the reason for a node to stay online and spend its CPU power
-and network traffic? Each node is insterested in doing that because it
+and network traffic? Each node is motivated by the
 hopes that wallet owners will pay taxes to its invoices. The software
-automatically decides which node to pay taxes to and the selection is
-made by the availability criteria. The node which is the most available
+automatically decides to which node to pay taxes and the selection is
+made by the availability criteria. The node which is most available
 and visible will get the majority of tax payments.
 
 \subsection{To Accept Wallets}
 
-Why a node would accept push requests and spend its storage space
+Why would a node accept push requests and spend its storage space
 on the wallets coming in? If the node doesn't accept a push request,
 its availability rating decreases and other nodes will stop paying
 taxes to it.
@@ -653,15 +651,15 @@ taxes to it.
 What is the incentive to advertise other remote nodes via the \dd{/remotes} RESTful
 entry point and why can't a node always return an empty list, expecting its clients
 to always pay taxes to it? The software automatically prioritizes remote
-nodes by the amount of remote nodes it promotes. The longer the list a node
+nodes by the amount of other remote nodes it promotes. The longer the list a node
 returns, the higher its chance to be at the top of the list.
 
 \subsection{To Promote Wallets}
 
 What is the incentive to promote wallets to remote nodes, spending network
-traffic for this operation? Each node ranks its remote nodes also by the
-amount of push requests they send. Thus, in order to stay on top of the lists
-each node is interested to push wallets further.
+traffic for this operation? Each node also ranks its remote nodes by the
+amount of push requests they send. Thus, in order to stay on top of these rankings
+each node is interested in pushing wallets further.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
