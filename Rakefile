@@ -3,7 +3,8 @@
 require 'redcarpet'
 require 'rainbow'
 
-target = File.expand_path(File.join(Dir.pwd, 'target'))
+target = File.expand_path(File.join(Dir.pwd, ENV['TARGET']))
+puts "Target directory: #{target}"
 
 def run(cmd)
   print "#{cmd} "
