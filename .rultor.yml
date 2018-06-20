@@ -3,12 +3,10 @@ docker:
 assets:
   id_rsa: "zerocracy/home#assets/blog/id_rsa"
   id_rsa.pub: "zerocracy/home#assets/blog/id_rsa.pub"
-install: |
-  sudo apt-get -y update
-  sudo apt-get -y install biblatex
 merge:
   script: |
     pdd -f /dev/null -v
+    rake
 release:
   script: |
     [[ "${tag}" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]] || exit -1
