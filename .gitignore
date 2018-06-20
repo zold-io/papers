@@ -5,3 +5,5 @@ wp.bcf
 wp.blg
 wp.log
 wp.run.xml
+.DS_Store
+target/

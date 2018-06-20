@@ -3,7 +3,7 @@
 require 'redcarpet'
 require 'rainbow'
 
-target = File.expand_path(File.join(Dir.pwd, ENV['TARGET']))
+target = File.expand_path(File.join(Dir.pwd, ENV['TARGET'] ? ENV['TARGET'] : 'target'))
 puts "Target directory: #{target}"
 
 def run(cmd)
@@ -41,6 +41,7 @@ task :pdf do
     run("pdflatex #{opts} #{f}")
     run("pdflatex #{opts} #{f}")
     log = File.read(File.join(target, "#{name}.log"))
+        puts(log)
     [
       'LaTeX Warning',
       'Overfull ',

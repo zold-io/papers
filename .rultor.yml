@@ -9,8 +9,8 @@ merge:
 release:
   script: |
     [[ "${tag}" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]] || exit -1
-    sed -i "s/0\.0\.0/${tag}/g" tex/version.tex
-    git add version.tex
+    sed -i "s/0\.0\.0/${tag}/g" tex/_version.tex
+    git add tex/_version.tex
     git commit -m "Version set to ${tag}"
     mkdir ~/.ssh
     mv ../id_rsa ../id_rsa.pub ~/.ssh

@@ -12,7 +12,7 @@
   maxcitenames=1,maxbibnames=1]{biblatex}
   \renewbibmacro{in:}{}
   \addbibresource{../main.bib}
-\usepackage[cache=false]{minted}
+\usepackage{minted}
   \setminted{fontsize=\small}
   \setminted{breaklines}
   \usemintedstyle{bw}
@@ -30,7 +30,7 @@
 
 \include{_version}
 \title{\includegraphics[scale=0.3]{../images/logo.pdf}\\Zold: A Fast Cryptocurrency for Micro Payments}
-\author{Yegor Bugayenko\\\texttt{yegor256@gmail.com}\\[1em]\href{https://github.com/zold-io/papers/releases/tag/\zoldversion}{\zoldversion}}
+\author{Yegor Bugayenko\\\texttt{yegor256@gmail.com}\\[1em]\href{https://github.com/zold-io/papers/releases/tag/\zoldversion}{\texttt{\zoldversion}}}
 
 \begin{document}
 \raggedbottom
@@ -42,10 +42,10 @@ their ability to become an alternative financial instrument in many
 different markets. Most of the technologies available at the moment are
 based on the principles of Blockchain architecture, including
 dominating currencies like Bitcoin and Etherium. Despite its
-popularity, Blockchain is not the best possible solution for all scenarios.  One such example is
-for fast micro-payments.
+popularity, Blockchain is not the best possible solution for all scenarios.
+One such example is for fast micro-payments.
 Zold is an \emph{experimental} alternative that enables distributed transactions between
-anonymous users, making micro-payments financially feasible.
+anonymous users, making micro-payments financially feasible and fast.
 It borrows the ``proof of work'' principle from Bitcoin,
 and suggests a different architecture for digital wallet maintenance.
 \end{abstract}
