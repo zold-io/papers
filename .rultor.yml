@@ -12,7 +12,7 @@ release:
     sed -i "s/0\.0\.0/${tag}/g" tex/_version.tex
     git add tex/_version.tex
     git commit -m "Version set to ${tag}"
-    mkdir ~/.ssh
+    mkdir -p ~/.ssh
     mv ../id_rsa ../id_rsa.pub ~/.ssh
     chmod -R 600 ~/.ssh/*
     echo -e "Host *\n  StrictHostKeyChecking no\n  UserKnownHostsFile=/dev/null" > ~/.ssh/config
