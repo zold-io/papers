@@ -1,0 +1,29 @@
+docker:
+  image: yegor256/wo
+assets:
+  id_rsa: "zerocracy/home#assets/blog/id_rsa"
+  id_rsa.pub: "zerocracy/home#assets/blog/id_rsa.pub"
+merge:
+  script: |
+    pdd -f /dev/null -v
+release:
+  script: |
+    [[ "${tag}" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]] || exit -1
+    sed -i "s/0\.0\.0/${tag}/g" version.tex
+    git add version.tex
+    git commit -m "Version set to ${tag}"
+    mkdir ~/.ssh
+    mv ../id_rsa ../id_rsa.pub ~/.ssh
+    chmod -R 600 ~/.ssh/*
+    echo -e "Host *\n  StrictHostKeyChecking no\n  UserKnownHostsFile=/dev/null" > ~/.ssh/config
+    git config --global user.email "rultor@zold.io"
+    git config --global user.name "Rultor"
+    temp=$(mktemp -d)
+    make --target=${temp}
+    git checkout gh-pages
+    git clean -fd
+    cp -R ${temp}/* .
+    git add .
+    git commit -am "New papers, version ${tag}"
+    git push origin gh-pages
+

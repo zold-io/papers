@@ -11,8 +11,8 @@
   hyperref=true,abbreviate=true,
   maxcitenames=1,maxbibnames=1]{biblatex}
   \renewbibmacro{in:}{}
-  \addbibresource{main.bib}
-\usepackage{minted}
+  \addbibresource{../main.bib}
+\usepackage[cache=false]{minted}
   \setminted{fontsize=\small}
   \setminted{breaklines}
   \usemintedstyle{bw}
@@ -28,8 +28,9 @@
 \setlength{\parindent}{0pt} % indent first line
 \setlength{\parskip}{6pt} % before par
 
-\title{\includegraphics[scale=0.3]{logo.pdf}\\Zold: A Fast Cryptocurrency for Micro Payments}
-\author{Yegor Bugayenko\\\texttt{yegor256@gmail.com}}
+\include{_version}
+\title{\includegraphics[scale=0.3]{../images/logo.pdf}\\Zold: A Fast Cryptocurrency for Micro Payments}
+\author{Yegor Bugayenko\\\texttt{yegor256@gmail.com}\\[1em]\href{https://github.com/zold-io/papers/releases/tag/\zoldversion}{\zoldversion}}
 
 \begin{document}
 \raggedbottom
