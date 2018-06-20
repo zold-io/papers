@@ -1,13 +1,24 @@
 # encoding: utf-8
 
+require 'open3'
+
 def run(cmd)
   print "#{cmd} "
-  stdout = `#{cmd} 2>&1`
-  if $?.exitstatus.zero?
+  out = ''
+  code = Open3.popen2e("#{cmd} 2>&1") do |stdin, stdout, thr|
+    stdin.close
+    until stdout.eof?
+      line = stdout.gets
+      out += line
+      puts line
+    end
+    thr.value.to_i
+  end
+  if code.zero?
     print "OK\n"
   else
-    print "ERROR ##{$?.exitstatus}\n"
-    puts stdout
+    print "ERROR ##{code}\n"
+    puts out
     raise "Failed to run #{cmd}"
   end
 end
@@ -27,7 +38,7 @@ task :pdf do
     name = File.basename(f, '.tex')
     pdf = "../target/#{name}.pdf"
     if File.exist?(pdf) && File.mtime(pdf) > File.mtime(f)
-      puts "PDF is #{Rainbow('up to date').green}: #{pdf}"
+      puts "PDF is up to date: #{pdf}"
       next
     end
     run("pdflatex #{opts} #{f}")
