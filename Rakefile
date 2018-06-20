@@ -1,15 +1,12 @@
 # encoding: utf-8
 
-require 'redcarpet'
-require 'rainbow'
-
 def run(cmd)
   print "#{cmd} "
   stdout = `#{cmd} 2>&1`
   if $?.exitstatus.zero?
-    print "#{Rainbow('OK').green}\n"
+    print "OK\n"
   else
-    print "#{Rainbow('ERROR').red} ##{$?.exitstatus}\n"
+    print "ERROR ##{$?.exitstatus}\n"
     puts stdout
     raise "Failed to run #{cmd}"
   end
