@@ -526,9 +526,10 @@ correct one, transaction by transaction, and the following rules are applied:
 \item If the transaction is negative (spending money) and its ID is lower than
 the maximum ID in the ledger, it gets ignored as a fraudulent one (``double spending'');
 \item If the transaction makes the balance of the wallet negative, it is ignored;
-\item If the transaction is positive and its signature is not valid, it is ignored;
-\item If the transaction is negative and it's absent in the paying wallet
-(which is fetched and merged first), it's ignored;
+\item If the transaction is negative and its signature is not valid, it is ignored;
+\item If the transaction is positive and it's absent in the paying wallet
+(which exists at the node), it's ignored; If the paying wallet doesn't exist at the node,
+the transaction is ignored;
 \item Otherwise, it gets added to the end of the ledger.
 \end{enumerate}
 
