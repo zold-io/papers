@@ -3,6 +3,8 @@ docker:
 assets:
   id_rsa: "zerocracy/home#assets/blog/id_rsa"
   id_rsa.pub: "zerocracy/home#assets/blog/id_rsa.pub"
+install: |
+  sudo apt-get install biblatex
 merge:
   script: |
     pdd -f /dev/null -v
@@ -12,6 +14,7 @@ release:
     sed -i "s/0\.0\.0/${tag}/g" tex/_version.tex
     git add tex/_version.tex
     git commit -m "Version set to ${tag}"
+    rake
     mkdir -p ~/.ssh
     mv ../id_rsa ../id_rsa.pub ~/.ssh
     chmod -R 600 ~/.ssh/*
@@ -19,7 +22,6 @@ release:
     git config --global user.email "rultor@zold.io"
     git config --global user.name "Rultor"
     temp=$(mktemp -d)
-    rake
     cp target/*.pdf ${temp}
     git checkout gh-pages
     git clean -fd
