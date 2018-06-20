@@ -1,11 +1,10 @@
 docker:
-  image: yegor256/wo
+  image: yegor256/papers
 assets:
   id_rsa: "zerocracy/home#assets/blog/id_rsa"
   id_rsa.pub: "zerocracy/home#assets/blog/id_rsa.pub"
 merge:
   script: |
-    pdd -f /dev/null -v
     rake
 release:
   script: |
