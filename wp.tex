@@ -187,7 +187,7 @@ All other wallets can only have positive balances.
 
 \textbf{Taxes}.
 Unlike many other payment systems, Zold doesn't require its users
-to pay transaction fees. Instead, wallets have to pay regular ``taxes'' for their maintenance. 
+to pay transaction fees. Instead, wallets have to pay regular ``taxes'' for their maintenance.
 The amount of Taxes depends two factors: 1) the number
 of transactions in a particular wallet and 2) the age of the wallet.
 Section~\ref{sec:taxes} provides more details.
@@ -294,7 +294,7 @@ with six zeroes.
 When the first suffix is found, the score is 1. Then, to
 increase the score by one, the next suffix has to be found, which
 can be added to the first 64 characters of the previous hash
-in order to obtain a new hash with trailing zeros, for example:
+in order to obtain a new hash with trailing zeros. For example:
 
 \begin{minted}{text}
 2018-05-17T03:50:59Z b2.zold.io 4096 THdonv1E@abcdabcdabcdabcd 16bda66 13d284b
@@ -372,7 +372,7 @@ of the beneficiary wallet. It is used for security reasons, in order
 to make impossible ``wallet masquerading'' (pushing a new wallet with the
 same ID, but a different key).
 
-The combination \dd{id}+\dd{bnf} must be unique in the entire wallet.
+The combination \dd{id}+\dd{bnf} must be unique throughout each wallet.
 
 The \href{https://en.wikipedia.org/wiki/RSA_(cryptosystem)}{RSA}
 signature is calculated using the private key of the
@@ -387,7 +387,7 @@ For example, this text may be used as a signing input:
 
 Each transaction takes 1284 symbols at most.
 
-The order of transactions is not important, as long as their final balance is positive.
+The order of transactions is not important, as long as the final balance is positive.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
