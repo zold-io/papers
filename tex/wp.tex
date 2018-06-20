@@ -258,7 +258,7 @@ will quickly dominate the former and the nodes with corrupted data will
 be ostracized and eventually ignored~\parencite{nakamoto2008}.
 
 Zold has borrowed elements of this principle, but has also modified it. Zold also requires
-its nodes to invest their CPU power into meaninless and repetative
+its nodes to invest their CPU power into meaningless and repetative
 calculations in order to identify which part of the network they belong to:
 corrupted or not. Each Zold node has to calculate its \emph{score},
 which is indicative of the CPU power the node has invested into its calculation.
@@ -298,7 +298,7 @@ The hash of this text will be (pay attention to the trailing zeroes):
 \end{minted}
 
 The node attempts to try different sufficies until one of them produces
-a hash that ends with a few tailing zeroes. The one above ends
+a hash that ends with a few trailing zeroes. The one above ends
 with six zeroes.
 
 When the first suffix is found, the score is 1. Then, to
@@ -330,8 +330,8 @@ the score. All nodes in the network must have the same strength of their scores.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Wallets}\label{sec:wallets}
 
-There is no central ledger in Zold, like in many other digital currencies.
-Instead, each user has their own \emph{wallets} (any number of them) with their own ledgers inside.
+There is no central ledger in Zold, unlike many other digital currencies.
+Instead, users have their own \emph{wallets} (any number of them) with their own ledgers inside.
 Each wallet is an ASCII-text file with the name equal to the wallet ID.
 For example, the wallet in the file \dd{12345678abcdef} may include
 the following text:
@@ -406,7 +406,7 @@ The order of transactions is not important, as long as the final balance is posi
 
 The only way to get ZLD is to receive it from the \emph{root} wallet
 with a system pre-defined ID \dd{0000000000000000}.
-This is the only wallet on the Zold network that can carry a negative ballance.
+This is the only wallet on the Zold network that can carry a negative balance.
 However, to prevent an uncontrolled emission of ZLD, the balance
 of this wallet must satisfy the following formula:
 
@@ -680,7 +680,7 @@ each node is interested in pushing wallets further.
 \section{Threats and Responses}\label{sec:threats}
 
 It is obvious that a distributed system that consists of anonymous nodes
-even theorecially can't be 100\% safe, reliable, secure and trustworthy.
+even theoretically can't be 100\% safe, reliable, secure and trustworthy.
 Zold is not an exception. However, it's designed in an honest attempt
 to mitigate all critical threats and make the system ``reliable enough.''
 This Section summarizes the most import of those threads and explains
@@ -698,7 +698,8 @@ a legit receiver, the other transaction is fraudulent.
 This will happen, but very soon one part of the network will dominate the other
 one, and one of the transactions will be rejected from the wallet, after
 a number of merge operations in all nodes of the network. The receiver of the
-money must be careful and always to the full fetch (from as many
+money must be careful and always do the full fetch (from as many nodes
+as possible) in order to guarantee safety of transactions.
 
 \subsection{51\% Attack}
 
