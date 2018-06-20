@@ -134,11 +134,19 @@ All transactions in each ledger are confirmed by
 \href{https://en.wikipedia.org/wiki/RSA_(cryptosystem)}{RSA signatures} of their owners.
 Section~\ref{sec:wallets} explains how this works.
 
-\textbf{Proof of work}.
+\textbf{Proof of Work}.
 Similar to many other digital currencies---including Bitcoin, Etherium, Monero, Trinity, Plancoin, Dero,
 and many others---Zold nodes find consensus by using the CPU power invested
 by each of them to perform certain expensive and meaningless calculations that result in finding hash suffixes.
 Section~\ref{sec:score} describes the algorithm being used.
+
+\textbf{Detached Operations}.
+To make a payment a user \emph{fetches} a wallet from the network,
+makes as many payments from the wallet to other wallets as necessary,
+and \emph{pushes} the wallet back to the network.
+Thanks to that, there are no technical limitations to
+the amount of transactions the network can process per second.
+Section~\ref{sec:fetch} explains the details.
 
 \textbf{Root Wallet}.
 Zold is a pre-mined%
@@ -485,7 +493,7 @@ remote node \emph{quality} (in order of importance):
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Fetch, Merge, and Propagate}
+\section{Fetch, Merge, and Propagate}\label{sec:fetch}
 
 In order to see a wallet, it has to be \emph{fetched} from a number of remote
 nodes. The nodes may provide different versions of the same wallet, either
