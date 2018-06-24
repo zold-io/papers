@@ -112,6 +112,9 @@ and is therefore inappropriate for fast payments.''
 It is inevitable, since
 ``processing speed is at odds with the security aspects of the underlying
 proof-of-work based consensus mechanism'' according to~\textcite{kiayias2015}.
+Ethereum, according to~\textcite{fekkes2018}, can process
+``two times more transactions per second than Bitcoin is able to do,''
+but this still is rather slow.
 
 The second problem, as noted by~\textcite{popov2017}, is that ``it is not easy to get rid
 of fees in the blockchain infrastructure since they serve
@@ -443,18 +446,24 @@ The limitation is hardwired in Zold software and can't be eliminated.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Total Supply}\label{sec:supply}
 
-Most cryptocurrencies, in order ``to protect against inflationary forces,''
+Some cryptocurrencies, in order ``to protect against inflationary forces,''
 algorithmically limit their total supply~\parencite{bohr2014}.
-For example, Bitcoin halves the creation rate
-every year, making it technically possible to ``mine'' the total BTC amount
-of 21 million in 2140, via progressively decreasing fixed per-block
-incentives, which started from 50 BTC per block in 2009~\parencite{iwamura2014}.
+For example, Bitcoin halves the creation rate every 210,000 blocks,
+which started from 50 BTC per block in 2009,
+making it technically possible to ``mine'' the total amount
+of 21 million until 2140~\parencite{iwamura2014}.
 
-As explained in Section~\ref{sec:wallets}, any particular transaction can
-transfer $2^{63}$ zents, which is, by convention, is $2^{32}$ ZLD.
+Ethereum, to the contrary, is infinite, although its total annual
+supply is technically limited to 18 million ether. It is suggested
+by Ethereum creators that potential token losses, caused by loss of keys and codes, death
+of holders or misuse, ``will be compensated for by not having
+a limit on the total amount of ether that will be created.''~\parencite{fekkes2018}.
+
+In Zold, as explained in Section~\ref{sec:wallets}, any particular transaction can
+transfer up to $2^{63}$ zents, which is, by convention, is $2^{32}$ ZLD.
 Thus, technically, a summary of transactions in a wallet may be larger
 than $2^{63}$. However, the software will complain and reject a wallet
-if such an overflow happens. The minimum balance of a wallet is $-2^63$
+if such an overflow happens. The minimum balance of a wallet is $-2^{63}$
 and the maximum is $2^{63}$. Since there is only one wallet in the entire
 network that can legally have a negative balance, the entire ``supply''
 of Zold currency is 2,147,483,648 ZLD.
