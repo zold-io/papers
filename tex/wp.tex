@@ -431,6 +431,15 @@ Year & ZLD & Share \\
 
 The limitation is hardwired in Zold software and can't be eliminated.
 
+As explained in Section~\ref{sec:wallets}, any particular transaction can
+transfer $2^{63}$ zents, which is, by convention, is $2^{32}$ ZLD.
+Thus, technically, a summary of transactions in a wallet may be larger
+than $2^{63}$. However, the software will complain and reject a wallet
+if such an overflow happens. The minimum balance of a wallet is $-2^63$
+and the maximum is $2^{63}$. Since there is only one wallet in the entire
+network that can legally have a negative balance, the entire ``supply''
+of Zold currency is 2,147,483,648 ZLD.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -653,6 +662,15 @@ hopes that wallet owners will pay taxes to its invoices. The software
 automatically decides to which node to pay taxes and the selection is
 made by the availability criteria. The node which is most available
 and visible will get the majority of tax payments.
+
+Whether the tax payments in ZLD will become a strong enough incentive
+to support the network is a separate problem, which exists in all
+other decentralized cryptocurrencies. \textcite{iwamura2014} analyzes this
+problema and concludes that ``if the Bitcoin price drops below
+a threshold, the Bitcoin system as a whole may collapse.'' In other words,
+the owners of nodes will be interested in keeping them online for as long
+as the market price of ZLD taxes they collect is high enough to cover
+their expenses.
 
 \subsection{To Accept Wallets}
 
