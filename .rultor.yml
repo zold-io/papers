@@ -21,7 +21,7 @@ release:
     git config --global user.email "rultor@zold.io"
     git config --global user.name "Rultor"
     temp=$(mktemp -d)
-    cp target/* ${temp}
+    cp target/*.pdf ${temp}
     cp target/*.html ${temp}
     git checkout gh-pages
     git clean -fd
