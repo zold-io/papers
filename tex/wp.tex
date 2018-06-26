@@ -466,7 +466,7 @@ than $2^{63}$. However, the software will complain and reject a wallet
 if such an overflow happens. The minimum balance of a wallet is $-2^{63}$
 and the maximum is $2^{63}$. Since there is only one wallet in the entire
 network that can legally have a negative balance, the entire ``supply''
-of Zold currency is 2,147,483,648 ZLD.
+of Zold currency is roughly 2.13 billion ZLD.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -499,7 +499,10 @@ has to be placed into the details of the transaction,
 prefixed by \dd{TAXES }.
 
 The most active remote node will be selected as tax receiver.
-It's up to the payer which node to select.
+It's up to the payer which node to select. This situation is similar
+to Bitcoin, where ``a miner's chance of winning the
+competition is (roughly, and with some caveats) equal to the proportion of the total computing
+power that they control,'' according to~\textcite{foroglou2015}.
 
 All tax payments inside a wallet must have unique scores.
 Duplicate tax payments are ignored.
