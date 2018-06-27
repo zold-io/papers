@@ -608,10 +608,28 @@ if it doesn't yet exist there.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Pay and Push}
+\section{Invoice, Pay, and Push}
 
 To send money from one wallet to another, the owner of the sending wallet
 has to add a negative transaction to it and sign it with the private RSA key.
+
+Each transaction has to have a \emph{payment prefix} attached to it.
+The prefix is a text block of 8-32 symbols randomly selected from the
+text representation of the public key of the receiving wallet. This prefix
+becomes a field in a transaction and participates in the body for the RSA
+signature. Without this prefix it would be possible to steal a wallet by
+replacing it with a new one, with a different pair of keys.
+
+An \emph{invoice} is a combination of payment prefix and wallet ID separated
+by the \dd{@} sign, for example:
+
+\begin{minted}{text}
+THdonv1E@abcdabcdabcdabcd
+\end{minted}
+
+Here, \dd{THdonv1E} is the payment prefix taken from the public key of
+the wallet, and \dd{abcdabcdabcdabcd} is the wallet ID. Obviously, an
+invoice is valid only if the prefix can be found in the public key of the wallet.
 
 At any moment of time any node may decide to push a wallet to another node.
 The receiving node accepts it, merges with the local version, and keeps it locally.
