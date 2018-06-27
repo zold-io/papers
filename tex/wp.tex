@@ -360,7 +360,7 @@ the following text:
 
 \begin{minted}{text}
 zold
-0.6.4
+1
 12345678abcdef
 AAAAB3NzaC1yc2EAAAADAQABAAABAQCuLuVr4Tl2sXoN5Zb7b6SKMPrVjLxb...
 
@@ -376,7 +376,7 @@ The header includes four lines:
 
 \begin{enumerate}
   \item Network name, \dd{[a-z]\{4,16\}};
-  \item Software version, \dd{[0-9]+(\\.[0-9]+)\{1,2\}} (\href{https://semver.org/}{semantic versioning});
+  \item Protocol version, \dd{[0-9]+};
   \item Wallet ID, a 64-bit unsigned integer in hexadecimal format;
   \item Public \href{https://en.wikipedia.org/wiki/RSA_(cryptosystem)}{RSA}
     key of the wallet owner, in \href{https://en.wikipedia.org/wiki/Base64}{Base64}.
@@ -650,8 +650,20 @@ Then, it \emph{promotes} the wallet to all known remote nodes.
 
 There is a limited set of RESTful API entry points in each node.
 Each response has \dd{Content-Type},
-\dd{Content-Length}, and \dd{X-Zold-Version}
+\dd{Content-Length}, \dd{X-Zold-Protocol}, and \dd{X-Zold-Version}
 HTTP headers.
+
+\dd{X-Zold-Protocol} is the protocol version.
+It must be equal to the protocol version embedded in each wallet the
+node works with, as explained in Section~\ref{sec:wallets}.
+
+\dd{X-Zold-Version} tells the version of software a node is running.
+Default semantic versions in triple format, e.g. \dd{0.13.46}, are used
+by the default Ruby implementation in
+\href{https://github.com/zold-io/zold}{zold-io/zold} GitHub repository.
+For other implementations it is
+advised to prefix the version with an implementation tag. For example,
+a custom Java implementation made by Jeff may have a version \dd{jeff:0.4.19}.
 
 \dd{GET /} is a home page of a node that returns
 JSON/\href{https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1}{200}
@@ -662,6 +674,7 @@ further versions):
 \begin{minted}{json}
 {
   "version": "0.6.1",
+  "protocol: "1",
   "score": {
     "value": 3,
     "host": "b2.zold.io",
@@ -680,6 +693,7 @@ in JSON/\href{https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1}
 \begin{minted}{json}
 {
   "version": "0.6.1",
+  "protocol: "1",
   "all": [
     { "host": "b2.zold.io", "port": 4096 },
     { "host": "b1.zold.io", "port": 80 }
@@ -692,6 +706,7 @@ JSON/\href{https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1}{20
 \begin{minted}{json}
 {
   "version": "0.6.1",
+  "protocol: "1",
   "body": "..."
 }\end{minted}
 
