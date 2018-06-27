@@ -1,0 +1,9 @@
+sudo: required
+language: ruby
+services:
+  - docker
+before_install:
+  - docker pull yegor256/papers
+script:
+  - docker run yegor256/papers -it --rm -v "$(pwd)"/repo:/repo /bin/bash -c "cd /repo; rake"
+
