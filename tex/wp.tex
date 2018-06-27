@@ -518,8 +518,9 @@ Duplicate tax payments are ignored.
 
 Each node maintains a list of \emph{remote nodes} (their host names and TCP port numbers),
 their scores and their availability information. When the node is first installed,
-the list contains a limited amount of pre-defined addresses. The list is
-updated by manual user request and automatically in order to give priority
+the list contains a limited amount of pre-defined addresses%
+\footnote{\url{https://github.com/zold-io/zold/blob/master/resources/remotes}}.
+The list is updated by manual user request and automatically in order to give priority
 to high-score nodes and the nodes with the highest availability.
 Moreover, the node adds new elements to the list by retrieving them from all other
 available remote nodes.
@@ -528,12 +529,24 @@ The built-in mechanism focuses on the following factors of
 remote node \emph{quality} (in order of importance):
 
 \begin{enumerate}
-  \item Visibility: the payer has to know the node,
-  \item Availability: the amount of errors seen recently,
-  \item Knowledgeability: the amount of nodes this node is aware of,
-  \item Activity: the frequency of push requests the node originates,
+  \item Visibility: the payer has to know the node;
+  \item Availability: the amount of errors seen recently;
+  \item Knowledgeability: the amount of nodes this node is aware of;
+  \item Activity: the frequency of push requests the node originates;
   \item Score: the one reported during the most recent handshake.
 \end{enumerate}
+
+Every time a node receives an HTTP request from anyone, it reads the
+`X-Zold-Score` HTTP header. The header, if it exists, may include
+the text representation of a score of another node, which is making
+the request. The request receiver validates the score and, if its
+value is bigger than three, adds node coordinates (which are
+available in the score) to the local list of remote nodes. Thanks to this
+auto-discovery mechanism nodes become aware of each others presence
+in the network.
+
+Each node runs a ``reconnect'' procedure every minute, updating the list
+of remote nodes and removing those, which have too low availability values.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
