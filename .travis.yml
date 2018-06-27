@@ -5,5 +5,5 @@ services:
 before_install:
   - docker pull yegor256/papers
 script:
-  - docker run yegor256/papers -v "$(pwd)/repo":/repo /bin/bash -c "cd /repo; rake"
+  - docker run -v "$(pwd)/repo":/repo yegor256/papers /bin/bash -c "cd /repo; rake"
 
