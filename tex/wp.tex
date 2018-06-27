@@ -284,23 +284,25 @@ separated by spaces:
 For example, the prefix may look like this:
 
 \begin{minted}{text}
-2018-05-17T03:50:59Z b2.zold.io 4096 THdonv1E@abcdabcdabcdabcd
+2018-06-27T06:22:41Z b2.zold.io 4096 THdonv1E@abcdabcdabcdabcd
 \end{minted}
 
 Then, the node attempts to append any arbitrary text, which has to match
 \dd{/[a-zA-Z0-9]+/} regular expression, to the end of the prefix and calculates
 \href{https://en.wikipedia.org/wiki/SHA-2}{SHA-256 hash}
 of the text in the hexadecimal format. For example, this would be the prefix
-with the attached \dd{16bda66} suffix:
+with the attached \dd{3a934b} suffix:
 
 \begin{minted}{text}
-2018-05-17T03:50:59Z b2.zold.io 4096 THdonv1E@abcdabcdabcdabcd 16bda66
+2018-06-27T06:22:41Z b2.zold.io 4096 THdonv1E@abcdabcdabcdabcd 3a934b
 \end{minted}
 
-The hash of this text will be (pay attention to the trailing zeroes):
+The hash of this text will be (pay attention to the trailing zeroes)%
+\footnote{You can validate it at this online SHA-256 hash generator:
+\url{https://goo.gl/QtHd9a}}:
 
 \begin{minted}{text}
-5fa0681f220a2779b03b46456a19b38c0b635c1573dc01401dafee510000000
+c9c72efbf6beeea13408c5e720ec42aec017c11c3db335e05595c03755000000
 \end{minted}
 
 The node attempts to try different sufficies until one of them produces
@@ -309,17 +311,19 @@ with six zeroes.
 
 When the first suffix is found, the score is 1. Then, to
 increase the score by one, the next suffix has to be found, which
-can be added to the first 64 characters of the previous hash
-in order to obtain a new hash with trailing zeros. For example:
+can be added to the previous hash
+in order to obtain a new hash with trailing zeros. For example,
+adding \dd{...}:
 
 \begin{minted}{text}
-2018-05-17T03:50:59Z b2.zold.io 4096 THdonv1E@abcdabcdabcdabcd 16bda66 13d284b
+c9c72efbf6beeea13408c5e720ec42aec017c11c3db335e05595c03755000000 1421217
 \end{minted}
 
-Produces:
+This new SHA-256 input produces the following input, which also
+ends with six zeroes:
 
 \begin{minted}{text}
-ce420bfdd2f6530db795e7ff4aa508bb0092735dd63d209da218cb78b000000
+e04ab4e69f86aa17be1316a52148e7bc3187c6d3df581d885a862d8850000000
 \end{minted}
 
 And so on.
