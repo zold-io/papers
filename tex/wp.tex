@@ -316,20 +316,21 @@ When the first suffix is found, the score is 1. Then, to
 increase the score by one, the next suffix has to be found, which
 can be added to the previous hash
 in order to obtain a new hash with trailing zeros. For example,
-adding \dd{...}:
+adding \dd{1421217}:
 
 \begin{minted}{text}
 c9c72efbf6beeea13408c5e720ec42aec017c11c3db335e05595c03755000000 1421217
 \end{minted}
 
-This new SHA-256 input produces the following input, which also
+This new SHA-256 input produces the following output, which also
 ends with six zeroes:
 
 \begin{minted}{text}
 e04ab4e69f86aa17be1316a52148e7bc3187c6d3df581d885a862d8850000000
 \end{minted}
 
-And so on.
+And so on. All hashes must have the same amount of trailing zeroes to make
+the score valid.
 
 The score is only valid when the starting time is earlier than
 the current time, but not earlier than 24 hours ago. The \emph{strength} of the score
