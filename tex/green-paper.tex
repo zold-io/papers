@@ -1,0 +1,152 @@
+\documentclass[12pt,oneside]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[american]{babel}
+\usepackage{bookmark}
+\usepackage{microtype}
+\usepackage[style=authoryear,sorting=nyt,backend=biber,
+  hyperref=true,abbreviate=true,
+  maxcitenames=1,maxbibnames=1]{biblatex}
+  \renewbibmacro{in:}{}
+  \addbibresource{../main.bib}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\pagecolor{green!3}
+\usepackage{hyperref}
+  \hypersetup{colorlinks=true,allcolors=blue!40!black}
+\setlength{\topskip}{6pt}
+\setlength{\parskip}{6pt} % before par
+
+\include{_version}
+\title{\includegraphics[scale=0.3]{../images/logo.pdf}\\Zold: A New Cryptocurrency\\\colorbox{green!30}{Green Paper}}
+\author{Yegor Bugayenko\\
+  \texttt{yegor256@gmail.com}\\
+  \href{https://www.zold.io}{www.zold.io}\\[1em]
+  \href{https://github.com/zold-io/papers/releases/tag/\zoldversion}{\texttt{\zoldversion}}}
+
+\begin{document}
+\raggedbottom
+
+\maketitle
+
+In the last few years digital currencies have successfully demonstrated
+their ability to become an alternative financial instrument in many
+different markets. Most of the technologies available at the moment are
+based on the principles of Blockchain architecture, including
+dominating currencies like Bitcoin and Etherium. Despite its
+popularity, Blockchain is not the best possible solution for all scenarios.
+One such example is for fast micro-payments.
+Zold is an experimental alternative that enables distributed transactions between
+anonymous users, making micro-payments financially feasible and fast.
+It borrows the ``proof of work'' principle from Bitcoin,
+and suggests a different architecture for digital wallet maintenance.
+
+\pagebreak
+
+\section*{The Market}
+
+Since its release in 2009, Bitcoin from
+``a libertarian fairy tale'' and ``a simple Silicon Valley exercise in hype''
+turned into ``a catalyst to reshape the financial system in ways that are more
+powerful for individuals and businesses alike,'' according to \citeauthor{andreessen2014}
+in \citetitle{andreessen2014}.
+Even though \citeauthor{cheah2015} argues in \citetitle{cheah2015} that
+``the fundamental value of Bitcoin is zero,''
+it seems that ``the question is not whether Bitcoin has value; it already does,''
+according to \citeauthor{van2014}.
+``The question is whether the efficiencies of a cybercurrency
+like Bitcoin can be merged with the certainties of an honest central bank,''
+they said in \citetitle{van2014}.
+
+The core component of Bitcoin is Blockchain technology, which
+``ensures the elimination of the double-spend problem, with the help
+of public-key cryptography'' and ``coins are transferred by the
+digital signature of a hash,''
+explains \citeauthor{pilkington2016} in \citetitle{pilkington2016}.
+Very soon after Bitcoin was created, similar products were introduced,
+which were also based on the principles of Blockchain, such as
+Etherium by \citeauthor{buterin2013}, presented in \citetitle{buterin2013}.
+
+Even though Blockchain is a sound solution to the double-spending
+problem, there could be other solutions,
+including different ``proof-of-X'' alternatives.%
+For example, \citeauthor{everaere2010} gave
+a summary of them and introduced their own in \citetitle{everaere2010},
+\citeauthor{boyen2016} described
+``a truly distributed ledger system based on a lean graph of cross-verifying transactions''
+in \citetitle{boyen2016},
+recently IOTA, a ``tangle-based cryptocurrency,'' was launched by
+\citeauthor{popov2017} and explained in \citetitle{popov2017},
+Hashgraph claims in their \citetitle{hashgraph}
+to be ``the world's first mass-adopted public distributed ledger'',
+and so on.
+
+\pagebreak
+
+\section*{The Problems}
+
+Zold is also a decentralized digital currency that maintains its ledgers
+through an unpredictable amount of anonymous and untrustable server nodes, trying to guarantee
+data consistency. The architecture of Zold is not Blockchain-based.
+The development of Zold was motivated by the desire to overcome
+two obvious disadvantages present in the majority of all existing cryptocyrrencies:
+
+The first problem is that transaction processing is rather slow.
+Current rates for Bitcoin processing speed is 7 transactions per second (tps)
+while Paypal handles an average of 115 tps and the VISA
+network has a peak capacity of 47,000 tps.
+\citeauthor{karame2012} says in \citetitle{karame2012}
+that ``Bitcoin requires tens of minutes to verify a transaction
+and is therefore inappropriate for fast payments.''
+It is inevitable, since
+``processing speed is at odds with the security aspects of the underlying
+proof-of-work based consensus mechanism'' according
+to \citetitle{kiayias2015} by \citeauthor{kiayias2015}.
+Ethereum, according to \citetitle{fekkes2018} by \citeauthor{fekkes2018}, can process
+``two times more transactions per second than Bitcoin is able to do,''
+but this still is rather slow.
+
+The second problem, as noted by~\citeauthor{popov2017} in~\citetitle{popov2017},
+is that ``it is not easy to get rid
+of fees in the blockchain infrastructure since they serve
+as an incentive for the creators of blocks.''
+\citeauthor{moser2015} says in \citetitle{moser2015} that ``Bitcoin users are encouraged to
+pay fees to miners, up to 10 cents (of USD) per transaction, irrespective of the
+amount paid'' which especially hurts when transaction amounts are smaller than a dollar.
+Moreover, according to \citetitle{kaskaloglu2014} by \citeauthor{kaskaloglu2014},
+``an increase in transaction fees of Bitcoin is inevitable.''
+
+Thus, the speed is low and the processing fees are high.
+Zold was created as an attempt to resolve these two problems.
+
+\pagebreak
+
+\section*{The Features}
+
+Unlike all other crypto currencies, there is no central ledger in Zold.
+Each wallet has its own personal ledger.
+All transactions in each ledger are confirmed by RSA signatures of their owners.
+
+Similar to many other digital currencies---including Bitcoin, Etherium, Monero, Trinity, Plancoin, Dero,
+and many others---Zold nodes find consensus by using the CPU power invested
+by each of them to perform certain expensive and meaningless calculations
+that result in finding hash suffixes, also known as ``proof-of-work.''
+
+Zold is a pre-mined digital asset, similar to Ripple, Cardano,
+Stellar, EOS, NEO, Loki, and many others.
+One currency unit is called ZLD.
+Therefore, the technical capacity of the currency is 2,15 billion ZLD.
+To compare, the total supply of some crypto currencies is:
+Bitcoin: 21m BTC, Ripple: 100b XRP, Litecoin: 84m LTC, Dash: 19m DASH.
+
+Zold has two obvious advantages comparing to many other
+similar solutions: it is fast and cheap. First, the speed of transaction processing
+literally has no limits, because all payments are made locally, on users'
+machines. Second, the cost of transaction processing
+is lower than most other payment systems can offer. To process
+a thousand transactions a user has to pay \$500 in Bitcoin and \$300 in Ethereum,
+while in Zold it is as little as \$4.
+
+There are more technical details available in the
+\href{https://papers.zold.io}{White Paper}.
+
+\end{document}

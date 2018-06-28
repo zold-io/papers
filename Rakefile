@@ -10,7 +10,7 @@ def run(cmd)
     until stdout.eof?
       line = stdout.gets
       out += line
-      puts line
+      # puts line
     end
     thr.value.to_i
   end

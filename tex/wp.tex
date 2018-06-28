@@ -4,10 +4,8 @@
 \usepackage{bookmark}
 \usepackage{microtype}
 \usepackage{amsmath}
-\usepackage{tablefootnote}
 \usepackage{mdframed}
 \usepackage{pgfplots}
-\usepackage{hyperref}
 \usepackage[style=authoryear,sorting=nyt,backend=biber,
   hyperref=true,abbreviate=true,
   maxcitenames=1,maxbibnames=1]{biblatex}
@@ -30,8 +28,11 @@
 \setlength{\parskip}{6pt} % before par
 
 \include{_version}
-\title{\includegraphics[scale=0.3]{../images/logo.pdf}\\Zold: A Fast Cryptocurrency for Micro Payments}
-\author{Yegor Bugayenko\\\texttt{yegor256@gmail.com}\\[1em]\href{https://github.com/zold-io/papers/releases/tag/\zoldversion}{\texttt{\zoldversion}}}
+\title{\includegraphics[scale=0.3]{../images/logo.pdf}\\Zold: A Fast Cryptocurrency for Micro Payments\\\colorbox{white}{White Paper}}
+\author{Yegor Bugayenko\\
+  \texttt{yegor256@gmail.com}\\
+  \href{https://www.zold.io}{www.zold.io}\\[1em]
+  \href{https://github.com/zold-io/papers/releases/tag/\zoldversion}{\texttt{\zoldversion}}}
 
 \begin{document}
 \raggedbottom
@@ -98,10 +99,11 @@ to be ``the world's first mass-adopted public distributed ledger.''~\parencite{h
 and so on.
 
 Zold is also a decentralized digital currency that maintains its ledgers
-through an unpredicable amount of anonymous and untrustable server nodes, trying to guarantee
-data consistency. The architecture of Zold is not Blockchain-based.
+through an unpredictable amount of anonymous and untrustable server nodes, trying to guarantee
+data consistency.
 The development of Zold was motivated by the desire to overcome
-two obvious disadvantages present in the majority of all existing cryptocyrrencies:
+two obvious disadvantages present in the majority of all existing
+Blockchain-based cryptocyrrencies:
 
 The first problem is that transaction processing is rather slow.%
 \footnote{%
@@ -230,7 +232,6 @@ Therefore, the technical capacity of the currency is 2,147,483,648 ZLD (two bill
 \footnote{%
   To compare, the total supply of some crypto currencies is:
   Bitcoin: 21m BTC,
-  Ethereum;: 100m ETH,
   Ripple: 100b XRP,
   Litecoin: 84m LTC,
   Cardano: 31b ADA,
