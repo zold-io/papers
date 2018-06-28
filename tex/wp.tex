@@ -3,9 +3,11 @@
 \usepackage[american]{babel}
 \usepackage{bookmark}
 \usepackage{microtype}
-% \usepackage{mathpazo} % Palantino font
+\usepackage{amsmath}
+\usepackage{tablefootnote}
 \usepackage{mdframed}
 \usepackage{pgfplots}
+\usepackage{siunitx}
 \usepackage{hyperref}
 \usepackage[style=authoryear,sorting=nyt,backend=biber,
   hyperref=true,abbreviate=true,
@@ -433,7 +435,9 @@ This is the only wallet on the Zold network that can carry a negative balance.
 However, to prevent an uncontrolled emission of ZLD, the balance
 of this wallet must satisfy the following formula:
 
-$$t = \frac{h}{24 \times 1024}; \quad z = 2^{63} \times (1 - 2^{-t}).$$
+\begin{equation}
+t = \frac{h}{24 \times 1024}; \quad z = 2^{63} \times (1 - 2^{-t}).
+\end{equation}
 
 Here $h$ is the age of the root wallet in hours and $z$ is the maximum
 amount of zents it can issue at that moment. The first
@@ -494,14 +498,27 @@ which will make it impossible to make any new payments from it.
 
 The amount of taxes to be paid is calculated by the following formula:
 
-$$X = A \times F \times T.$$
+\begin{equation}
+X = A \times F \times T.
+\end{equation}
 
 $A$ is the total age of the wallet,
-which is calculated as the difference in hours between the current time
-and the time of the oldest transaction in the wallet.
+which is calculated as the difference in hours between the time of the newest and
+the oldest transactions in the wallet.
 $T$ is the total number of transactions in the wallet.
-$F$ is the fee per transaction/hour, which is equal to 7.48 zents
-(a one-year-old wallet with 4096 transactions must pay approximately 16 ZLD taxes annually).
+$F$ is the fee per transaction/hour, which is equal to 32 zents.
+
+A one-year-old wallet with 4096 transactions will pay approximately 16 ZLD taxes annually
+(1 ZLD equals to $2^{32}$ zents):
+
+\begin{equation}
+\begin{split}
+X & = 365 \times 24 \times 60 \times 4096 \times 32z \\
+  & = \num{2152857600} \times 32z \\
+  & = \num{68891443200}z \\
+  & \approx 16 \text{ZLD}.
+\end{split}
+\end{equation}
 
 In order to pay taxes the owner of the wallet must select a remote
 node from the network with a score of 16 or more. Then, it has to
@@ -519,6 +536,56 @@ power that they control,'' according to~\textcite{foroglou2015}.
 
 All tax payments inside a wallet must have unique scores.
 Duplicate tax payments are ignored.
+
+The following comparison demonstrates the cost of a thousand transactions
+processing in different payment systems, including Zold.
+It is assumed that a Zold wallet is one year old
+and 1 ZLD is worth \$1. Monetary numbers in USD are approximate and have
+been taken from the \href{https://bitinfocharts.com/}{BitInfoCharts} website.
+
+\begin{tabular}{lllr}
+\hline
+Cryptocurrency & Price & Date & Total cost \\
+\hline
+Bitcoin (BTC) &
+  43 sats/byte%
+    \tablefootnote{%
+      Transaction Fee Info Charts,
+      \url{https://goo.gl/ozsd63}
+    } &
+  June 26, 2018 &
+  \$524 \\
+Ethereum (ETH) &
+  Gas%
+    \tablefootnote{%
+      \emph{Ethereum Gas and Transaction Fees Explained!},
+      BitFalls, May 2017,
+      \url{https://goo.gl/B3ceVU}
+    } &
+  June 3, 2018 &
+  \$289 \\
+Litecoin (LTC) &
+  0.001 LTC/kB%
+    \tablefootnote{%
+      \emph{Understanding Default Minimum Fees},
+      The Litecoin School of Crypto,
+      \url{https://goo.gl/eUedqf}
+    } &
+  June 8, 2018 &
+  \$45 \\
+Bitcoin Cash (BCH) &
+  1 sat/byte &
+  June 21, 2018 &
+  \$9 \\
+Zold (ZLD) &
+  32 zents/TH &
+  \today &
+  \$4 \\
+\hline
+\end{tabular}
+
+The comparison demonstrates that Zold is one of the least ``expensive''
+cryptocurrencies on the market.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -617,7 +684,7 @@ if it doesn't yet exist there.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Invoice, Pay, and Push}
+\section{Invoice, Pay, and Push}\label{sec:pay}
 
 To send money from one wallet to another, the owner of the sending wallet
 has to add a negative transaction to it and sign it with the private RSA key.
@@ -846,7 +913,19 @@ wallet owners must keep safe.
 
 \section{Conclusion}
 
-To be written...
+The proposed architecture has two obvious advantages comparing to many other
+similar solutions: it is fast and cheap. First, the speed of transaction processing
+literally has no limits, because all payments are made locally, on users'
+machines. Then, they push their wallets to the network and the network accepts
+them. It is possible to make a large amount of payments in one batch and
+submit them to the network in just one RESTful PUT request, as explained
+in Section~\ref{sec:pay}. Second, the cost of transaction processing
+is lower than most other payment systems can offer, as Section~\ref{sec:taxes}
+demonstrated.
+
+Despite the inevitable risks and threats any distributed payment system
+has, Zold is a reliable alternative to Bitcoin, Ethereum, and
+other existing platforms.
 
 \section{Acknowledgements}
 
@@ -859,7 +938,6 @@ of the most active participants of this collaborative process
 Andrey Valyaev,
 Michael Silver,
 Soh Yuan Chin.
-
 
 \raggedright
 \printbibliography%
