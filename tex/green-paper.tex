@@ -3,6 +3,8 @@
 \usepackage[american]{babel}
 \usepackage{bookmark}
 \usepackage{microtype}
+\usepackage{setspace}
+  \setstretch{1.15}
 \usepackage[style=authoryear,sorting=nyt,backend=biber,
   hyperref=true,abbreviate=true,
   maxcitenames=1,maxbibnames=1]{biblatex}
@@ -39,7 +41,7 @@ their ability to become an alternative financial instrument in many
 different markets. Most of the technologies available at the moment are
 based on the principles of \href{https://en.wikipedia.org/wiki/Blockchain}{Blockchain} architecture, including
 dominating currencies like \href{https://bitcoin.org/}{Bitcoin} and
-\href{https://ethereum.org/}{Etherium}. Despite its
+\href{https://ethereum.org/}{Ethereum}. Despite its
 popularity, Blockchain is not the best possible solution for all scenarios.
 One such example is for fast micro-payments.
 \href{https://www.zold.io}{Zold} is an experimental alternative
@@ -53,7 +55,7 @@ explained in details in the \href{https://papers.zold.io}{White Paper}.
 
 \section*{The Market}
 
-Since its release in 2009, Bitcoin from
+Since its release in 2009, \href{https://bitcoin.org/}{Bitcoin} from
 ``a libertarian fairy tale'' and ``a simple Silicon Valley exercise in hype''
 turned into ``a catalyst to reshape the financial system in ways that are more
 powerful for individuals and businesses alike,'' according to \citea{andreessen2014}.
@@ -69,9 +71,9 @@ The core component of Bitcoin is Blockchain technology, which
 of public-key cryptography'' and ``coins are transferred by the
 digital signature of a hash,''
 explains \citea{pilkington2016}.
-Very soon after Bitcoin was created, similar products were introduced,
+Very soon after \href{https://bitcoin.org/}{Bitcoin} was created, similar products were introduced,
 which were also based on the principles of Blockchain, such as
-Etherium by \citea{buterin2013}.
+\href{https://ethereum.org/}{Ethereum} by \citea{buterin2013}.
 
 Even though Blockchain is a sound solution to the double-spending
 problem, there could be other solutions,
@@ -96,7 +98,8 @@ The development of Zold was motivated by the desire to overcome
 two obvious disadvantages present in the majority of all existing cryptocyrrencies:
 
 The first problem is that transaction processing is rather slow.
-\href{https://goo.gl/sWiAWc}{Current rates} for Bitcoin processing speed is 7 transactions per second (tps)
+\href{https://goo.gl/sWiAWc}{Current rates} for \href{https://bitcoin.org/}{Bitcoin}
+processing speed is 7 transactions per second (tps)
 while Paypal handles an average of 115 tps and the VISA
 network has a peak capacity of 47,000 tps.
 \citea{karame2012} says that
@@ -106,7 +109,7 @@ It is inevitable, since
 ``processing speed is at odds with the security aspects of the underlying
 proof-of-work based consensus mechanism'' according
 to \citea{kiayias2015}.
-Ethereum, according to \citea{fekkes2018}, can process
+\href{https://ethereum.org/}{Ethereum}, according to \citea{fekkes2018}, can process
 ``two times more transactions per second than Bitcoin is able to do,''
 but this still is rather slow.
 
@@ -127,37 +130,49 @@ Zold was created as an attempt to resolve these two problems.
 
 \section*{The Features}
 
-Unlike all other crypto currencies, there is no central ledger in Zold.
+First, unlike all other crypto currencies, there is no central ledger in Zold.
 Each wallet has its own personal ledger.
 All transactions in each ledger are confirmed by
 \href{https://en.wikipedia.org/wiki/RSA_(cryptosystem)}{RSA} signatures of their owners.
+This enables high scalability and performance.
 
-Similar to many other digital currencies---including
-Bitcoin, Etherium, \href{https://getmonero.org/}{Monero},
-\href{https://plancoin.co/}{Plancoin}, \href{https://dero.io/}{Dero},
-and many others---Zold nodes find consensus by using the CPU power invested
+Second, similar to many other digital currencies, including
+\href{https://bitcoin.org/}{Bit\-coin},
+\href{https://ethereum.org/}{Eth-reum},
+\href{https://getmonero.org/}{Mone\-ro},
+\href{https://plancoin.co/}{Plancoin},
+\href{https://dero.io/}{Dero},
+and many others, Zold nodes find consensus by using the CPU power invested
 by each of them to perform certain expensive and meaningless calculations
 that result in finding hash suffixes, also known as ``proof-of-work,''
 initially introduced by \citea{back1997} in \citeyear{back1997}.
+This guarantees data consistency and eliminates a possibility of double-spending.
 
-Zold is a pre-mined digital asset, similar to
+Third, Zold is a pre-mined digital asset, similar to
 \href{https://ripple.com/}{Ripple},
 \href{https://www.cardano.org/en/home/}{Cardano},
 \href{https://www.stellar.org/}{Stellar},
 \href{https://neo.org/}{NEO}, and many others.
-One currency unit is called ZLD.
-Therefore, the technical capacity of the currency is 2,15 billion ZLD.
-To compare, the total supply of some crypto currencies is:
-Bitcoin: 21m BTC, Ripple: 100b XRP,
-\href{https://litecoin.org/}{Litecoin}: 84m LTC,
-\href{https://www.dash.org/}{Dash}: 19m DASH.
+Zold algorithmically limits its total supply, which is 2,15 billion ZLD.
+To compare, the total supply of some other currencies is:
+21m in \href{https://bitcoin.org/}{Bitcoin},
+100b in \href{https://ripple.com/}{Ripple},
+84m in \href{https://litecoin.org/}{Litecoin},
+and
+19m in \href{https://www.dash.org/}{Dash}.
+\citea{bohr2014} explains that cryptocurrencies limit their
+total suply in order ``to protects against inflationary forces,''
+so does Zold in order to protect its market value.
 
-Zold has two obvious advantages comparing to many other
-similar solutions: it is fast and cheap. First, the speed of transaction processing
+Forth, the speed of transaction processing in Zold
 literally has no limits, because all payments are made locally, on users'
-machines. Second, the cost of transaction processing
-is lower than most other payment systems can offer. To process
-a thousand transactions a user has to pay \$500 in Bitcoin and \$300 in Ethereum,
-while in Zold it is as little as \$4.
+machines and then pushed to the network for merging and storing.
+
+Fifth, the cost of transaction processing
+is lower than what most other payment systems can offer. To process
+a thousand transactions a user has to pay (approximately) \$500 in Bitcoin, \$300 in \href{https://ethereum.org/}{Ethereum},
+\$45 in \href{https://litecoin.org/}{Litecoin}, \$12 in \href{https://ripple.com/}{Ripple}, and \$9 in Bitcoin Cash.
+In Zold it is as little as \$4, which makes it one of the most cost effective
+cryptocurrencies.
 
 \end{document}
