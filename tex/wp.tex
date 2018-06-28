@@ -568,7 +568,7 @@ Litecoin (LTC) &
   \$45 \\
 Icon (ICX) &
   0.01 ICX\footnotemark &
-  \today &
+  June 28, 2018 &
   \$15 \\
 Ripple (XRP) &
    Variable\footnotemark &
@@ -588,7 +588,65 @@ Zold (ZLD) &
   \$4 \\
 Tron (TRX) &
   0.00001 TRX\footnotemark &
+  June 28, 2018 &
+  \$0.23 \\
+\hline
+\end{tabular}
+
+\footnotetext{% XMR
+  \emph{Monero Transaction Fee Calculator},
+The following comparison demonstrates the cost of a thousand transactions
+processing in different payment systems, including Zold. We have included both well-established systems and relatively new ones.
+It is assumed that a Zold wallet is one year old
+and 1 ZLD is worth \$1. Transaction fee costs in USD are approximate and are taken from the \href{https://bitinfocharts.com/}{BitInfoCharts} website. Where applicable, footnotes in the \textit{Price} column link to pages showing how transaction fees are calculated.
+
+\begin{tabular}{lllr}
+\hline
+Cryptocurrency & Price & Date & Total cost \\
+\hline
+Monero (XMR) &
+   Variable\footnotemark &
+   June 28, 2018 &
+   \$1070 \\
+Bitcoin (BTC) &
+  43 sats/byte\footnotemark &
+  June 26, 2018 &
+  \$524 \\
+Litecoin (LTC) &
+  0.0001 LTC/kB\footnotemark &
+  June 28, 2018 &
+  \$94 \\
+Dash (DASH) &
+  0.00001--0.001 DASH\footnotemark &
+  June 28, 2018 &
+  \$58 \\
+Ethereum (ETH) &
+  Gas\footnotemark &
+  June 28, 2018 &
+  \$36 \\
+Icon (ICX) &
+  0.01 ICX\footnotemark &
+  June 28, 2018 &
+  \$15 \\
+Ripple (XRP) &
+   Variable\footnotemark &
+   June 28, 2018 &
+   \$12 \\
+Bitcoin Cash (BCH) &
+  1 sat/byte &
+  June 21, 2018 &
+  \$9 \\
+ZCash (ZEC) &
+   0.0001 ZEC\footnotemark &
+   June 28, 2018 &
+   \$4 \\
+Zold (ZLD) &
+  32 zents/TH &
   \today &
+  \$4 \\
+Tron (TRX) &
+  0.00001 TRX\footnotemark &
+  June 28, 2018 &
   \$0.23 \\
 \hline
 \end{tabular}
@@ -602,20 +660,20 @@ Tron (TRX) &
   Transaction Fee Info Charts,
   \url{https://goo.gl/ozsd63}.
 }
-\footnotetext{% ETH
-  \emph{Ethereum Gas and Transaction Fees Explained!},
-  BitFalls, May 2017,
-  \url{https://goo.gl/B3ceVU}. Note that the figure here includes transactions executing contracts, and so is higher than transactions only involving currency transfer.
-}
-\footnotetext{% DASH
-  \emph{Fees},
-  Dash Official Documentation,
-  \url{https://goo.gl/}.
-}
 \footnotetext{% LTC
   \emph{Understanding Default Minimum Fees},
   The Litecoin School of Crypto,
   \url{https://goo.gl/eUedqf}.
+}
+\footnotetext{% DASH
+  \emph{Fees},
+  Dash Official Documentation,
+  \url{https://goo.gl/TKRrHy}.
+}
+\footnotetext{% ETH
+  \emph{Ethereum Gas and Transaction Fees Explained!},
+  BitFalls, May 2017,
+  \url{https://goo.gl/B3ceVU}. For fairness, we are assuming only the cheaper fees for currency-only transactions, at 21000 Gas @ 4 Gwei.
 }
 \footnotetext{% ICX
   \emph{FAQ},
