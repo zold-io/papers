@@ -11,8 +11,10 @@
   \renewbibmacro{in:}{}
   \addbibresource{../main.bib}
 \usepackage{xcolor}
+  \definecolor{dgreen}{RGB}{62,100,62}
+  \definecolor{lgreen}{RGB}{249,255,249}
+  \pagecolor{lgreen}
 \usepackage{graphicx}
-\pagecolor{green!3}
 \usepackage{hyperref}
   \hypersetup{colorlinks=true,allcolors=blue!40!black}
 \setlength{\topskip}{6pt}
@@ -25,10 +27,12 @@
   {\usebibmacro{postnote}}
 
 \include{_version}
-\title{\includegraphics[scale=0.3]{../images/logo.pdf}\\Zold: A New Cryptocurrency\\\colorbox{green!30}{Green Paper}}
+\title{\includegraphics[scale=0.3]{../images/logo.pdf}\\
+  Zold: A New Cryptocurrency\\
+  {\small\colorbox{dgreen}{\color{lgreen}{Green Paper}}}}
 \author{Yegor Bugayenko\\
   \texttt{yegor256@gmail.com}\\
-  \href{https://www.zold.io}{www.zold.io}\\[1em]
+  \href{https://www.zold.io}{\texttt{www.zold.io}}\\[1em]
   \href{https://github.com/zold-io/papers/releases/tag/\zoldversion}{\texttt{\zoldversion}}}
 
 \begin{document}
@@ -75,9 +79,10 @@ Very soon after \href{https://bitcoin.org/}{Bitcoin} was created, similar produc
 which were also based on the principles of Blockchain, such as
 \href{https://ethereum.org/}{Ethereum} by \citea{buterin2013}.
 
-Even though Blockchain is a sound solution to the double-spending
-problem, there could be other solutions,
-including different ``proof-of-X'' alternatives.
+Even though Blockchain is a sound solution to the
+\href{https://en.wikipedia.org/wiki/Double-spending}{double-spending problem},
+there could be other solutions,
+including different ``proof-of-x'' alternatives.
 For example, \citea{everaere2010} gave
 a summary of them and introduced their own,
 \citea{boyen2016} described
@@ -124,7 +129,8 @@ Moreover, according to \citea{kaskaloglu2014},
 ``an increase in transaction fees of Bitcoin is inevitable.''
 
 Thus, the speed is low and the processing fees are high.
-Zold was created as an attempt to resolve these two problems.
+Zold was created as an attempt to resolve these two problems
+mostly at the market of micro payments.
 
 \pagebreak
 
