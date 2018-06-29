@@ -3,6 +3,8 @@ docker:
 assets:
   id_rsa: "zerocracy/home#assets/blog/id_rsa"
   id_rsa.pub: "zerocracy/home#assets/blog/id_rsa.pub"
+install: |
+  bundle update
 merge:
   script: |
     rake
