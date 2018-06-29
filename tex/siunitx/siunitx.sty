@@ -15,9 +15,9 @@
 %% 
 \RequirePackage{expl3}[2015/09/11]
 \RequirePackage{xparse}
-\ProvidesExplPackage {siunitx} {2016/03/01} {2.6q}
+\ProvidesExplPackage {siunitx} {2018/05/17} {2.7s}
   {A comprehensive (SI) units package}
-\@ifpackagelater { expl3 } { 2015/09/11 }
+\@ifpackagelater { expl3 } { 2015/11/15 }
   { }
   {
     \PackageError { siunitx } { Support~package~expl3~too~old }
@@ -99,161 +99,163 @@
     }
     { }
 }
-\tl_new:N \c__siunitx_omega_tl
-\tl_set:Nn \c__siunitx_omega_tl { \Omega }
+\tl_new:N \g__siunitx_omega_tl
+\tl_gset:Nn \g__siunitx_omega_tl { \Omega }
 \AtBeginDocument {
   \cs_if_exist:NT \upOmega
-    { \tl_set:Nn \c__siunitx_omega_tl { \upOmega } }
+    { \tl_set:Nn \g__siunitx_omega_tl { \upOmega } }
 }
 \cs_new_protected:Npn \__siunitx_tl_put_left_math:Nn #1#2
   { \tl_put_left:Nn #1 { \ensuremath {#2} } }
 \cs_generate_variant:Nn \__siunitx_tl_put_left_math:Nn { NV }
-\seq_new:N \c__siunitx_old_options_seq
-\cs_set_protected:Npn \__siunitx_tmp:w #1 {
-  \seq_put_right:No \c__siunitx_old_options_seq { \tl_to_str:n {#1} }
-}
-\__siunitx_tmp:w { addsign }
-\__siunitx_tmp:w { allowlitunits }
-\__siunitx_tmp:w { allowoptarg }
-\__siunitx_tmp:w { allowzeroexp }
-\__siunitx_tmp:w { alsoload }
-\__siunitx_tmp:w { angformat }
-\__siunitx_tmp:w { anglesep }
-\__siunitx_tmp:w { astroang }
-\__siunitx_tmp:w { closeerr }
-\__siunitx_tmp:w { closrfrac }
-\__siunitx_tmp:w { closerange }
-\__siunitx_tmp:w { colour }
-\__siunitx_tmp:w { colorall }
-\__siunitx_tmp:w { colourall }
-\__siunitx_tmp:w { colorneg }
-\__siunitx_tmp:w { colourneg }
-\__siunitx_tmp:w { colourunits }
-\__siunitx_tmp:w { colourunits }
-\__siunitx_tmp:w { colorvalues }
-\__siunitx_tmp:w { colourvalues }
-\__siunitx_tmp:w { decimalsymbol }
-\__siunitx_tmp:w { debug }
-\__siunitx_tmp:w { detectdisplay }
-\__siunitx_tmp:w { digitsep }
-\__siunitx_tmp:w { dp }
-\__siunitx_tmp:w { emulate }
-\__siunitx_tmp:w { errspace }
-\__siunitx_tmp:w { eVcorra }
-\__siunitx_tmp:w { eVcorrb }
-\__siunitx_tmp:w { expbase }
-\__siunitx_tmp:w { expproduct }
-\__siunitx_tmp:w { fixdp }
-\__siunitx_tmp:w { fixsf }
-\__siunitx_tmp:w { fraction }
-\__siunitx_tmp:w { inlinebold }
-\__siunitx_tmp:w { loctolang }
-\__siunitx_tmp:w { log }
-\__siunitx_tmp:w { load }
-\__siunitx_tmp:w { mathOmega }
-\__siunitx_tmp:w { mathcelsius }
-\__siunitx_tmp:w { mathdegree }
-\__siunitx_tmp:w { mathminute }
-\__siunitx_tmp:w { mathmu }
-\__siunitx_tmp:w { mathringA }
-\__siunitx_tmp:w { mathrm }
-\__siunitx_tmp:w { mathsOmega }
-\__siunitx_tmp:w { mathscelsius }
-\__siunitx_tmp:w { mathsdegree }
-\__siunitx_tmp:w { mathsecond }
-\__siunitx_tmp:w { mathsf }
-\__siunitx_tmp:w { mathsminute }
-\__siunitx_tmp:w { mathsmu }
-\__siunitx_tmp:w { mathsringA }
-\__siunitx_tmp:w { mathsrm }
-\__siunitx_tmp:w { mathssecond }
-\__siunitx_tmp:w { mathssf }
-\__siunitx_tmp:w { mathstt }
-\__siunitx_tmp:w { mathtt }
-\__siunitx_tmp:w { negcolor }
-\__siunitx_tmp:w { negcolour }
-\__siunitx_tmp:w { noload }
-\__siunitx_tmp:w { numaddn }
-\__siunitx_tmp:w { numcloseerr }
-\__siunitx_tmp:w { numdecimal }
-\__siunitx_tmp:w { numdigits }
-\__siunitx_tmp:w { numdiv }
-\__siunitx_tmp:w { numexp }
-\__siunitx_tmp:w { numgobble }
-\__siunitx_tmp:w { numopenerr }
-\__siunitx_tmp:w { numprod }
-\__siunitx_tmp:w { numsign }
-\__siunitx_tmp:w { obeyall }
-\__siunitx_tmp:w { obeybold }
-\__siunitx_tmp:w { obeyfamily }
-\__siunitx_tmp:w { obeymode }
-\__siunitx_tmp:w { obeyitalic }
-\__siunitx_tmp:w { openerr }
-\__siunitx_tmp:w { openfrac }
-\__siunitx_tmp:w { openrange }
-\__siunitx_tmp:w { padangle }
-\__siunitx_tmp:w { padnumber }
-\__siunitx_tmp:w { per }
-\__siunitx_tmp:w { prefixbase }
-\__siunitx_tmp:w { prefixproduct }
-\__siunitx_tmp:w { prefixsymbolic }
-\__siunitx_tmp:w { prespace }
-\__siunitx_tmp:w { redefsymbols }
-\__siunitx_tmp:w { repeatunits }
-\__siunitx_tmp:w { retainplus }
-\__siunitx_tmp:w { seperr }
-\__siunitx_tmp:w { sepfour }
-\__siunitx_tmp:w { sf }
-\__siunitx_tmp:w { sign }
-\__siunitx_tmp:w { slash }
-\__siunitx_tmp:w { stickyper }
-\__siunitx_tmp:w { strictarc }
-\__siunitx_tmp:w { tabalign }
-\__siunitx_tmp:w { tabalignexp }
-\__siunitx_tmp:w { tabautofit }
-\__siunitx_tmp:w { tabexpalign }
-\__siunitx_tmp:w { tabformat }
-\__siunitx_tmp:w { tabnumalign }
-\__siunitx_tmp:w { tabparseonly }
-\__siunitx_tmp:w { tabtextalign }
-\__siunitx_tmp:w { textOmega }
-\__siunitx_tmp:w { textcelsius }
-\__siunitx_tmp:w { textdegree }
-\__siunitx_tmp:w { textminute }
-\__siunitx_tmp:w { textmode }
-\__siunitx_tmp:w { textmu }
-\__siunitx_tmp:w { textringA }
-\__siunitx_tmp:w { textrm }
-\__siunitx_tmp:w { textsecond }
-\__siunitx_tmp:w { textsf }
-\__siunitx_tmp:w { texttt }
-\__siunitx_tmp:w { tightpm }
-\__siunitx_tmp:w { tophrase }
-\__siunitx_tmp:w { trapamigerr }
-\__siunitx_tmp:w { trapambigfrac }
-\__siunitx_tmp:w { trapambigrange }
-\__siunitx_tmp:w { unitcolor }
-\__siunitx_tmp:w { unitcolour }
-\__siunitx_tmp:w { unitmathrm }
-\__siunitx_tmp:w { unitmathsf }
-\__siunitx_tmp:w { unitmathsrm }
-\__siunitx_tmp:w { unitmathssf }
-\__siunitx_tmp:w { unitmathstt }
-\__siunitx_tmp:w { unitmathtt }
-\__siunitx_tmp:w { unitmode }
-\__siunitx_tmp:w { unitsep }
-\__siunitx_tmp:w { unitspace }
-\__siunitx_tmp:w { valuecolor }
-\__siunitx_tmp:w { valuecolour }
-\__siunitx_tmp:w { valuemathrm }
-\__siunitx_tmp:w { valuemathsf }
-\__siunitx_tmp:w { valuemathsrm }
-\__siunitx_tmp:w { valuemathssf }
-\__siunitx_tmp:w { valuemathstt }
-\__siunitx_tmp:w { valuemathtt }
-\__siunitx_tmp:w { valuemode }
-\__siunitx_tmp:w { valuesep }
-\__siunitx_tmp:w { xpace }
+\exp_args:NNx \seq_const_from_clist:Nn \c__siunitx_old_options_seq
+  {
+    \tl_to_str:n
+      {
+        addsign ,
+        allowlitunits ,
+        allowoptarg ,
+        allowzeroexp ,
+        alsoload ,
+        angformat ,
+        anglesep ,
+        astroang ,
+        closeerr ,
+        closrfrac ,
+        closerange ,
+        colour ,
+        colorall ,
+        colourall ,
+        colorneg ,
+        colourneg ,
+        colourunits ,
+        colourunits ,
+        colorvalues ,
+        colourvalues ,
+        decimalsymbol ,
+        debug ,
+        detectdisplay ,
+        digitsep ,
+        dp ,
+        emulate ,
+        errspace ,
+        eVcorra ,
+        eVcorrb ,
+        expbase ,
+        expproduct ,
+        fixdp ,
+        fixsf ,
+        fraction ,
+        inlinebold ,
+        loctolang ,
+        log ,
+        load ,
+        mathOmega ,
+        mathcelsius ,
+        mathdegree ,
+        mathminute ,
+        mathmu ,
+        mathringA ,
+        mathrm ,
+        mathsOmega ,
+        mathscelsius ,
+        mathsdegree ,
+        mathsecond ,
+        mathsf ,
+        mathsminute ,
+        mathsmu ,
+        mathsringA ,
+        mathsrm ,
+        mathssecond ,
+        mathssf ,
+        mathstt ,
+        mathtt ,
+        negcolor ,
+        negcolour ,
+        noload ,
+        numaddn ,
+        numcloseerr ,
+        numdecimal ,
+        numdigits ,
+        numdiv ,
+        numexp ,
+        numgobble ,
+        numopenerr ,
+        numprod ,
+        numsign ,
+        obeyall ,
+        obeybold ,
+        obeyfamily ,
+        obeymode ,
+        obeyitalic ,
+        openerr ,
+        openfrac ,
+        openrange ,
+        padangle ,
+        padnumber ,
+        per ,
+        prefixbase ,
+        prefixproduct ,
+        prefixsymbolic ,
+        prespace ,
+        redefsymbols ,
+        repeatunits ,
+        retainplus ,
+        seperr ,
+        sepfour ,
+        sf ,
+        sign ,
+        slash ,
+        stickyper ,
+        strictarc ,
+        tabalign ,
+        tabalignexp ,
+        tabautofit ,
+        tabexpalign ,
+        tabformat ,
+        tabnumalign ,
+        tabparseonly ,
+        tabtextalign ,
+        textOmega ,
+        textcelsius ,
+        textdegree ,
+        textminute ,
+        textmode ,
+        textmu ,
+        textringA ,
+        textrm ,
+        textsecond ,
+        textsf ,
+        texttt ,
+        tightpm ,
+        tophrase ,
+        trapamigerr ,
+        trapambigfrac ,
+        trapambigrange ,
+        unitcolor ,
+        unitcolour ,
+        unitmathrm ,
+        unitmathsf ,
+        unitmathsrm ,
+        unitmathssf ,
+        unitmathstt ,
+        unitmathtt ,
+        unitmode ,
+        unitsep ,
+        unitspace ,
+        valuecolor ,
+        valuecolour ,
+        valuemathrm ,
+        valuemathsf ,
+        valuemathsrm ,
+        valuemathssf ,
+        valuemathstt ,
+        valuemathtt ,
+        valuemode ,
+        valuesep ,
+        xspace
+    }
+  }
 \tl_new:N  \l__siunitx_key_tl
 \keys_define:nn { siunitx } {
   unknown .code:n =
@@ -321,15 +323,15 @@
 \cs_generate_variant:Nn \tl_replace_all:Nnn { NnV }
 \prg_new_conditional:Npnn \__siunitx_cs_if_tl:N #1 { T, F , TF , p }
   {
-    \bool_if:nTF
+    \bool_lazy_and:nnTF
       {
         \tl_if_empty_p:f
           {
             \token_get_prefix_spec:N #1
             \token_get_arg_spec:N    #1
           }
-        && ! \cs_if_exist_p:c { \cs_to_str:N #1 ~ }
       }
+      { \bool_not_p:n { \cs_if_exist_p:c { \cs_to_str:N #1 ~ } } }
       { \prg_return_true: }
       { \prg_return_false: }
   }
@@ -381,7 +383,6 @@
 \cs_generate_variant:Nn \prop_get:NnNF  { NV }
 \cs_generate_variant:Nn \prop_get:NnNTF { NV }
 \cs_new_protected:Npn \__siunitx_set_math_fam:n #1 {
-  \int_new:c { c__siunitx_math #1 _int }
   \group_begin:
     \hbox_set:Nn \l__siunitx_tmp_box
       {
@@ -389,7 +390,7 @@
           {
             \use:c { math #1 }
               {
-                \int_gset:cn { c__siunitx_math #1 _int } { \fam }
+                \int_const:cn { c__siunitx_math #1 _int } { \fam }
               }
           }
       }
@@ -402,8 +403,7 @@
     \ignorespaces
   }
 \cs_new_protected:Npn \__siunitx_set_text_fam:n #1 {
-  \tl_new:c { c__siunitx_text #1 _tl }
-  \tl_set:cx { c__siunitx_text #1 _tl } { \use:c { #1 default } }
+  \tl_const:cx { c__siunitx_text #1 _tl } { \use:c { #1 default } }
 }
 \AtBeginDocument {
   \__siunitx_set_text_fam:n { sf }
@@ -432,7 +432,7 @@
     \l__siunitx_detect_display_math_bool,
   detect-family        .bool_set:N = \l__siunitx_detect_family_bool,
   detect-inline-family .choice:,
-  detect-inline-family .value_required:,
+  detect-inline-family .value_required:n = true,
   detect-inline-family /
     math               .code:n     =
       { \tl_set:Nn \l__siunitx_detect_inline_family_tl { math } },
@@ -440,7 +440,7 @@
     text               .code:n     =
       { \tl_set:Nn \l__siunitx_detect_inline_family_tl { text } },
   detect-inline-weight .choice:,
-  detect-inline-weight .value_required:,
+  detect-inline-weight .value_required:n = true,
   detect-inline-weight /
     math               .code:n     =
       { \tl_set:Nn \l__siunitx_detect_inline_weight_tl { math } },
@@ -775,6 +775,7 @@
       {
         \__siunitx_ensure_ltr:n
           {
+            \color@begingroup
             \__siunitx_print_color:
             \__siunitx_font_shape:
             \__siunitx_font_weight:
@@ -786,6 +787,7 @@
             \bool_if:NTF \l__siunitx_font_math_mode_bool
               { \__siunitx_print_math: }
               { \__siunitx_print_text: }
+            \color@endgroup
           }
       }
   }
@@ -802,8 +804,19 @@
   \@ifpackageloaded { color }
     { \cs_new_eq:NN \__siunitx_textcolor:n \textcolor }
     {
-      \cs_set_eq:NN \__siunitx_print_color: \scan_stop:
-      \cs_new_eq:NN \__siunitx_textcolor:n \use_none:n
+      \cs_set_protected:Npn \__siunitx_print_color:
+        {
+          \tl_if_empty:cF { l__siunitx_ \l__siunitx_print_type_tl _color_tl }
+            {
+              \cs_gset_eq:NN \__siunitx_print_color: \scan_stop:
+              \msg_warning:nn { siunitx } { color-not-loaded }
+            }
+        }
+      \cs_new_protected:Npn \__siunitx_textcolor:n #1
+        {
+          \cs_gset_eq:NN \__siunitx_textcolor:n \use_none:n
+          \msg_warning:nn { siunitx } { color-not-loaded }
+        }
     }
 }
 \cs_new_protected:Npn \__siunitx_print_math:
@@ -820,7 +833,7 @@
             { \l__siunitx_print_arg_tl }
       }
   }
-\cs_new_protected_nopar:Npn \__siunitx_print_text:
+\cs_new_protected:Npn \__siunitx_print_text:
   {
     \tl_replace_all:Nnn \l__siunitx_print_arg_tl { - }
       { \c__siunitx_minus_tl }
@@ -847,10 +860,10 @@
 \cs_new_protected:Npn \__siunitx_print_text_aux:NnN #1#2#3
   {
     \quark_if_recursion_tail_stop:N #1
-    \tl_set_rescan:Nnn \l__siunitx_tmp_tl
+    \tl_set_rescan:Nnn \l__siunitx_tmpa_tl
        { \use:c { char_set_catcode_ #2 :N } #1 }
        {#1}
-    \tl_replace_all:NVn \l__siunitx_print_arg_tl \l__siunitx_tmp_tl {#3}
+    \tl_replace_all:NVn \l__siunitx_print_arg_tl \l__siunitx_tmpa_tl {#3}
     \__siunitx_print_text_aux:NnN
   }
 \AtBeginDocument
@@ -875,12 +888,12 @@
             \sp { \text {##1} }
           }
       }
-    \cs_set_protected_nopar:Npn \__siunitx_peek_true:
+    \cs_set_protected:Npn \__siunitx_peek_true:
       {
         \tex_afterassignment:D \__siunitx_print_text_sub_super:n
         \cs_set_eq:NN \__siunitx_tmp:w
       }
-    \cs_set_protected_nopar:Npn \__siunitx_peek_false:
+    \cs_set_protected:Npn \__siunitx_peek_false:
       { \ensuremath { \sb { \text {#1} } } }
     \peek_after:Nw \__siunitx_print_text_sub_peek:
   }
@@ -892,8 +905,8 @@
       \exp_after:wN \__siunitx_peek_false:
     \fi:
   }
-\cs_new_protected_nopar:Npn \__siunitx_peek_true: { }
-\cs_new_protected_nopar:Npn \__siunitx_peek_false: { }
+\cs_new_protected:Npn \__siunitx_peek_true: { }
+\cs_new_protected:Npn \__siunitx_peek_false: { }
 \cs_new_protected:Npn \__siunitx_print_text_sub_super:n { }
 \cs_new_protected:Npn \__siunitx_print_text_super:n #1 {
   \tl_set:Nn \l__siunitx_tmpa_tl {#1}
@@ -975,8 +988,7 @@
       \tl_map_break:
     }
 }
-\tl_new:N \c__siunitx_number_part_complex_tl
-\tl_set:Nn \c__siunitx_number_part_complex_tl { complex }
+\tl_const:Nn \c__siunitx_number_part_complex_tl { complex }
 \bool_new:N \l__siunitx_number_in_complex_bool
 \bool_new:N \l__siunitx_number_in_complex_root_bool
 \bool_new:N \l__siunitx_number_in_decimal_bool
@@ -1258,7 +1270,7 @@
                 {
                   \prop_put:Nnn \l__siunitx_number_in_prop { symbolic }
                     { true }
-                  \__siunitx_number_in_digit:n { \ensuremath {#1} }
+                  \__siunitx_number_in_digit:n {#1}
                 }
                 {
                   \tl_if_in:NnF \l__siunitx_input_ignore_tl {#1}
@@ -1640,8 +1652,7 @@
     {
       \tl_if_single:NTF \l__siunitx_number_uncert_tl
         {
-          \int_compare:nNnTF
-            { \l__siunitx_number_uncert_tl } = { \c_zero }
+          \int_compare:nNnTF  \l__siunitx_number_uncert_tl = 0
             { \__siunitx_number_in_complex_to_uncert_dec:n {#1} }
             { \__siunitx_number_in_complex_to_uncert_int: }
         }
@@ -1886,7 +1897,12 @@
                 { exponent-integer }
               \prop_remove:Nn \l__siunitx_number_in_prop
                 { exponent-decimal }
-             }
+              \prop_if_in:NnF \l__siunitx_number_in_prop { mantissa }
+                {
+                  \prop_put:Nnn \l__siunitx_number_in_prop { mantissa } { true }
+                  \prop_put:Nnn \l__siunitx_number_in_prop { mantissa-integer } { 1 }
+                }
+            }
         }
     }
 }
@@ -1900,7 +1916,7 @@
 }
 \cs_new_protected:Npn \__siunitx_number_process_figures:n #1
   {
-    \int_compare:nNnTF \l__siunitx_process_precision_int > \c_zero
+    \int_compare:nNnTF \l__siunitx_process_precision_int > 0
       {
         \prop_if_in:NnT \l__siunitx_number_in_prop {#1}
           { \__siunitx_number_process_figures_aux:n {#1} }
@@ -1966,7 +1982,7 @@
     \tl_put_left:cV { l__siunitx_round_ #1 _out_tl } \l__siunitx_tmp_int
     \bool_if:NF \l__siunitx_round_bool
       {
-        \int_compare:nNnF { \l__siunitx_tmp_int } = \c_zero
+        \int_compare:nNnF \l__siunitx_tmp_int = 0
           { \bool_set_true:N \l__siunitx_round_bool }
       }
     \bool_if:NT \l__siunitx_round_bool
@@ -1998,20 +2014,20 @@
   }
 \cs_new_protected:Npn \__siunitx_number_process_figures_integer:
   {
-    \int_compare:nNnT \l__siunitx_round_int > \c_zero
+    \int_compare:nNnT \l__siunitx_round_int > 0
       { \tl_put_left:Nn \l__siunitx_round_integer_out_tl { 0 } }
-    \int_compare:nNnF \l__siunitx_round_int > \c_one
+    \int_compare:nNnF \l__siunitx_round_int > 1
       {
         \int_set:Nn \l__siunitx_tmp_int
           { \tl_head:N \l__siunitx_round_integer_in_tl }
         \__siunitx_number_process_round_up:
-        \int_compare:nNnTF \l__siunitx_round_int = \c_one
+        \int_compare:nNnTF \l__siunitx_round_int = 1
           {
-            \int_compare:nNnT \l__siunitx_tmp_int > \c_four
+            \int_compare:nNnT \l__siunitx_tmp_int > 4
               { \bool_set_true:N \l__siunitx_round_bool }
           }
           {
-            \int_compare:nNnT \l__siunitx_tmp_int = \c_ten
+            \int_compare:nNnT \l__siunitx_tmp_int = { 10 }
               {
                 \bool_set_true:N \l__siunitx_round_bool
                 \int_zero:N \l__siunitx_tmp_int
@@ -2066,7 +2082,7 @@
 \cs_new_protected:Npn \__siunitx_number_process_fixed_aux_i:nnn #1#2#3
   {
     \prop_put:Nnn \l__siunitx_number_in_prop { exponent } { true }
-    \int_compare:nNnTF { \l__siunitx_process_fixed_int } > { \c_zero }
+    \int_compare:nNnTF \l__siunitx_process_fixed_int > 0
       {
         \prop_put:NnV \l__siunitx_number_in_prop { exponent-integer }
           \l__siunitx_process_fixed_int
@@ -2125,7 +2141,7 @@
 }
 \cs_new_protected:Npn \__siunitx_number_process_fixed_large:nnn #1
   {
-    \int_compare:nNnTF {#1} = \c_zero
+    \__siunitx_number_if_zero:nTF {#1}
       { \__siunitx_number_process_fixed_large_aux:nnn { } }
       { \__siunitx_number_process_fixed_large_aux:nnn {#1} }
   }
@@ -2192,8 +2208,7 @@
 \cs_new_protected:Npn \__siunitx_number_process_fixed_small_aux:w
   { }
 \cs_new_protected:Npn \__siunitx_number_process_integer_digits: {
-  \int_compare:nNnT
-    { \l__siunitx_process_integer_min_int } > { \c_zero }
+  \int_compare:nNnT \l__siunitx_process_integer_min_int > 0
     {
       \prop_get:NnNT \l__siunitx_number_in_prop { mantissa-integer }
         \l__siunitx_tmpa_tl
@@ -2203,7 +2218,7 @@
                  \l__siunitx_process_integer_min_int
               - \tl_count:N \l__siunitx_tmpa_tl
             }
-          \int_compare:nNnT { \l__siunitx_tmp_int } > { \c_zero }
+          \int_compare:nNnT \l__siunitx_tmp_int > 0
             {
               \tl_set:Nx \l__siunitx_tmpa_tl
                 {
@@ -2239,8 +2254,7 @@
         }
     }
 }
-\tl_new:N \c__siunitx_unity_tl
-\tl_set:Nn \c__siunitx_unity_tl { 1 }
+\tl_const:Nn \c__siunitx_unity_tl { 1 }
 \cs_new_protected:Npn \__siunitx_number_process_pad:n #1 {
   \prop_get:NnNT \l__siunitx_number_in_prop { #1 -decimal }
     \l__siunitx_tmpa_tl
@@ -2264,7 +2278,7 @@
   }
 \cs_new_protected:Npn \__siunitx_number_process_places_aux_i:n #1
   {
-    \int_compare:nNnTF \l__siunitx_process_precision_int = \c_zero
+    \int_compare:nNnTF \l__siunitx_process_precision_int = 0
       { \__siunitx_number_process_places_none:n {#1} }
       {
         \prop_get:NnNT \l__siunitx_number_in_prop { #1 -decimal }
@@ -2292,7 +2306,7 @@
     \bool_set_true:N \l__siunitx_tmp_bool
     \tl_map_inline:Nn \l__siunitx_tmpa_tl
       {
-        \int_compare:nNnF {##1} = \c_zero
+        \int_compare:nNnF {##1} = 0
           {
             \bool_set_false:N \l__siunitx_tmp_bool
             \tl_map_break:
@@ -2304,7 +2318,7 @@
   {
     \prop_get:NnNT \l__siunitx_number_in_prop { #1 -decimal } \l__siunitx_tmpa_tl
       {
-        \int_compare:nNnTF { \tl_head:N \l__siunitx_tmpa_tl } > \c_four
+        \int_compare:nNnTF { \tl_head:N \l__siunitx_tmpa_tl } > 4
           {
             \prop_get:NnNTF \l__siunitx_number_in_prop { #1 -integer }
               \l__siunitx_tmpb_tl
@@ -2314,7 +2328,7 @@
                 \bool_if:NF \l__siunitx_round_half_up_bool
                   {
                     \int_compare:nNnT
-                      { 0 \tl_tail:N \l__siunitx_tmpa_tl } = \c_zero
+                      { 0 \tl_tail:N \l__siunitx_tmpa_tl } = 0
                       {
                         \int_if_odd:nT \l__siunitx_tmpb_tl
                           {
@@ -2344,7 +2358,7 @@
   {
     \int_sub:Nn \l__siunitx_round_int
       { \l__siunitx_process_precision_int }
-    \int_compare:nNnTF \l__siunitx_round_int < \c_zero
+    \int_compare:nNnTF \l__siunitx_round_int < 0
       {
         \int_set:Nn \l__siunitx_round_int { - \l__siunitx_round_int }
         \__siunitx_number_process_pad:n {#1}
@@ -2398,7 +2412,7 @@
       { \tl_tail:N \l__siunitx_round_integer_in_tl }
     \__siunitx_number_process_round_up:
     \bool_set_false:N \l__siunitx_round_bool
-    \int_compare:nNnT \l__siunitx_tmp_int = \c_ten
+    \int_compare:nNnT \l__siunitx_tmp_int = { 10 }
       {
         \int_zero:N \l__siunitx_tmp_int
         \bool_set_true:N \l__siunitx_round_bool
@@ -2429,7 +2443,7 @@
   }
 \cs_new_protected:Npn \__siunitx_number_process_round_decimal:
   {
-    \int_compare:nNnF \l__siunitx_round_int > \c_one
+    \int_compare:nNnF \l__siunitx_round_int > 1
       { \__siunitx_number_process_round_decimal_aux: }
     \tl_put_right:Nx \l__siunitx_round_discard_tl
       { \tl_head:N \l__siunitx_round_decimal_in_tl }
@@ -2442,22 +2456,21 @@
     \int_set:Nn \l__siunitx_tmp_int
       { \tl_head:N \l__siunitx_round_decimal_in_tl }
     \__siunitx_number_process_round_up:
-    \int_compare:nNnTF \l__siunitx_round_int = \c_one
+    \int_compare:nNnTF \l__siunitx_round_int = 1
       {
-        \int_compare:nNnT \l__siunitx_tmp_int > \c_four
+        \int_compare:nNnT \l__siunitx_tmp_int > 4
           {
             \bool_set_true:N \l__siunitx_round_bool
             \bool_if:NF \l__siunitx_round_half_up_bool
               {
                 \int_compare:nNnT
-                  { \l__siunitx_round_discard_tl \int_use:N \l__siunitx_tmp_int }
-                    = \c_five
+                  { \l__siunitx_round_discard_tl \int_use:N \l__siunitx_tmp_int } = 5
                   { \bool_set_true:N \l__siunitx_round_even_bool }
               }
           }
       }
       {
-        \int_compare:nNnT \l__siunitx_tmp_int = \c_ten
+        \int_compare:nNnT \l__siunitx_tmp_int = { 10 }
           {
             \bool_set_true:N \l__siunitx_round_bool
             \int_zero:N \l__siunitx_tmp_int
@@ -2482,11 +2495,9 @@
   }
 \cs_new_protected:Npn \__siunitx_number_process_round_tidy:n #1
   {
-    \bool_if:nTF
-      {
-           \__siunitx_number_if_zero_p:V \l__siunitx_round_integer_out_tl
-        && \__siunitx_number_if_zero_p:V \l__siunitx_round_decimal_out_tl
-      }
+    \bool_lazy_and:nnTF
+      { \__siunitx_number_if_zero_p:V \l__siunitx_round_integer_out_tl }
+      { \__siunitx_number_if_zero_p:V \l__siunitx_round_decimal_out_tl }
       {
         \str_if_eq:VnTF \l__siunitx_process_round_min_tl { 0 }
           {
@@ -2564,7 +2575,7 @@
   }
 \cs_new_protected:Npn
   \__siunitx_number_process_scientific_aux_ii:nnn #1#2#3 {
-  \int_compare:nNnTF { \tl_count:n {#1} } > \c_one
+  \int_compare:nNnTF { \tl_count:n {#1} } > 1
     { \__siunitx_number_process_scientific_large:nnn {#1} {#2} {#3} }
     {
       \__siunitx_number_if_zero:nTF {#1}
@@ -2589,7 +2600,7 @@
         \quark_if_recursion_tail_stop_do:Nn ##3
           {
             \__siunitx_number_process_scientific_aux_ii:nnn {##1} { ##2 #2 }
-              { #3 + \c_one }
+              { #3 + 1 }
           }
         \__siunitx_number_process_scientific_large_loop:nNN { ##1 ##2 } ##3
       }
@@ -2773,8 +2784,7 @@
       \prop_put:Nnn \l__siunitx_number_in_prop { #1 -had-sign } { true }
     }
 }
-\tl_new:N \c__siunitx_plus_tl
-\tl_set:Nn \c__siunitx_plus_tl { + }
+\tl_const:Nn \c__siunitx_plus_tl { + }
 \cs_new_protected:Npn \__siunitx_number_process_uncertainty: {
   \clist_map_function:nN { mantissa , complex }
     \__siunitx_number_process_uncertainty_aux:n
@@ -2871,7 +2881,7 @@
         { \prop_put:Nnn \l__siunitx_number_in_prop { #1 - #2 } { 0 } }
     }
 }
-\cs_new_protected_nopar:Npn \__siunitx_number_process_zero_to_integer:
+\cs_new_protected:Npn \__siunitx_number_process_zero_to_integer:
   {
     \bool_if:NT \l__siunitx_zero_decimal_to_integer_bool
       {
@@ -3617,11 +3627,9 @@
     }
 }
 \cs_new_protected:Npn \__siunitx_number_output_parts: {
-  \bool_if:nTF
-    {
-      \tl_if_empty_p:N \l__siunitx_pre_unit_tl &&
-      \tl_if_empty_p:N \l__siunitx_unit_tl
-    }
+  \bool_lazy_and:nnTF
+    { \tl_if_empty_p:N \l__siunitx_pre_unit_tl }
+    { \tl_if_empty_p:N \l__siunitx_unit_tl }
     { \__siunitx_number_output_single: }
     { \__siunitx_number_output_parts_aux: }
 }
@@ -3675,11 +3683,9 @@
 \cs_new_protected:Npn \__siunitx_number_output_product: {
   \bool_if:NTF \l__siunitx_product_brackets_bool
     {
-      \bool_if:nTF
-        {
-          \tl_if_empty_p:N \l__siunitx_pre_unit_tl &&
-          \tl_if_empty_p:N \l__siunitx_unit_tl
-        }
+      \bool_lazy_and:nnTF
+        { \tl_if_empty_p:N \l__siunitx_pre_unit_tl }
+        { \tl_if_empty_p:N \l__siunitx_unit_tl }
         { \__siunitx_number_output_product_aux: }
         { \__siunitx_number_output_product_brackets: }
     }
@@ -3797,11 +3803,9 @@
   \__siunitx_number_format:
 }
 \cs_new_protected:Npn \__siunitx_number_output_single: {
-  \bool_if:nF
-    {
-      \tl_if_empty_p:N \l__siunitx_pre_unit_tl &&
-      \tl_if_empty_p:N \l__siunitx_unit_tl
-    }
+  \bool_lazy_and:nnF
+    { \tl_if_empty_p:N \l__siunitx_pre_unit_tl }
+    { \tl_if_empty_p:N \l__siunitx_unit_tl }
     {
       \prop_if_in:NnF \l__siunitx_number_out_prop { exponent }
         { \__siunitx_number_format_brackets:n { result } }
@@ -3890,7 +3894,7 @@
 \cs_new_protected:Npn \__siunitx_angle_direct_aux_i:nnn #1#2 {
   \tl_if_empty:nTF {#2}
     {
-      \bool_if:NTF \l__siunitx_angle_minte_zero_bool
+      \bool_if:NTF \l__siunitx_angle_minute_zero_bool
         { \__siunitx_angle_direct_aux_ii:nnn {#1} { 0 } }
         { \__siunitx_angle_direct_aux_ii:nnn {#1} { } }
     }
@@ -3977,22 +3981,18 @@
     }
 }
 \cs_new_protected:Npn \__siunitx_angle_zero_fill: {
-  \bool_if:nT
-    {
-      \prop_if_empty_p:N \l__siunitx_angle_second_prop &&
-      \l__siunitx_angle_second_zero_bool
-    }
+  \bool_lazy_and:nnT
+    { \l__siunitx_angle_second_zero_bool }
+    { \prop_if_empty_p:N \l__siunitx_angle_second_prop }
     {
       \prop_put:Nnn \l__siunitx_angle_second_prop { mantissa }
         { true }
       \prop_put:Nnn \l__siunitx_angle_second_prop { mantissa-integer }
         { 0 }
     }
-  \bool_if:nT
-    {
-      \prop_if_empty_p:N \l__siunitx_angle_minute_prop &&
-      \l__siunitx_angle_minute_zero_bool
-    }
+  \bool_lazy_and:nnT
+    { \l__siunitx_angle_minute_zero_bool }
+    { \prop_if_empty_p:N \l__siunitx_angle_minute_prop }
     {
       \prop_put:Nnn \l__siunitx_angle_minute_prop { mantissa }
         { true }
@@ -4000,11 +4000,9 @@
         { 0 }
       \__siunitx_angle_sign_shuffle:nn { second } { minute }
     }
-  \bool_if:nT
-    {
-      \prop_if_empty_p:N \l__siunitx_angle_degree_prop &&
-      \l__siunitx_angle_degree_zero_bool
-    }
+  \bool_lazy_and:nnT
+    { \l__siunitx_angle_degree_zero_bool }
+    { \prop_if_empty_p:N \l__siunitx_angle_degree_prop }
     {
       \prop_put:Nnn \l__siunitx_angle_degree_prop { mantissa }
         { true }
@@ -4146,21 +4144,21 @@
       \__siunitx_unit_output_print:
     }
 }
-\seq_new:N \l__siunitx_declare_list_seq
-\seq_put_right:Nn \l__siunitx_declare_list_seq { \of }
-\seq_put_right:Nn \l__siunitx_declare_list_seq { \highlight }
-\seq_put_right:Nn \l__siunitx_declare_list_seq { \per }
-\seq_put_right:Nn \l__siunitx_declare_list_seq { \raiseto }
-\seq_put_right:Nn \l__siunitx_declare_list_seq { \tothe }
+\seq_new:N \l_siunitx_unit_symbolic_seq
+\seq_put_right:Nn \l_siunitx_unit_symbolic_seq { \of }
+\seq_put_right:Nn \l_siunitx_unit_symbolic_seq { \highlight }
+\seq_put_right:Nn \l_siunitx_unit_symbolic_seq { \per }
+\seq_put_right:Nn \l_siunitx_unit_symbolic_seq { \raiseto }
+\seq_put_right:Nn \l_siunitx_unit_symbolic_seq { \tothe }
 \cs_new_protected:Npn \__siunitx_declare_power_after:Nn #1#2 {
-  \seq_put_right:Nn \l__siunitx_declare_list_seq {#1}
+  \seq_put_right:Nn \l_siunitx_unit_symbolic_seq {#1}
   \cs_set:cpn { __siunitx_ \token_to_str:N #1 _literal:w }
     { \__siunitx_textsuperscript:n {#2} }
   \cs_set:cpn { __siunitx_ \token_to_str:N #1 _function:w }
     { \__siunitx_unit_parse_power_after:n {#2} }
 }
 \cs_new_protected:Npn \__siunitx_declare_power_before:Nn #1#2 {
-  \seq_put_right:Nn \l__siunitx_declare_list_seq {#1}
+  \seq_put_right:Nn \l_siunitx_unit_symbolic_seq {#1}
   \cs_set:cpn { __siunitx_ \token_to_str:N #1 _literal:w } ##1
     { ##1 \__siunitx_textsuperscript:n {#2} }
   \cs_set:cpn { __siunitx_ \token_to_str:N #1 _function:w }
@@ -4168,7 +4166,7 @@
 }
 \cs_new_protected:Npn \__siunitx_declare_prefix:Nnnn #1#2#3#4
   {
-    \seq_put_right:Nn \l__siunitx_declare_list_seq {#1}
+    \seq_put_right:Nn \l_siunitx_unit_symbolic_seq {#1}
     \prop_put:Nnn \l__siunitx_prefix_forward_prop {#1} {#4}
     \prop_put:Nnn \l__siunitx_prefix_reverse_prop {#4} {#1}
     \cs_set:cpn { __siunitx_ \token_to_str:N #1 _literal:w } {#2}
@@ -4182,14 +4180,14 @@
 \prop_new:N \l__siunitx_prefix_forward_prop
 \prop_new:N \l__siunitx_prefix_reverse_prop
 \cs_new_protected:Npn \__siunitx_declare_qualifier:Nn #1#2 {
-  \seq_put_right:Nn \l__siunitx_declare_list_seq {#1}
+  \seq_put_right:Nn \l_siunitx_unit_symbolic_seq {#1}
   \cs_set:cpn { __siunitx_ \token_to_str:N #1 _literal:w }
     { \text { ~ } ( #2 ) }
   \cs_set:cpn { __siunitx_ \token_to_str:N #1 _function:w }
     { \__siunitx_unit_parse_qualifier:n {#2} }
 }
 \cs_new_protected:Npn \__siunitx_declare_unit:Nnn #1#2#3 {
-  \seq_put_right:Nn \l__siunitx_declare_list_seq {#1}
+  \seq_put_right:Nn \l_siunitx_unit_symbolic_seq {#1}
   \cs_set:cpn { __siunitx_ \token_to_str:N #1 _literal:w } {#2}
   \cs_set_protected:cpn { __siunitx_ \token_to_str:N #1 _function:w }
     {
@@ -4239,7 +4237,7 @@
       \cs_set_protected:Npn \__siunitx_cancel:n #1
         { \__siunitx__real_cancel:n { \__siunitx_print:nn { unit } {#1} } }
       \cs_set_eq:NN \__siunitx__real_cancel:n \cancel
-      \seq_put_right:Nn \l__siunitx_declare_list_seq { \cancel }
+      \seq_put_right:Nn \l_siunitx_unit_symbolic_seq { \cancel }
       \cs_new_protected:cpn
         { __siunitx_ \token_to_str:N \cancel _function:w }
         { \__siunitx_unit_parse_special:n { \__siunitx_cancel:n }  }
@@ -4265,10 +4263,10 @@
   unit-optional-argument ,
   use-xspace             ,
 }
-\cs_new_protected_nopar:Npn \__siunitx_unit_create_empty_functions:
+\cs_new_protected:Npn \__siunitx_unit_create_empty_functions:
   {
     \__siunitx_unit_create_functions_aux_i:
-    \seq_map_function:NN \l__siunitx_declare_list_seq
+    \seq_map_function:NN \l_siunitx_unit_symbolic_seq
       \__siunitx_unit_create_empty_functions_aux:N
     \__siunitx_unit_create_functions_aux_ii:
   }
@@ -4277,32 +4275,32 @@
     \cs_if_free:NT #1
       { \cs_set_protected:Npn #1 { \ERROR } }
   }
-\cs_new_protected_nopar:Npn \__siunitx_unit_create_functions:
+\cs_new_protected:Npn \__siunitx_unit_create_functions:
   {
     \__siunitx_unit_create_functions_aux_i:
     \bool_if:NT \l__siunitx_create_overwrite_bool
-      { \seq_map_function:NN \l__siunitx_declare_list_seq \cs_undefine:N }
+      { \seq_map_function:NN \l_siunitx_unit_symbolic_seq \cs_undefine:N }
     \bool_if:NTF \l__siunitx_create_optional_bool
       {
-        \seq_map_function:NN \l__siunitx_declare_list_seq
+        \seq_map_function:NN \l_siunitx_unit_symbolic_seq
           \__siunitx_unit_create_with_arg:N
       }
       {
-        \seq_map_function:NN \l__siunitx_declare_list_seq
+        \seq_map_function:NN \l_siunitx_unit_symbolic_seq
           \__siunitx_unit_create:N
       }
     \__siunitx_unit_create_functions_aux_ii:
     \bool_if:NT \l__siunitx_create_xspace_bool
       { \RequirePackage { xspace } }
   }
-\cs_new_protected_nopar:Npn \__siunitx_unit_create_functions_aux_i:
+\cs_new_protected:Npn \__siunitx_unit_create_functions_aux_i:
   {
     \@ifpackageloaded { soulpos }
       {
         \@ifpackageloaded { soul }
           { }
           {
-            \cs_set_protected_nopar:Npn \__siunitx_unit_create_functions_aux_ii:
+            \cs_set_protected:Npn \__siunitx_unit_create_functions_aux_ii:
               {
                 \cs_undefine:N \hl
                 \cs_undefine:N \ul
@@ -4311,7 +4309,7 @@
       }
       { }
   }
-\cs_new_protected_nopar:Npn \__siunitx_unit_create_functions_aux_ii: { }
+\cs_new_protected:Npn \__siunitx_unit_create_functions_aux_ii: { }
 \cs_new_protected:Npn \__siunitx_unit_create:N #1 {
   \cs_if_free:NT #1
     {
@@ -4432,7 +4430,7 @@
 \cs_new:Npn \__siunitx_pm: { }
 \cs_new_protected:Npn \__siunitx_unit_if_literal:nTF #1#2#3 {
   \group_begin:
-    \seq_map_function:NN \l__siunitx_declare_list_seq
+    \seq_map_function:NN \l_siunitx_unit_symbolic_seq
       \__siunitx_unit_if_literal_aux:N
     \cs_set_eq:NN \of \use_none:n
     \cs_set_eq:NN \highlight \use_none:n
@@ -4467,7 +4465,7 @@
     \prop_clear:N \l__siunitx_unit_prop
     \int_zero:N \l__siunitx_unit_int
     \bool_set_false:N \l__siunitx_per_bool
-    \seq_map_inline:Nn \l__siunitx_declare_list_seq
+    \seq_map_inline:Nn \l_siunitx_unit_symbolic_seq
       { \cs_set_eq:Nc ##1 { __siunitx_ \token_to_str:N ##1 _function:w } }
   }
 \cs_new_protected:Npn \__siunitx_unit_parse_options:nn #1#2 {
@@ -4581,7 +4579,7 @@
 \bool_new:N \l__siunitx_per_fraction_bool
 \tl_new:N \l__siunitx_per_mode_tl
 \bool_new:N \l__siunitx_power_number_bool
-\bool_new:N \l__siunitx_two_parts_bool
+\bool_new:N \l__siunitx_per_two_parts_bool
 \tl_new:N \l__siunitx_qualifier_mode_tl
 \keys_define:nn { siunitx } {
   bracket-unit-denominator .bool_set:N
@@ -4836,7 +4834,7 @@
   \int_zero:N \l__siunitx_unit_prefix_int
   \int_zero:N \l__siunitx_unit_denominator_int
   \int_zero:N \l__siunitx_unit_numerator_int
-  \seq_map_inline:Nn \l__siunitx_declare_list_seq
+  \seq_map_inline:Nn \l_siunitx_unit_symbolic_seq
     { \__siunitx_unit_print_literal_aux:N ##1 }
 }
 \group_begin:
@@ -4844,7 +4842,7 @@
   \cs_new_protected:Npn \__siunitx_unit_format_literal:n #1
     {
       \int_zero:N \l__siunitx_unit_prefix_int
-      \seq_map_inline:Nn \l__siunitx_declare_list_seq
+      \seq_map_inline:Nn \l_siunitx_unit_symbolic_seq
         { \__siunitx_unit_print_literal_aux:N ##1 }
       \tl_set:Nn \l__siunitx_unit_tl {#1}
       \tl_replace_all:NnV \l__siunitx_unit_tl { . }
@@ -4881,11 +4879,7 @@
       { \char_generate:nn { #1 } { 12 } }
       {#2}
   }
-\bool_if:nF
-  {
-    \sys_if_engine_luatex_p: ||
-    \sys_if_engine_xetex_p:
-  }
+\bool_lazy_or:nnF { \sys_if_engine_luatex_p: } { \sys_if_engine_xetex_p: }
   {
     \AtBeginDocument
       {
@@ -5076,7 +5070,7 @@
   \tl_put_right:NV \l__siunitx_unit_current_tl \l__siunitx_tmpa_tl
   \tl_put_right:NV \l__siunitx_unit_current_tl \l__siunitx_bracket_close_tl
 }
-\cs_new_protected_nopar:Npn \__siunitx_unit_format_qualifier_phrase:
+\cs_new_protected:Npn \__siunitx_unit_format_qualifier_phrase:
   {
     \tl_put_right:NV \l__siunitx_unit_current_tl \l__siunitx_qualifier_phrase_tl
     \tl_put_right:NV \l__siunitx_unit_current_tl \l__siunitx_tmpa_tl
@@ -5102,16 +5096,17 @@
 }
 \cs_new_protected:Npn \__siunitx_unit_format_sorted:
   {
-    \tl_set_eq:NN \l__siunitx_unit_tl \l__siunitx_unit_numerator_tl
-    \tl_if_empty:NT \l__siunitx_unit_tl
+    \tl_set:Nx \l__siunitx_unit_tl
       {
-        \tl_if_empty:NF \l__siunitx_unit_denominator_tl
+        \exp_not:V \l__siunitx_unit_numerator_tl
+        \bool_lazy_or:nnF
+          { \tl_if_empty_p:N \l__siunitx_unit_numerator_tl }
+          { \tl_if_empty_p:N \l__siunitx_unit_denominator_tl }
           {
-            \tl_put_right:NV \l__siunitx_unit_tl
-              \l__siunitx_unit_product_tl
+            \exp_not:N \l__siunitx_unit_product_tl
           }
+        \exp_not:V \l__siunitx_unit_denominator_tl
       }
-    \tl_put_right:NV \l__siunitx_unit_tl \l__siunitx_unit_denominator_tl
   }
 \cs_new_protected:Npn \__siunitx_unit_format_symbol: {
   \tl_set:Nx \l__siunitx_tmpa_tl
@@ -5142,6 +5137,7 @@
 \bool_new:N \l__siunitx_multi_repeat_bool
 \bool_new:N \l__siunitx_product_brackets_bool
 \bool_new:N \l__siunitx_product_power_bool
+\bool_new:N \l__siunitx_product_repeat_bool
 \bool_new:N \l__siunitx_number_unit_repeat_bool
 \keys_define:nn { siunitx } {
   allow-number-unit-breaks .bool_set:N =
@@ -5222,7 +5218,10 @@
       \str_if_eq:VnT \l__siunitx_per_mode_tl { symbol }
         {
           \int_compare:nNnT { \l__siunitx_unit_numerator_int } = { 0 }
-            { \__siunitx_print:nn { unit } { 1 } }
+            {
+              \bool_if:NT \l__siunitx_unit_parse_bool
+                { \__siunitx_print:nn { unit } { 1 } }
+            }
         }
     }
     {
@@ -5401,7 +5400,7 @@
   {
     \bool_set_true:N \l__siunitx_list_first_bool
     \tl_clear:N \l__siunitx_list_current_tl
-    \int_compare:nNnTF { \tl_count:n {#1} } > \c_two
+    \int_compare:nNnTF { \tl_count:n {#1} } > 2
       {
         \tl_map_function:nN {#1} \__siunitx_list_numbers_aux_ii:n
         \l__siunitx_list_tl
@@ -5409,7 +5408,7 @@
         \l__siunitx_list_current_tl
       }
       {
-        \int_compare:nNnTF { \tl_count:n {#1} } = \c_two
+        \int_compare:nNnTF { \tl_count:n {#1} } = 2
           { \__siunitx_list_numbers_aux:nn #1 }
           { \__siunitx_combined_output:n #1 }
       }
@@ -5546,15 +5545,30 @@
 \AtBeginDocument {
   \@ifpackageloaded { cellspace }
       {
-        \newcolumntype { C } [1]
-          { > { \bcolumn #1 \@nil } #1 < { \ecolumn } }
-        \cs_set:Npn \__siunitx_tmp:w #1 \NC@do S #2 \q_stop
-          { \NC@list { #1 #2 } }
-        \exp_after:wN \__siunitx_tmp:w \tex_the:D \NC@list \q_stop
-        \cs_undefine:N \NC@find@S
-        \msg_new:nnn { siunitx } { moved-cellspace-column }
-          { Column~type~for~cellspace~package~moved~to~'#1'. }
-        \msg_warning:nnn { siunitx } { moved-cellspace-column } { C }
+        \cs_if_exist:NT \NC@find@S
+          {
+            \newcolumntype { C } [1]
+              { > { \bcolumn #1 \@nil } #1 < { \ecolumn } }
+            \cs_set:Npn \__siunitx_tmp:w #1 \NC@do S #2 \q_stop
+              { \NC@list { #1 #2 } }
+            \exp_after:wN \__siunitx_tmp:w \tex_the:D \NC@list \q_stop
+            \cs_undefine:N \NC@find@S
+            \msg_new:nnn { siunitx } { moved-cellspace-column }
+              { Column~type~for~cellspace~package~moved~to~'#1'. }
+            \msg_warning:nnn { siunitx } { moved-cellspace-column } { C }
+            \ifcellspace@m
+              \def \env@matrix
+                {
+                  \hskip -\arraycolsep
+                  \let \@ifnextchar \new@ifnextchar
+                  \array
+                    {
+                      * { \c@MaxMatrixCols }
+                        { > { \bcolumn c \@nil $ } c < { $ \ecolumn } } @ { }
+                    }
+                }
+            \fi
+         }
       }
       { }
 }
@@ -5602,10 +5616,13 @@
 \bool_new:N \l__siunitx_table_math_bool
 \bool_new:N \l__siunitx_table_collect_pre_bool
 \bool_new:N \l__siunitx_table_collect_post_bool
-\cs_new_protected:Npn \__siunitx_table_collect_begin:Nn #1#2 {
-  \keys_set:nn { siunitx } {#2}
-  \use:c { __siunitx_table_collect_begin_ #1 : }
-}
+\cs_new_protected:Npn \__siunitx_table_collect_begin:Nn #1#2
+  {
+    \keys_set:nn { siunitx } {#2}
+    \__siunitx_table_collect_begin:Nw #1
+  }
+\cs_new_protected:Npn \__siunitx_table_collect_begin:Nw #1#2 \ignorespaces
+  { \use:c { __siunitx_table_collect_begin_ #1 : } #2 }
 \cs_new_protected:Npn \__siunitx_table_collect_begin_s: {
   \cs_set_eq:NN \__siunitx_table_collect_token:N
     \__siunitx_table_collect_token_s:N
@@ -5621,7 +5638,7 @@
   \__siunitx_detect_font:
   \bool_if:NTF \l__siunitx_number_parse_bool
     { \__siunitx_table_collect_get: }
-    { \__siunitx_table_print_S_direct:N }
+    { \__siunitx_table_print_S_direct: }
 }
 \cs_new_protected:Npn \__siunitx_table_collect_braced:n #1 { }
 \cs_new_protected:Npn \__siunitx_table_collect_expand:N #1 {
@@ -5675,19 +5692,14 @@
         }
     }
 }
-\cs_new_protected:Npn \__siunitx_table_collect_get: {
-  \cs_set_eq:NN \__siunitx_table_collect_next:
-    \__siunitx_table_collect_get:
-  \cs_set:Npn \__peek_execute_branches:
-    {
-      \if_catcode:w \exp_not:N \l_peek_token \c_group_begin_token
-        \exp_after:wN \__siunitx_table_collect_braced:n
-      \else:
-        \exp_after:wN \__siunitx_table_collect_not_braced:N
-      \fi:
-    }
-  \peek_after:Nw \__peek_ignore_spaces_execute_branches:
-}
+\cs_new_protected:Npn \__siunitx_table_collect_get:
+  {
+    \cs_set_eq:NN \__siunitx_table_collect_next:
+      \__siunitx_table_collect_get:
+    \peek_catcode_ignore_spaces:NTF \c_group_begin_token
+      { \__siunitx_table_collect_braced:n }
+      { \__siunitx_table_collect_not_braced:N }
+  }
 \cs_new_protected:Npn \__siunitx_table_collect_init: {
   \tl_clear:N \l__siunitx_table_collect_tl
   \tl_clear:N \l__siunitx_table_collect_pre_tl
@@ -5817,15 +5829,14 @@
         { \__siunitx_table_collect_expand:N #1 }
     }
 }
-\skip_new:N \c__siunitx_one_fill_skip
-\skip_set:Nn \c__siunitx_one_fill_skip { \c_zero_dim plus 1 fill }
+\skip_const:Nn \c__siunitx_one_fill_skip { 0pt plus 1fill }
 \AtBeginDocument
   {
     \@ifpackageloaded { colortbl }
       {
         \cs_new_protected:Npn \__siunitx_table_colortbl_correction:
           {
-            \skip_horizontal:n { \c_zero_dim plus -0.5 fill }
+            \skip_horizontal:n { 0pt plus -0.5fill }
             \tex_kern:D \c_zero_skip
           }
       }
@@ -5869,7 +5880,7 @@
               {
                   \skip_horizontal:n { \c__siunitx_one_fill_skip - ##1 }
                   \tex_kern:D \c_zero_skip
-                \hbox_set_end:
+                \c_group_end_token
                 \__siunitx_table_colortbl_correction:
               }
           }
@@ -5883,7 +5894,7 @@
       center             .code:n =
         {
           \skip_set:Nn \l__siunitx_table_unit_align_skip
-            { \c_zero_dim plus 0.5 fill }
+            { 0pt plus 0.5fill }
         },
     table-unit-alignment /
       left               .code:n =
@@ -5892,7 +5903,7 @@
         right            .code:n =
           {
             \skip_set:Nn \l__siunitx_table_unit_align_skip
-              { \c_zero_dim plus 1 fill }
+              { 0pt plus 1fill }
           }
   }
 \keys_set:nn { siunitx } { table-unit-alignment = center }
@@ -5951,7 +5962,7 @@
       center                  .code:n     =
         {
           \skip_set:Nn \l__siunitx_table_number_align_skip
-            { \c_zero_dim plus 0.5 fill }
+            { 0pt plus 0.5fill }
           \cs_set_eq:NN \__siunitx_table_print_S_direct_main:
             \__siunitx_table_print_S_direct_reserved:
           \cs_set_eq:NN \__siunitx_table_print_S_parsed:
@@ -5961,7 +5972,7 @@
       center-decimal-marker   .code:n     =
         {
           \skip_set:Nn \l__siunitx_table_number_align_skip
-            { \c_zero_dim plus 0.5 fill }
+            { 0pt plus 0.5fill }
           \cs_set_eq:NN \__siunitx_table_print_S_direct_main:
             \__siunitx_table_print_S_direct_centered:
           \cs_set_eq:NN \__siunitx_table_print_S_parsed:
@@ -5980,7 +5991,7 @@
       right                 .code:n     =
         {
           \skip_set:Nn \l__siunitx_table_number_align_skip
-            { \c_zero_dim plus 1 fill }
+            { 0pt plus 1fill }
           \cs_set_eq:NN \__siunitx_table_print_S_direct_main:
             \__siunitx_table_print_S_direct_reserved:
           \cs_set_eq:NN \__siunitx_table_print_S_parsed:
@@ -5993,7 +6004,7 @@
       center                  .code:n     =
         {
           \skip_set:Nn \l__siunitx_table_text_align_skip
-            { \c_zero_dim plus 0.5 fill }
+            { 0pt plus 0.5fill }
         },
     table-text-alignment /
       left                    .code:n     =
@@ -6002,7 +6013,7 @@
       right                   .code:n     =
         {
           \skip_set:Nn \l__siunitx_table_text_align_skip
-            { \c_zero_dim plus 1 fill }
+            { 0pt plus 1fill }
         },
     table-comparator          .choice:,
     table-comparator /
@@ -6014,7 +6025,7 @@
     table-comparator          .default:n  = true,
     table-figures-decimal     .code:n     =
       {
-        \int_compare:nNnTF {#1} = \c_zero
+        \int_compare:nNnTF {#1} = 0
           {
             \prop_remove:Nn \l__siunitx_table_model_prop { mantissa-decimal }
             \prop_remove:Nn \l__siunitx_table_model_prop { mantissa-decimal-raw }
@@ -6039,7 +6050,7 @@
       },
     table-figures-exponent    .code:n     =
       {
-        \int_compare:nNnTF {#1} = \c_zero
+        \int_compare:nNnTF {#1} = 0
           { \prop_remove:Nn \l__siunitx_table_model_prop { exponent-integer } }
           {
             \prop_put:Nnx \l__siunitx_table_model_prop { exponent-integer }
@@ -6049,7 +6060,7 @@
       },
     table-figures-integer     .code:n     =
       {
-        \int_compare:nNnTF {#1} = \c_zero
+        \int_compare:nNnTF {#1} = 0
           {
             \prop_remove:Nn \l__siunitx_table_model_prop { mantissa-integer }
             \prop_if_in:NnTF \l__siunitx_table_model_prop { mantissa-decimal }
@@ -6067,7 +6078,7 @@
       },
     table-figures-uncertainty .code:n     =
       {
-        \int_compare:nNnTF {#1} = \c_zero
+        \int_compare:nNnTF {#1} = 0
           { \prop_remove:Nn \l__siunitx_table_model_prop { mantissa-uncertainty } }
           {
             \prop_put:Nnx \l__siunitx_table_model_prop { mantissa-uncertainty }
@@ -6103,6 +6114,8 @@
   {
     table-format .code:n    =
       {
+        \bool_set_eq:NN \l__siunitx_process_plus_saved_bool \l__siunitx_process_plus_bool
+        \bool_set_true:N \l__siunitx_process_plus_bool
         \__siunitx_number_in_parse:n {#1}
         \prop_set_eq:NN \l__siunitx_table_model_prop \l__siunitx_number_in_prop
         \tl_clear:N \l__siunitx_tmpa_tl
@@ -6124,17 +6137,37 @@
             \clist_put_right:Nx \l__siunitx_tmpa_tl
               { table-figures-uncertainty = \l__siunitx_tmpb_tl }
           }
+        \prop_if_in:NnTF \l__siunitx_number_in_prop { mantissa-sign }
+          {
+            \clist_put_right:Nn \l__siunitx_tmpa_tl
+              { table-sign-mantissa =true }
+          }
+          {
+            \clist_put_right:Nn \l__siunitx_tmpa_tl
+              { table-sign-mantissa =false }
+          }
         \prop_get:NnNT \l__siunitx_number_in_prop { exponent-integer }
           \l__siunitx_tmpb_tl
           {
             \clist_put_right:Nx \l__siunitx_tmpa_tl
               { table-figures-exponent = \l__siunitx_tmpb_tl }
           }
+        \prop_if_in:NnTF \l__siunitx_number_in_prop { exponent-sign }
+          {
+            \clist_put_right:Nn \l__siunitx_tmpa_tl
+              { table-sign-exponent =true }
+          }
+          {
+            \clist_put_right:Nn \l__siunitx_tmpa_tl
+              { table-sign-exponent =false }
+          }
         \clist_put_right:Nn \l__siunitx_tmpa_tl
           { table-number-alignment = center }
         \keys_set:nV { siunitx } \l__siunitx_tmpa_tl
+        \bool_set_eq:NN \l__siunitx_process_plus_bool \l__siunitx_process_plus_saved_bool
       }
   }
+\bool_new:N \l__siunitx_process_plus_saved_bool
 \cs_new_protected:Npn \__siunitx_table_print_S:
   {
     \bool_if:NTF \l__siunitx_table_collect_pre_bool
@@ -6229,9 +6262,7 @@
           {
               \l__siunitx_table_result_dim
             - \l__siunitx_table_integer_dim
-             \prop_if_in:NnT \l__siunitx_number_out_prop
-               { mantissa-decimal-marker }
-               { - \l__siunitx_table_marker_dim }
+            - \l__siunitx_table_marker_dim
           }
         \dim_compare:nNnTF \l__siunitx_table_integer_dim >
           \l__siunitx_table_fill_pre_dim
@@ -6255,6 +6286,7 @@
     \dim_compare:nNnT
       { \box_wd:N \l__siunitx_table_pre_box } = \c_zero_dim
       {
+        \box_clear:N \l__siunitx_table_pre_box
         \l__siunitx_table_collect_pre_tl
         \bool_set_false:N \l__siunitx_font_set_bool
       }
@@ -6382,6 +6414,7 @@
     \dim_compare:nNnT
       { \box_wd:N \l__siunitx_table_pre_box } = \c_zero_dim
       {
+        \box_clear:N \l__siunitx_table_pre_box
         \l__siunitx_table_collect_pre_tl
         \bool_set_false:N \l__siunitx_font_set_bool
       }
@@ -6673,19 +6706,11 @@
         - \box_wd:N \l__siunitx_tmp_box
       }
   }
-\cs_new_protected:Npn \__siunitx_table_print_S_direct:N #1
+\cs_new_protected:Npn \__siunitx_table_print_S_direct:
   {
-    #1
-    \cs_set:Npn \__peek_execute_branches:
-      {
-        \if_catcode:w \exp_not:N \l_peek_token \c_group_begin_token
-          \exp_after:wN \__siunitx_table_print_S_direct_text:n
-        \else:
-          \m@th
-          \exp_after:wN \__siunitx_table_print_S_direct_main:
-        \fi:
-      }
-    \peek_after:Nw \__peek_ignore_spaces_execute_branches:
+    \peek_catcode_ignore_spaces:NTF \c_group_begin_token
+      { \__siunitx_table_print_S_direct_text:n }
+      { \__siunitx_table_print_S_direct_main: }
   }
 \cs_new_protected:Npn \__siunitx_table_print_S_direct_text:n #1
   {
@@ -6702,30 +6727,28 @@
     \hbox_set_to_wd:Nnn \l__siunitx_table_post_box
       { \box_wd:N \l__siunitx_tmp_box }
       { \tex_hfil:D }
-    \hbox_set:Nn \l__siunitx_table_pre_box
-      \c_group_begin_token
-        \c_math_toggle_token
-        \tl_map_function:NN \l__siunitx_input_decimal_tl
-          \__siunitx_table_print_S_direct_centered_aux:N
+    \hbox_set:Nw \l__siunitx_table_pre_box
+      \c_math_toggle_token
+      \tl_map_function:NN \l__siunitx_input_decimal_tl
+        \__siunitx_table_print_S_direct_centered_aux:N
   }
 \cs_new_protected:Npn \__siunitx_table_print_S_direct_centered_aux:N #1
   {
     \char_set_active_eq:NN #1 \__siunitx_table_print_S_direct_centered_begin:
     \char_set_mathcode:nn { `#1 } { "8000 }
   }
-\cs_new_protected_nopar:Npn \__siunitx_table_print_S_direct_centered_begin:
+\cs_new_protected:Npn \__siunitx_table_print_S_direct_centered_begin:
   {
-    \c_math_toggle_token
-    \c_group_end_token
-    \hbox_set:Nn \l__siunitx_table_post_box
-      \c_group_begin_token
-        \c_math_toggle_token
-        \l__siunitx_output_decimal_tl
+      \c_math_toggle_token
+    \hbox_set_end:
+    \hbox_set:Nw \l__siunitx_table_post_box
+      \c_math_toggle_token
+      \l__siunitx_output_decimal_tl
   }
 \cs_new_protected:Npn \__siunitx_table_print_S_direct_centered_end:
   {
       \c_math_toggle_token
-    \c_group_end_token
+    \hbox_set_end:
     \dim_compare:nNnTF
       { \box_wd:N \l__siunitx_table_pre_box } >
         { \box_wd:N \l__siunitx_table_post_box }
@@ -6781,8 +6804,7 @@
     \hbox_set_to_wd:Nnn \l__siunitx_table_post_box
       { \box_wd:N \l__siunitx_tmp_box }
       { \tex_hfil:D }
-    \hbox_set_to_wd:Nnn \l__siunitx_table_pre_box
-      { \l__siunitx_table_integer_dim }
+    \tex_setbox:D \l__siunitx_table_pre_box \tex_hbox:D to \l__siunitx_table_integer_dim
       \c_group_begin_token
         \c_math_toggle_token
         \tl_map_function:NN \l__siunitx_input_decimal_tl
@@ -6794,12 +6816,11 @@
     \char_set_active_eq:NN #1 \__siunitx_table_print_S_direct_reserved_begin:
     \char_set_mathcode:nn { `#1 } { "8000 }
   }
-\cs_new_protected_nopar:Npn \__siunitx_table_print_S_direct_reserved_begin:
+\cs_new_protected:Npn \__siunitx_table_print_S_direct_reserved_begin:
   {
       \c_math_toggle_token
     \c_group_end_token
-    \hbox_set_to_wd:Nnn \l__siunitx_table_post_box
-      { \box_wd:N \l__siunitx_tmp_box }
+    \tex_setbox:D \l__siunitx_table_post_box \tex_hbox:D to \box_wd:N \l__siunitx_tmp_box
       \c_group_begin_token
         \c_math_toggle_token
         \l__siunitx_output_decimal_tl
@@ -6853,7 +6874,7 @@
                   { }
                   {
                     \__siunitx_option_unchanged:Nnn \l__siunitx_ohm_text_tl
-                      { \ensuremath { \c__siunitx_omega_tl } }
+                      { \ensuremath { \g__siunitx_omega_tl } }
                       { \textohm }
                   }
               }
@@ -6871,7 +6892,7 @@
         \@ifpackageloaded { upgreek }
           {
             \__siunitx_option_unchanged:Nnn \l__siunitx_ohm_math_tl
-              { \text { \ensuremath { \c__siunitx_omega_tl } } }
+              { \text { \ensuremath { \g__siunitx_omega_tl } } }
               { \Upomega }
           }
           { }
@@ -6893,7 +6914,7 @@
   math-celsius   = { } ^ { \circ } \kern - \scriptspace \__siunitx_unit_mathrm:n { C } ,
   math-degree    = { } ^ { \circ },
   math-micro     = \text { \c__siunitx_mu_tl },
-  math-ohm       = \text { \ensuremath { \c__siunitx_omega_tl } },
+  math-ohm       = \text { \ensuremath { \g__siunitx_omega_tl } },
 }
 \keys_define:nn { siunitx } {
   text-angstrom  .tl_set:N = \l__siunitx_angstrom_text_tl,
@@ -6912,7 +6933,7 @@
     \ensuremath { { } ^ { \circ } } \kern -\scriptspace C ,
   text-degree    = \ensuremath { { } ^ { \circ } },
   text-micro     = \c__siunitx_mu_tl ,
-  text-ohm       = \ensuremath { \c__siunitx_omega_tl },
+  text-ohm       = \ensuremath { \g__siunitx_omega_tl },
 }
 \cs_new_protected:Npn \__siunitx_symbol_new:n #1
   {
@@ -6940,12 +6961,10 @@
     \@ifpackageloaded { fontspec }
       {
         \int_const:Nn \c__siunitx_degree_int    { 176 }
-        \@ifpackageloaded { unicode-math }
-          { \int_const:Nn \c__siunitx_micro_int { "003BC } }
-          { \int_const:Nn \c__siunitx_micro_int { "000B5 } }
+        \int_const:Nn \c__siunitx_micro_int     { "000B5 }
         \int_const:Nn \c__siunitx_angstrom_int  { "0212B }
         \int_const:Nn \c__siunitx_ohm_int       { "003A9 }
-        \bool_if:NT \c_sys_engine_xetex_bool
+        \sys_if_engine_xetex:T
           {
             \__siunitx_option_unchanged:Nnn \l__siunitx_angstrom_math_tl
               { \text { \AA } }
@@ -6964,9 +6983,9 @@
           { \text { \c__siunitx_mu_tl } }
           { \tex_char:D \c__siunitx_micro_int }
         \__siunitx_option_unchanged:Nnn \l__siunitx_ohm_math_tl
-          { \text { \ensuremath { \c__siunitx_omega_tl } } }
+          { \text { \ensuremath { \g__siunitx_omega_tl } } }
           { \tex_char:D \c__siunitx_ohm_int }
-        \bool_if:NT \c_sys_engine_xetex_bool
+        \sys_if_engine_xetex:T
           {
             \__siunitx_option_unchanged:Nnn \l__siunitx_angstrom_text_tl
               { \AA }
@@ -6988,7 +7007,7 @@
           { \c__siunitx_mu_tl }
           { \tex_char:D \c__siunitx_micro_int }
         \__siunitx_option_unchanged:Nnn \l__siunitx_ohm_text_tl
-          { \ensuremath { \c__siunitx_omega_tl } }
+          { \ensuremath { \g__siunitx_omega_tl } }
           { \tex_char:D \c__siunitx_ohm_int }
       }
       { }
@@ -7031,13 +7050,10 @@
     { set~thousands~separator = { \exp_not:V \l__siunitx_group_sep_tl } }
   \clist_put_right:Nx \l__siunitx_pgf_link_clist
     {
-       min~exponent~for~1000~sep = \int_eval:n { \l__siunitx_group_min_int - \c_one }
+       min~exponent~for~1000~sep = \int_eval:n { \l__siunitx_group_min_int - 1 }
     }
-  \bool_if:nF
-    {
-      \l__siunitx_group_decimal_bool ||
-      \l__siunitx_group_integer_bool
-    }
+  \bool_lazy_or:nnF
+    { \l__siunitx_group_decimal_bool } { \l__siunitx_group_integer_bool }
     {
       \clist_put_right:Nn \l__siunitx_pgf_link_clist
         { min~exponent~for~1000~sep = 999 }
@@ -7070,6 +7086,9 @@
 \msg_new:nnnn { siunitx } { bad-arc-sign }
   { Incorrect~use~of~sign~in~degree-minute-second~angle. }
   { Only~the~highest~value~part~of~an~angle~can~have~a~sign. }
+\msg_new:nnnn { siunitx } { color-not-loaded }
+  { Package~"color"~not~loaded. }
+  { The~command~\token_to_str:N \color \ is~not~available. }
 \msg_new:nnnn { siunitx } { duplicate-complex-root-token }
   { Duplicate~complex~root~token~'#1'~in~input. }
   { Only~one~complex~root~token~can~appear~in~a~single~number. }
@@ -7351,7 +7370,7 @@
             \cs_set_eq:NN \label    \use_none:n
             \cs_set_eq:NN \index    \use_none:n
             \cs_set_eq:NN \glossary \use_none:n
-            \seq_map_inline:Nn \l__siunitx_declare_list_seq
+            \seq_map_inline:Nn \l_siunitx_unit_symbolic_seq
               { \__siunitx_contents_add:N ##1 }
           }
           { \token_to_str:N \@writefile {#1} {#2} }
@@ -7367,17 +7386,17 @@
   }
 \cs_new_protected:Npn \__siunitx_contents_bookmarks:
   {
-    \seq_map_inline:Nn \l__siunitx_declare_list_seq
+    \seq_map_inline:Nn \l_siunitx_unit_symbolic_seq
       { \__siunitx_unit_print_literal_aux:N ##1 }
     \cs_if_exist:NT \FB@fg
       { \cs_set_eq:NN \fg \FB@fg }
     \msg_redirect_name:nnn { xparse } { redefine-command } { none }
-    \cs_set_eq:NN \num      \__siunitx_bookmark_num:w
-    \cs_set_eq:NN \numrange \__siunitx_bookmark_numrange:w
-    \cs_set_eq:NN \si       \__siunitx_bookmark_si:w
-    \cs_set_eq:NN \SI       \__siunitx_bookmark_SI:w
-    \cs_set_eq:NN \SIrange  \__siunitx_bookmark_SIrange:w
-    \cs_set_eq:NN \si       \__siunitx_bookmark_si:w
+    \cs_set_eq:NN \num      \numInBookmark
+    \cs_set_eq:NN \numrange \numrangeInBookmark
+    \cs_set_eq:NN \si       \siInBookmark
+    \cs_set_eq:NN \SI       \SIInBookmark
+    \cs_set_eq:NN \SIrange  \SIrangeInBookmark
+    \cs_set_eq:NN \si       \siInBookmark
     \cs_set_eq:NN \highlight \use_ii:nn
     \cs_set_eq:NN \__siunitx_textsuperscript:n \use:n
     \cs_set:Npn \SIUnitSymbolAngstrom  { \AA }
@@ -7388,16 +7407,16 @@
     \cs_set:Npn \SIUnitSymbolMicro     { \textmu }
     \cs_set:Npn \SIUnitSymbolOhm       { [ohm] }
   }
-\DeclareExpandableDocumentCommand \__siunitx_bookmark_num:w { o m } {#2}
-\DeclareExpandableDocumentCommand \__siunitx_bookmark_numrange:w { o m m }
+\DeclareExpandableDocumentCommand \numInBookmark { o m } {#2}
+\DeclareExpandableDocumentCommand \numrangeInBookmark { o m m }
   { #2 \l__siunitx_range_phrase_tl #3 }
-\DeclareExpandableDocumentCommand \__siunitx_bookmark_SI:w { o m o m }
+\DeclareExpandableDocumentCommand \SIInBookmark { o m o m }
   { \IfNoValueF {#3} {#3} #2 ~ #4 }
-\DeclareExpandableDocumentCommand \__siunitx_bookmark_SIlist:w
+\DeclareExpandableDocumentCommand \SIlistInBookmark
   { o m m } { \__siunitx_bookmark_SIlist_map:nn {#1} {#2} }
-\DeclareExpandableDocumentCommand \__siunitx_bookmark_SIrange:w
+\DeclareExpandableDocumentCommand \SIrangeInBookmark
   { o m m m } { #2 ~ #4 \l__siunitx_range_phrase_tl #3 ~ #4 }
-\DeclareExpandableDocumentCommand \__siunitx_bookmark_si:w { o m } {#2}
+\DeclareExpandableDocumentCommand \siInBookmark { o m } {#2}
 \cs_new:Npn \__siunitx_bookmark_SIlist_map:nn #1#2 {
   \__siunitx_bookmark_SIlist_map_aux:nw {#2} #1 ; \q_recursion_tail ;
     \q_recursion_tail ; \q_recursion_stop
@@ -7485,7 +7504,7 @@
 \DeclareSIUnit \minute  { min }
 \DeclareSIUnit \percent { \char 37 }
 \DeclareSIUnit \tonne   { t }
-\DeclareSIUnit \astronomicalunit { ua }
+\DeclareSIUnit \astronomicalunit { au }
 \DeclareSIUnit \atomicmassunit   { u }
 \DeclareSIUnit \electronvolt     { eV }
 \DeclareSIUnit \dalton           { Da }
@@ -7644,12 +7663,12 @@
         { \cs_set_eq:NN \__siunitx_load_binary: \prg_do_nothing: } ,
     binary-units  .default:n = true
   }
-\cs_new_protected_nopar:Npn \__siunitx_load_abbreviations:
+\cs_new_protected:Npn \__siunitx_load_abbreviations:
   {
     \@onefilewithoptions { siunitx-abbreviations } [ ] [ ]
       \c__siunitx_configuration_ext_tl
   }
-\cs_new_protected_nopar:Npn \__siunitx_load_binary:
+\cs_new_protected:Npn \__siunitx_load_binary:
   {
     \@onefilewithoptions { siunitx-binary } [ ] [ ]
       \c__siunitx_configuration_ext_tl
@@ -7692,7 +7711,7 @@
     { \__siunitx_unit_create_functions: }
     { \__siunitx_unit_create_empty_functions: }
 }
-%% Copyright (C) 2008-2016 by
+%% Copyright (C) 2008-2018 by
 %%   Joseph Wright <joseph.wright@morningstar2.co.uk>
 %% 
 %% It may be distributed and/or modified under the conditions of
