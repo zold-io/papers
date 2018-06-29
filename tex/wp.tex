@@ -1,10 +1,13 @@
 \documentclass[11pt,oneside]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[american]{babel}
+\usepackage{silence}
+  \WarningFilter{latex}{You have requested package}
 \usepackage{bookmark}
 \usepackage{microtype}
 \usepackage{amsmath}
 \usepackage{mdframed}
+\usepackage{siunitx}
 \usepackage{pgfplots}
 \usepackage[style=authoryear,sorting=nyt,backend=biber,
   hyperref=true,abbreviate=true,
@@ -516,8 +519,8 @@ A one-year-old wallet with 4096 transactions will pay approximately 16 ZLD taxes
 \begin{equation}
 \begin{split}
 X & = 365 \times 24 \times 4096 \times 1917z \\
-  & = \text{35880960} \times 1917z \\
-  & = \text{68783800320}z \\
+  & = \num{35880960} \times 1917z \\
+  & = \num{68783800320}z \\
   & \approx 16 \text{ZLD}.
 \end{split}
 \end{equation}

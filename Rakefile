@@ -1,6 +1,7 @@
 # encoding: utf-8
 
 require 'open3'
+require 'rainbow'
 
 def run(cmd)
   print "#{cmd} "
@@ -60,16 +61,21 @@ task :pdf do
       run("cd ../target; biber --output-directory=../target #{name}")
       run("pdflatex #{opts} #{f}")
       run("pdflatex #{opts} #{f}")
-      log = File.read("../target/#{name}.log")
-      [
-        'LaTeX Warning',
-        'Overfull ',
-        'Underfull '
-      ].each do |txt|
-        if log.include?(txt)
-          puts(log)
-          raise 'LaTeX output is not clean'
+      log = File.readlines("../target/#{name}.log")
+      colored = []
+      errors = 0
+      log.each do |line|
+        ['LaTeX Warning', 'Overfull ', 'Underfull '].each do |prefix|
+          if line.start_with?(prefix)
+            line = Rainbow(line).red
+            errors += 1
+          end
         end
+        colored << line
+      end
+      unless errors.zero?
+        puts(colored.join)
+        raise "LaTeX output is not clean, there are #{errors} errors, see above"
       end
     end
   end
