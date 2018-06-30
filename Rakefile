@@ -58,7 +58,7 @@ task :pdf do
         next
       end
       run("pdflatex #{opts} #{f}")
-      run("cd ../target; biber --output-directory=../target #{name}")
+      run("biber --output-directory=../target #{name}")
       run("pdflatex #{opts} #{f}")
       run("pdflatex #{opts} #{f}")
       log = File.readlines("../target/#{name}.log")
