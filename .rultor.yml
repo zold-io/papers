@@ -4,6 +4,7 @@ assets:
   id_rsa: "zerocracy/home#assets/blog/id_rsa"
   id_rsa.pub: "zerocracy/home#assets/blog/id_rsa.pub"
 install: |
+  sudo apt-get -y install texlive-lang-cyrillic
   bundle update
 merge:
   script: |
