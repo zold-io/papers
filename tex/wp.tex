@@ -598,45 +598,66 @@ Tron (TRX) &
 \hline
 \end{tabular}
 
+% multiple \footnotemark causes problems with the counter. We have to increment the counter by -n, where n is the number of \footnotemark we have.
+\addtocounter{footnote}{-8}
+
+% we must manually \stepcounter{footnote} for each \footnotetext
+\stepcounter{footnote}
 \footnotetext{% XMR
   \emph{Monero Transaction Fee Calculator},
   Monero.How,
   \url{https://goo.gl/sEN6PE}.
 }
+
+\stepcounter{footnote}
 \footnotetext{% BTC
   Transaction Fee Info Charts,
   \url{https://goo.gl/ozsd63}.
 }
+
+\stepcounter{footnote}
 \footnotetext{% LTC
   \emph{Understanding Default Minimum Fees},
   The Litecoin School of Crypto,
   \url{https://goo.gl/eUedqf}.
 }
+
+\stepcounter{footnote}
 \footnotetext{% DASH
   \emph{Fees},
   Dash Official Documentation,
   \url{https://goo.gl/TKRrHy}.
 }
+
+\stepcounter{footnote}
 \footnotetext{% ETH
   \emph{Ethereum Gas and Transaction Fees Explained!},
   BitFalls, May 2017,
   \url{https://goo.gl/B3ceVU}. For fairness, we are assuming only the cheaper fees for currency-only transactions, at 21000 Gas @ 4 Gwei.
 }
+
+\stepcounter{footnote}
 \footnotetext{% ICX
   \emph{FAQ},
   ICON,
   \url{https://goo.gl/cwmKDD}.
 }
+
+\stepcounter{footnote}
 \footnotetext{% ZEC
   \emph{Frequently Asked Questions},
   ZCash official website,
   \url{https://goo.gl/AHSwY8}.
 }
+
+\stepcounter{footnote}
 \footnotetext{% XRP
   \emph{Calculating the Transaction Fee},
   Ripple Wiki,
   \url{https://goo.gl/CXQt3U}.
 }
+
+\stepcounter{footnote}
 \footnotetext{% TRX
   \emph{Tron Main Net Launch},
   New Cryptocurrency---Tron,
