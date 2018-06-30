@@ -1,6 +1,8 @@
 \documentclass[11pt,oneside]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[american]{babel}
+\usepackage{silence}
+  \WarningFilter{latex}{You have requested package}
 \usepackage{bookmark}
 \usepackage{microtype}
 \usepackage{amsmath}
@@ -28,10 +30,12 @@
 \setlength{\parskip}{6pt} % before par
 
 \include{_version}
-\title{\includegraphics[scale=0.3]{../images/logo.pdf}\\Zold: A Fast Cryptocurrency for Micro Payments\\\colorbox{white}{White Paper}}
+\title{\includegraphics[scale=0.3]{../images/logo.pdf}\\
+  Zold: A Fast Cryptocurrency for Micro Payments\\
+  {\small\colorbox{white}{White Paper}}}
 \author{Yegor Bugayenko\\
   \texttt{yegor256@gmail.com}\\
-  \href{https://www.zold.io}{www.zold.io}\\[1em]
+  \href{https://www.zold.io}{\texttt{www.zold.io}}\\[1em]
   \href{https://github.com/zold-io/papers/releases/tag/\zoldversion}{\texttt{\zoldversion}}}
 
 \begin{document}
@@ -43,7 +47,7 @@ In the last few years digital currencies have successfully demonstrated
 their ability to become an alternative financial instrument in many
 different markets. Most of the technologies available at the moment are
 based on the principles of Blockchain architecture, including
-dominating currencies like Bitcoin and Etherium. Despite its
+dominating currencies like Bitcoin and Ethereum. Despite its
 popularity, Blockchain is not the best possible solution for all scenarios.
 One such example is for fast micro-payments.
 Zold is an \emph{experimental} alternative that enables distributed transactions between
@@ -70,7 +74,7 @@ of public-key cryptography'' and ``coins are transferred by the
 digital signature of a hash''~\parencite{pilkington2016}.
 Very soon after Bitcoin was created, similar products were introduced,
 which were also based on the principles of Blockchain, such as
-Etherium~\parencite{buterin2013}.
+Ethereum~\parencite{buterin2013}.
 
 Even though Blockchain is a sound solution to the double-spending
 problem, there could be other solutions,
@@ -147,7 +151,7 @@ All transactions in each ledger are confirmed by
 Section~\ref{sec:wallets} explains how this works.
 
 \textbf{Proof of Work}.
-Similar to many other digital currencies---including Bitcoin, Etherium, Monero, Trinity, Plancoin, Dero,
+Similar to many other digital currencies---including Bitcoin, Ethereum, Monero, Trinity, Plancoin, Dero,
 and many others---Zold nodes find consensus by using the CPU power invested
 by each of them to perform certain expensive and meaningless calculations that result in finding hash suffixes.
 Section~\ref{sec:score} describes the algorithm being used.
