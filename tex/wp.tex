@@ -551,64 +551,63 @@ and 1 ZLD is worth \$1. Transaction fee costs in USD are approximate and are tak
 \hline
 Cryptocurrency & Price & Date & Total cost \\
 \hline
-Monero (XMR) &
+\href{https://getmonero.org/}{XMR} &
    Variable\footnotemark &
    June 28, 2018 &
    \$1070 \\
-Bitcoin (BTC) &
+\href{https://bitcoin.org}{BTC} &
   43 sats/byte\footnotemark &
   June 26, 2018 &
   \$524 \\
-Litecoin (LTC) &
+\href{https://litecoin.org/}{LTC} &
   0.0001 LTC/kB\footnotemark &
   June 28, 2018 &
   \$94 \\
-Dash (DASH) &
+\href{https://www.dash.org/}{DASH} &
   0.00001--0.001 DASH\footnotemark &
   June 28, 2018 &
   \$58 \\
-Ethereum (ETH) &
+\href{https://www.ethereum.org/}{ETH} &
   Gas\footnotemark &
   June 28, 2018 &
   \$36 \\
-Icon (ICX) &
+\href{https://icon.foundation/}{ICX} &
   0.01 ICX\footnotemark &
   June 28, 2018 &
   \$15 \\
-Ripple (XRP) &
+\href{https://ripple.com/xrp/}{XRP} &
    Variable\footnotemark &
    June 28, 2018 &
    \$12 \\
-Bitcoin Cash (BCH) &
+\href{https://www.bitcoincash.org/}{BCH} &
   1 sat/byte &
   June 21, 2018 &
   \$9 \\
-ZCash (ZEC) &
+\href{https://z.cash/}{ZEC} &
    0.0001 ZEC\footnotemark &
    June 28, 2018 &
    \$4 \\
-Zold (ZLD) &
+\href{http://www.zold.io/}{ZLD} &
   32 zents/TH &
   \today &
   \$4 \\
-Tron (TRX) &
+\href{https://tron.network/}{TRX} &
   0.00001 TRX\footnotemark &
   June 28, 2018 &
   \$0.23 \\
 \hline
 \end{tabular}
 
-% multiple \footnotemark causes problems with the counter. We have to increment the counter by -n, where n is the number of \footnotemark we have.
+% multiple \footnotemark causes problems with the counter. We have to increment the counter by -(n-1), where n is the number of \footnotemark we have.
 \addtocounter{footnote}{-8}
 
-% we must manually \stepcounter{footnote} for each \footnotetext
-\stepcounter{footnote}
 \footnotetext{% XMR
   \emph{Monero Transaction Fee Calculator},
   Monero.How,
   \url{https://goo.gl/sEN6PE}.
 }
 
+% we must manually \stepcounter{footnote}
 \stepcounter{footnote}
 \footnotetext{% BTC
   Transaction Fee Info Charts,
