@@ -8,3 +8,4 @@ wp.run.xml
 .DS_Store
 target/
 Gemfile.lock
+missfont.log

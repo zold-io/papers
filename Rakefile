@@ -75,7 +75,7 @@ task :pdf do
       end
       unless errors.zero?
         puts(colored.join)
-        raise "LaTeX output is not clean, there are #{errors} errors, see above"
+        raise "LaTeX output is not clean for #{f}, there are #{errors} errors, see above"
       end
     end
   end
