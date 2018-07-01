@@ -58,9 +58,13 @@ task :pdf do
         next
       end
       run("pdflatex #{opts} #{f}")
-      run("biber --output-directory=../target #{name}")
-      run("pdflatex #{opts} #{f}")
-      run("pdflatex #{opts} #{f}")
+      if File.exist?("../target/#{name}.bcf")
+        run("biber --output-directory=../target #{name}")
+        run("pdflatex #{opts} #{f}")
+        run("pdflatex #{opts} #{f}")
+      else
+        puts 'No need to run biber'
+      end
       log = File.readlines("../target/#{name}.log")
       colored = []
       errors = 0
