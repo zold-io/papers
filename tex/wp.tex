@@ -290,6 +290,11 @@ separated by spaces:
 \item The invoice.
 \end{enumerate}
 
+The host name and the IP are used in the prefix in order to prevent Sybil attack,
+as explained by~\textcite{douceur2002},
+where one server reuses the same score multiple times at different IP addresses
+and/or TCP ports, representing itself as multiple servers.
+
 For example, the prefix may look like this:
 
 \begin{minted}{text}
