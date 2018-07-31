@@ -30,7 +30,7 @@ task :clean do
   FileUtils.rm_rf('target')
 end
 
-task :html => :pdf do
+task :html => [:pdf, :thumbs] do
   Dir['html/**/*'].each do |f|
     FileUtils.cp(f, f.gsub(/^html\//, 'target/'))
   end
@@ -39,9 +39,30 @@ task :html => :pdf do
       'index.html',
       File.read('index.html').gsub(
         'PDFs',
-        Dir['**/*.pdf'].map { |p| "<li><a href='#{p}'>#{p}</a></li>" }.join('')
+        Dir['*.pdf'].map do |p|
+          name = File.basename(p, '.pdf')
+          title = name.tr('-', ' ').split
+            .map(&:capitalize)
+            .map { |w| w.length < 4 ? w.upcase : w }
+            .join(' ')
+          "<div class='thumb'><a href='#{p}'><img src='#{name}.png'/></a><br/>#{title}</div>"
+        end.join
       )
     )
+    puts 'index.html created'
+  end
+end
+
+task :thumbs => :pdf do
+  Dir.chdir('target') do
+    Dir['*.pdf'].each do |pdf|
+      png = File.basename(pdf, '.pdf') + '.png'
+      if File.exist?(png) && File.mtime(png) > File.mtime(pdf)
+        puts "Thumb is up to date: #{png}"
+        next
+      end
+      run("convert -density 300 -quality 100 #{pdf}[0] #{png}")
+    end
   end
 end
 
