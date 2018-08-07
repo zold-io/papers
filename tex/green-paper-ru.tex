@@ -1,43 +1,14 @@
-\documentclass[12pt,oneside]{article}
-\usepackage[english,russian]{babel}
-\usepackage[utf8]{inputenc}
-\usepackage[T2A]{fontenc}
-\usepackage{csquotes}
-\usepackage{bookmark}
-\usepackage{setspace}
-  \setstretch{1.05}
-\usepackage[style=authoryear,sorting=nyt,backend=biber,
-  hyperref=true,abbreviate=true,
-  maxcitenames=1,maxbibnames=1]{biblatex}
-  \renewbibmacro{in:}{}
-  \addbibresource{../main.bib}
-\usepackage{xcolor}
-  \definecolor{dgreen}{RGB}{62,100,62}
-  \definecolor{lgreen}{RGB}{249,255,249}
-  \pagecolor{lgreen}
-\usepackage{graphicx}
-\usepackage{hyperref}
-  \hypersetup{colorlinks=true,allcolors=blue!40!black}
-\setlength{\topskip}{6pt}
-\setlength{\parskip}{6pt} % before par
-
-\DeclareCiteCommand{\citea}
-  {\boolfalse{citetracker}\boolfalse{pagetracker}\usebibmacro{prenote}}
-  {\href{\thefield{url}}{\printnames{labelname}}}
-  {\multicitedelim}
-  {\usebibmacro{postnote}}
-
-\include{_version}
+\documentclass{main}
+\pagecolor{lgreen}
+\usepackage[russian]{babel}
 \title{\includegraphics[scale=0.3]{../images/logo.pdf}\\
   Zold: Новая Криптовалюта\\
   {\small\colorbox{dgreen}{\color{lgreen}{Green Paper}}}}
-\author{Егор Бугаенко\\
+\author{Yegor Bugayenko\\
   \texttt{yegor256@gmail.com}\\
   \href{https://www.zold.io}{\texttt{www.zold.io}}\\[1em]
   \href{https://github.com/zold-io/papers/releases/tag/\zoldversion}{\texttt{\zoldversion}}}
-
 \begin{document}
-\raggedbottom
 
 \maketitle
 
@@ -140,8 +111,8 @@ VISA достигает предела в 47000 tps. \citea{karame2012} утве
 появления проблемы
 \href{https://ru.wikipedia.org/wiki/%D0%94%D0%B2%D0%BE%D0%B9%D0%BD%D0%BE%D0%B5_%D1%80%D0%B0%D1%81%D1%85%D0%BE%D0%B4%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5}{двойного расходования}.
 
-В-третьих, Zold --- это цифровой премайн-актив, подобный \href{https://ripple.com/}{Ripple},
-\href{https://www.cardano.org/en/home/}{Cardano},
+В-третьих, Zold --- это цифровой премайн-актив, подобный \href{https://ripple.com/}{Rip\-ple},
+\href{https://www.cardano.org/en/home/}{Car\-da\-no},
 \href{https://www.stellar.org/}{Stellar},
 \href{https://neo.org/}{NEO} и некоторым другим криптовалютам.
 Zold алгоритмически ограничивает свой общий

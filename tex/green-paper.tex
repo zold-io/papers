@@ -1,42 +1,14 @@
-\documentclass[12pt,oneside]{article}
-\usepackage[utf8]{inputenc}
+\documentclass{main}
+\pagecolor{lgreen}
 \usepackage[american]{babel}
-\usepackage{bookmark}
-\usepackage{microtype}
-\usepackage{setspace}
-  \setstretch{1.15}
-\usepackage[style=authoryear,sorting=nyt,backend=biber,
-  hyperref=true,abbreviate=true,
-  maxcitenames=1,maxbibnames=1]{biblatex}
-  \renewbibmacro{in:}{}
-  \addbibresource{../main.bib}
-\usepackage{xcolor}
-  \definecolor{dgreen}{RGB}{62,100,62}
-  \definecolor{lgreen}{RGB}{249,255,249}
-  \pagecolor{lgreen}
-\usepackage{graphicx}
-\usepackage{hyperref}
-  \hypersetup{colorlinks=true,allcolors=blue!40!black}
-\setlength{\topskip}{6pt}
-\setlength{\parskip}{6pt} % before par
-
-\DeclareCiteCommand{\citea}
-  {\boolfalse{citetracker}\boolfalse{pagetracker}\usebibmacro{prenote}}
-  {\href{\thefield{url}}{\printnames{labelname}}}
-  {\multicitedelim}
-  {\usebibmacro{postnote}}
-
-\include{_version}
 \title{\includegraphics[scale=0.3]{../images/logo.pdf}\\
-  Zold: A New Cryptocurrency\\
+  Zold: A Fast Cryptocurrency for Micro Payments\\
   {\small\colorbox{dgreen}{\color{lgreen}{Green Paper}}}}
 \author{Yegor Bugayenko\\
   \texttt{yegor256@gmail.com}\\
   \href{https://www.zold.io}{\texttt{www.zold.io}}\\[1em]
   \href{https://github.com/zold-io/papers/releases/tag/\zoldversion}{\texttt{\zoldversion}}}
-
 \begin{document}
-\raggedbottom
 
 \maketitle
 
@@ -54,6 +26,7 @@ anonymous users, making micro-payments financially feasible and fast.
 It borrows the ``\href{https://en.wikipedia.org/wiki/Proof-of-work_system}{proof of work}'' principle from Bitcoin,
 and suggests a different architecture for digital wallet maintenance,
 explained in detail in the \href{https://papers.zold.io}{White Paper}.
+Also, read \href{https://blog.zold.io}{our blog} for more details.
 
 \pagebreak
 
