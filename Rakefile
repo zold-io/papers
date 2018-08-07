@@ -39,7 +39,7 @@ task :html => [:pdf, :thumbs] do
       'index.html',
       File.read('index.html').gsub(
         'PDFs',
-        Dir['*.pdf'].map do |p|
+        Dir['*.pdf'].sort.map do |p|
           name = File.basename(p, '.pdf')
           title = name.tr('-', ' ').split
             .map(&:capitalize)
