@@ -1,6 +1,6 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{main}[8/6/2016 Papers for Zerocracy]
-\LoadClass[11pt,oneside]{article}
+\LoadClass[12pt,oneside]{article}
 \RequirePackage[utf8]{inputenc}
 \RequirePackage[T2A]{fontenc}
 \RequirePackage{silence}
