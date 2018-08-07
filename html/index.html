@@ -32,16 +32,14 @@ SOFTWARE.
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="shortcut icon" href="//www.zold.io/images/logo.png"/>
     <link href="https://cdn.rawgit.com/yegor256/tacit/gh-pages/tacit-css.min.css" rel="stylesheet"/>
-    <link href="https://www.zold.io/0.6.4/css/home.min.css" rel="stylesheet"/>
+    <link href="https://www.zold.io/0.6.10/css/home.min.css" rel="stylesheet"/>
     <style>
       .thumbs {
         text-align: center;
       }
       .thumb {
         display: inline-block;
-        margin-left: 2em;
-        margin-right: 2em;
-        margin-bottom: 4em;
+        margin: 1em !important;
       }
       .thumb img {
         width: 150px;
@@ -56,15 +54,30 @@ SOFTWARE.
           <ul>
             <li>
               <a href="/">
-                <img src="//www.zold.io/images/logo.svg" style="width:128px;height:128px;" alt="Zold logo"/>
+                <img src="https://www.zold.io/images/logo.svg" style="width:128px;height:128px;" alt="Zold logo"/>
               </a>
             </li>
           </ul>
         </nav>
       </header>
-      <div class='thumbs'>
-        PDFs
-      <div>
+      <article>
+        <nav>
+          <ul style="text-align:justify;">
+            <li>There are a number of official documents published by
+            <a href="https://www.zerocracy.com">Zerocracy</a>
+            in relation to its projects, including <a href="https://www.zold.io">Zold</a>,
+            an experimental cryptocurrency. If you find a typo in any of them
+            or just want to contribute, feel free to submit a pull request
+            to this  <a href="https://github.com/zold-io/papers/">GitHub repository</a>
+            (the LaTeX sources are in the <code>/tex</code> directory).
+          </ul>
+        </nav>
+        <nav>
+          <ul class='thumbs'>
+            PDFs
+          </ul>
+        </nav>
+      </article>
       <footer>
         <nav>
           <ul>

@@ -45,7 +45,7 @@ task :html => [:pdf, :thumbs] do
             .map(&:capitalize)
             .map { |w| w.length < 4 ? w.upcase : w }
             .join(' ')
-          "<div class='thumb'><a href='#{p}'><img src='#{name}.png'/></a><br/>#{title}</div>"
+          "<li class='thumb'><a href='#{p}'><img src='#{name}.png'/></a><br/>#{title}</li>"
         end.join
       )
     )
