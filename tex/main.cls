@@ -30,6 +30,7 @@
 \RequirePackage{xcolor}
   \definecolor{dgreen}{RGB}{62,100,62}
   \definecolor{lgreen}{RGB}{249,255,249}
+  \definecolor{dred}{RGB}{139,0,0}
 \newcommand\dd[1]{\colorbox{gray!30}{\texttt{#1}}}
 \RequirePackage{hyperref}
   \hypersetup{colorlinks=true,allcolors=blue!40!black}
