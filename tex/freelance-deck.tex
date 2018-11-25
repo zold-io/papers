@@ -3,6 +3,7 @@
 \usepackage[american]{babel}
 \usepackage{merriweather}
 \pagestyle{empty}
+\usepackage{tabularx}
 \usepackage{tikz}
   \usetikzlibrary{shapes}
   \usetikzlibrary{arrows}
@@ -456,6 +457,60 @@ Zerocracy in order to apply XDSD to the growing market of freelancers.
     we discuss how the platform works, resolves issues, and provide help
     to newcomers.}
 \end{multicols}}
+
+\slide{
+  How Much Does It Cost?
+  \vspace{1em}
+
+  \begin{tikzpicture}
+    \node (invoice) {
+      \definecolor{paper}{HTML}{DBCFB0}
+      \fcolorbox{gray}{paper}{\begin{minipage}{10em}
+        \normalsize\ttfamily
+        \begin{tabularx}{\textwidth}{lXr}
+        \multicolumn{2}{l}{Invoice \#555, Week \#35 of 2018} \\
+        \\
+        \multicolumn{2}{l}{Paid to: Zerocracy Inc.} \\
+        \multicolumn{2}{l}{555 Bryant Str, Ste 470} \\
+        \multicolumn{2}{l}{Palo Alto, CA 94301} \\
+        \\
+        No. & Description & Total \\
+        \multicolumn{3}{r}{---} \\
+        1 & Container.java fixed & \$17.50 \\
+        2 & Broken ecryption reported & \$18.40 \\
+        3 & Page title fixed and tested & \$12.00 \\
+        4 & Image compression works & \$30.88 \\
+        5 & Memory leak in Save.rb fixed & \$23.30 \\
+        6 & Lucene indexing prototyped & \$77.00 \\
+        7 & Integration test added & \$98.70 \\
+        ... \\
+        278 & SVG reformatted and tested & \$54.90 \\
+        279 & Broken build fixed & \$24.60 \\
+        \multicolumn{3}{r}{---} \\
+        \multicolumn{2}{r}{Total:} & (\$32,768) \\
+        \multicolumn{2}{r}{Management fee:} & (\$8,918) \\
+        \multicolumn{2}{r}{Deposit:} & \$18,900 \\
+        \multicolumn{2}{r}{Balance:} & (\$22,786) \\
+        \end{tabularx}
+      \end{minipage}}
+    };
+    \node [anchor=east]  at (invoice.west) {
+      \begin{minipage}{4em}\normalsize\raggedleft
+        All microtasks are transparently visible in the final
+        weekly invoice; the customer's funds are sent directly
+        to freelancers without any markup.
+      \end{minipage}
+    };
+    \node [anchor=west] at (invoice.east) {
+      \begin{minipage}{4em}\normalsize\raggedright
+        Zerocracy charges a fixed commission per each microtask
+        successfully closed by freelancers (aka ``management fee''). At the moment the fee
+        is \$8.00 per microtask. The management fee usually equals to 25\% of
+        what is paid to freelancers.
+      \end{minipage}
+    };
+  \end{tikzpicture}
+}
 
 \slide{
   Why Evolutionary Transition Is Hard?
