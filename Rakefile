@@ -88,19 +88,20 @@ task :pdf do
       end
       log = File.readlines("../target/#{name}.log")
       colored = []
-      errors = 0
+      errors = []
       log.each do |line|
         ['LaTeX Warning', 'Overfull ', 'Underfull '].each do |prefix|
           if line.start_with?(prefix)
+            errors << line
             line = Rainbow(line).red
-            errors += 1
           end
         end
         colored << line
       end
-      unless errors.zero?
+      unless errors.empty?
         puts(colored.join)
-        raise "LaTeX output is not clean for #{f}, there are #{errors} errors, see above"
+        puts errors.join("\n")
+        raise "LaTeX output is not clean for #{f}, there are #{errors.count} errors, see above"
       end
     end
   end
