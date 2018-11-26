@@ -1,0 +1,40 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesClass{deck}[8/6/2016 Slides for Zerocracy]
+\LoadClass{article}
+\RequirePackage[utf8]{inputenc}
+\RequirePackage{silence}
+  \WarningFilter{latex}{You have requested package}
+\RequirePackage{microtype}
+\RequirePackage{multicol}
+\RequirePackage[landscape]{geometry}
+\RequirePackage{hyperref}
+  \hypersetup{colorlinks=true,allcolors=zlightblue}
+\RequirePackage{xcolor}
+  \definecolor{zred}{HTML}{6A041D}
+  \definecolor{zgreen}{HTML}{386150}
+  \definecolor{zblue}{HTML}{27213C}
+  \definecolor{zlightblue}{HTML}{476C9B}
+\RequirePackage{tabularx}
+\RequirePackage{tikz}
+  \usetikzlibrary{shapes}
+  \usetikzlibrary{arrows}
+  \usetikzlibrary{shadows}
+  \usetikzlibrary{trees}
+  \usetikzlibrary{fit}
+  \usetikzlibrary{calc}
+  \usetikzlibrary{positioning}
+  \usetikzlibrary{decorations.pathmorphing}
+\RequirePackage{graphicx}
+\RequirePackage{makecell}
+\pagestyle{empty}
+\newcommand\slide[1]{%
+  \pagebreak\topskip0pt\vspace*{\fill}%
+  \begin{center}\Huge%
+  #1
+  \end{center}%
+  \vspace*{\fill}%
+}
+\pagecolor{white}
+\date{\today}
+\include{_version}
+\endinput
