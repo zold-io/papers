@@ -35,11 +35,14 @@
   \vspace*{\fill}%
 }
 
-\slide{\includegraphics[scale=1]{../images/zerocracy-logo.pdf}\\
-Zerocracy, Inc.\\[1em]
-\large
-Freelance Deck\\
-\href{https://www.zerocracy.com}{www.zerocracy.com}}
+\slide{
+  \includegraphics[scale=1]{../images/zerocracy-logo.pdf}\\
+  Zerocracy, Inc.
+  \\[1em]
+  \large
+  Freelance vs. Outsourcing\\
+  \href{https://www.zerocracy.com}{www.zerocracy.com}
+}
 
 \newcommand\topic[3]{\vbox{\raggedright{\normalsize\colorbox{#1}{\color{white}{#2}}}\newline\footnotesize#3\vspace{4pt}}}
 
@@ -82,11 +85,11 @@ Freelance Deck\\
       \dt{2010}{Toptal}
       \dt{2016}{\colorbox{zgreen}{\color{white}{Zerocracy}}}
     }
-\end{multicols}
-\Large
-eXtremely Distributed Software Development (\href{https://www.xdsd.org}{XDSD}) methodology was
-invented by Yegor Bugayenko in 2010. Six years later he founded
-Zerocracy in order to apply XDSD to the growing market of freelancers.
+  \end{multicols}
+  \Large
+  eXtremely Distributed Software Development (\href{https://www.xdsd.org}{XDSD}) methodology was
+  invented by Yegor Bugayenko in 2010. Six years later he founded
+  Zerocracy in order to apply XDSD to the growing market of freelancers.
 }
 
 \slide{
@@ -302,7 +305,10 @@ Zerocracy in order to apply XDSD to the growing market of freelancers.
     }
 \end{multicols}}
 
-\slide{Zerocracy has invented how to mitigate all these pitfalls and painlessly work with freelancers.}
+\slide{
+  Zerocracy has invented how to mitigate all
+  these pitfalls and painlessly work with freelancers.
+}
 
 \slide{
   How Zerocracy Does That?
@@ -376,6 +382,84 @@ Zerocracy in order to apply XDSD to the growing market of freelancers.
   will greately benefit any smart software company.}
 
 \slide{
+  How Does It Work, Technically?
+  \vspace{1em}
+
+  \large
+  \begin{tikzpicture}
+    \definecolor{rupbody}{rgb}{1,1,0.8}
+    \definecolor{rupborder}{rgb}{0.6039,0,0.2}
+    \newcommand{\actor}[3]{
+      % #1 - TIKZ name of the element
+      % #2 - coordinates
+      % #3 - text to render
+      % for example: \actor{alex}{2,2}{Alex Smith}
+      \node [outer sep=-1mm] at (#2) (#1) {
+        \tikz \draw [thick] (0,0) -- +(0,-0.5) % body
+          -- +(-0.5,-1) % left leg
+          +(0,-0.5) -- +(0.5,-1) % right leg
+          +(-0.5,-0.1) -- +(0.5,-0.1) % hands
+          +(0,+0.25) circle (0.25) %head
+          +(0,-1) node [anchor=north] {#3};
+      };
+    }
+    \newcommand{\pack}[3]{
+      % #1 - TIKZ name of the element
+      % #2 - coordinates
+      % #3 - text to render
+      % for example: \pack{tickets}{2,2}{Tickets}
+      \node [outer sep=1mm] at (#2) (#1) {
+        \begin{tikzpicture}
+          \draw
+            (0,0) node [block, text=rupbody] {#3}
+            +(0.07,0.07) node [block, text=rupbody] {#3}
+            +(0.14,0.14) node [block] {#3};
+        \end{tikzpicture}
+      };
+    }
+    \tikzstyle{block} = [draw=rupborder, fill=rupbody, inner sep=0.4cm, thick];
+    \tikzstyle{ln} = [->, very thick];
+    \pack{farm}{8,13.5}{
+      \begin{minipage}{12em}
+        \texttt{Farm}\\[1em]
+        \footnotesize\raggedright
+        There is a collection of 150+ micro
+        robots, also known as stakeholders,
+        which perform individual management operations;
+        the more complex is the Policy, the bigger the number
+        of stakeholders.
+      \end{minipage}
+    };
+    \node[block] (hub) at +(8,8) {
+      \begin{minipage}{14em}
+        \texttt{Hub}\\[1em]
+        \footnotesize\raggedright
+        There are multiple chat platforms and ticket tracking systems, which
+        allow chat bots to talk to people (Zerocrat will be available in all of them eventually):\\[1em]
+        \includegraphics[height=3em]{../images/github.pdf}
+        \includegraphics[height=3em]{../images/telegram.pdf}
+        \includegraphics[height=3em]{../images/slack.pdf}
+        \includegraphics[height=3em]{../images/jira.pdf}
+        \includegraphics[height=3em]{../images/trello.pdf}
+      \end{minipage}
+    };
+    \node[block] (radars) at +(8,10) {\texttt{Radars}};
+    \actor{po}{1,8}{\texttt{Product Owner}};
+    \actor{arc}{15,10}{\texttt{Architect}};
+    \actor{dev}{17,6}{\texttt{Developers}};
+    \draw [ln] (farm) -- (radars);
+    \draw [ln] (po) -- node [fill=white, draw=rupborder] {1} (hub);
+    \draw [ln] (arc) -- node [fill=white, draw=rupborder] {2} (hub);
+    \draw [ln] (dev) -- node [fill=white, draw=rupborder] {3}  (hub);
+  \end{tikzpicture}
+
+  \raggedright
+  1) The Product Owner submits requirements as tickets;
+  2) The Architect reviews all new tickets and approves correct ones;
+  3) Developers implement the requirements, close tickets, and submit new ones.
+}
+
+\slide{
   What About Security And IPR?
   \begin{multicols}{3}
   \topic{zblue}{NDAs}{
@@ -394,7 +478,7 @@ Zerocracy in order to apply XDSD to the growing market of freelancers.
 
   \topic{zblue}{KYC}{
     Each freelancer passes a mandatory online identification procedure, via
-    of our sub-contractors, for example Yoti (based in UK); full document
+    one of our sub-contractors, for example \href{https://www.yoti.com}{Yoti} (based in UK); full document
     identification is required in order to start working in a real project.
   }
 
@@ -604,10 +688,25 @@ Zerocracy in order to apply XDSD to the growing market of freelancers.
 
 
 \slide{%
-  \Large 555 Bryant Str, Ste 470\\
-  \Large Palo Alto, CA 94301\\
-  \Large 408.692.4742\\
-  \Large \href{mailto:team@zerocracy.com}{team@zerocracy.com}\\[1em]
-  \normalsize\texttt{\zoldversion\qquad\today}}
+  \Large
+    \href{https://twitter.com/0crat}{Twitter}
+    \quad
+    \href{https://facebook.com/zerocracy}{Facebook}
+    \quad
+    \href{https://www.zerocracy.com/blog.html}{Blog}
+  \\[1em]
+  \Large
+    \href{https://papers.zold.io/zerocracy-deck.pdf}{Pitch Deck}
+    \quad
+    \href{https://papers.zold.io/executive-summary.pdf}{Executive Summary}
+  \\[1em]
+  \Large
+    555 Bryant Str, Ste 470\\
+    Palo Alto, CA 94301\\
+    408.692.4742\\
+    \href{mailto:team@zerocracy.com}{team@zerocracy.com}
+  \\[1em]
+  \normalsize\texttt{\zoldversion\qquad\today}
+}
 
 \end{document}
