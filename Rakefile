@@ -20,7 +20,6 @@ def run(cmd)
     until stdout.eof?
       line = stdout.gets
       out += line
-      # puts line
     end
     thr.value.to_i
   end
@@ -50,7 +49,6 @@ task :html => [:pdf, :thumbs] do
         'PDFs',
         Dir['*.pdf'].sort.map do |p|
           name = File.basename(p, '.pdf')
-          puts name
           title = titles[name]
           next unless title
           "<li class='thumb'><a href='#{p}'><img src='#{name}.png'/></a><br/>#{title}</li>"
