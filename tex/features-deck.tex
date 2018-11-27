@@ -1,0 +1,51 @@
+\documentclass{deck}
+\usepackage[american]{babel}
+\usepackage{merriweather}
+\begin{document}
+
+\headslide{Key Features}
+
+\slide{
+test me
+}
+
+\slide{
+  What Are the Key Actors?
+  \vspace{1em}
+
+  \large
+  \begin{tikzpicture}
+    \node[block] (hub) at +(8,8) {
+      \begin{minipage}{14em}
+        \texttt{Hub}\\[1em]
+        \footnotesize\raggedright
+        There are multiple chat platforms and ticket tracking systems, which
+        allow chat bots to talk to people (Zerocrat will be available in all of them eventually):\\[1em]
+        \includegraphics[height=3em]{../images/github.pdf}
+        \includegraphics[height=3em]{../images/telegram.pdf}
+        \includegraphics[height=3em]{../images/slack.pdf}
+        \includegraphics[height=3em]{../images/jira.pdf}
+        \includegraphics[height=3em]{../images/trello.pdf}
+      \end{minipage}
+    };
+    \actor{po}{1,8}{\texttt{Product Owner}};
+    \actor{arc}{15,10}{\texttt{Architect}};
+    \actor{dev}{17,6}{\texttt{Developers}};
+    \draw [ln] (po) -- node [fill=white, draw=rupborder] {1} (hub);
+    \draw [ln] (arc) -- node [fill=white, draw=rupborder] {2} (hub);
+    \draw [ln] (dev) -- node [fill=white, draw=rupborder] {3}  (hub);
+  \end{tikzpicture}
+}
+
+\slide{
+  What Are the Next Steps?
+
+  \begin{multicols}{3}
+  \topic{zblue}{Train}{
+    test
+  }
+\end{multicols}}
+
+\tailslide
+
+\end{document}
