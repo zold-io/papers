@@ -3,6 +3,15 @@
 require 'open3'
 require 'rainbow'
 
+titles = {
+  'wp' => 'Zold White Paper',
+  'executive-summary' => 'Zerocracy Executive Summary',
+  'zerocracy-deck' => 'Zerocracy Pitch Deck',
+  'freelance-deck' => 'Freelance vs Outsourcing Comparison Deck',
+  'feature-deck' => 'Zerocracy Features',
+  'green-paper' => 'Zold Green Paper'
+}
+
 def run(cmd)
   print "#{cmd} "
   out = ''
@@ -35,16 +44,15 @@ task :html => [:pdf, :thumbs] do
     FileUtils.cp(f, f.gsub(/^html\//, 'target/'))
   end
   Dir.chdir('target') do
-    File.write(
+    IO.write(
       'index.html',
-      File.read('index.html').gsub(
+      IO.read('index.html').gsub(
         'PDFs',
         Dir['*.pdf'].sort.map do |p|
           name = File.basename(p, '.pdf')
-          title = name.tr('-', ' ').split
-            .map(&:capitalize)
-            .map { |w| w.length < 4 ? w.upcase : w }
-            .join(' ')
+          puts name
+          title = titles[name]
+          next unless title
           "<li class='thumb'><a href='#{p}'><img src='#{name}.png'/></a><br/>#{title}</li>"
         end.join
       )
