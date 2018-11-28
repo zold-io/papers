@@ -10,7 +10,8 @@
   management operations for key software project stakeholders.
 
   \vspace{2em}\large
-  The \colorbox{zgreen}{\color{white}{green}} features are implemented already, the
+  The \colorbox{zgreen}{\color{white}{green}} features are implemented already,
+  \colorbox{zorange}{\color{white}{orange}} ones are in progress, while the
   \colorbox{zred}{\color{white}{red}} ones are still in the backlog.
 }
 
@@ -55,7 +56,7 @@
   }
   \topic{zblue}{Quality Assurance}{
     Reviews the quality of communcation,
-    makes sure Developers behave compliantly to the Policy,
+    makes sure Developers behave compliantly to the \href{https://www.zerocracy.com/policy.html}{Policy},
     approves tickets closure.
     Usually, there is a single QA person in a project, while having a backup
     is advisable.
@@ -80,6 +81,47 @@
     projects in the entire platform. The election results become
     visible for the developer.
   }
+  \topic{zgreen}{Resigns Tasks}{
+    Voluntarily or forcefuly Zerocrat may take a task away from a Developer
+    and put it back to the backlog. This operation may lead to certain
+    consequences to the person who initiated such a request.
+  }
+  \topic{zgreen}{Pequests Code Reviews}{
+    Each pull request, according to \href{http://www.zerocracy.com/policy.html\#27}{\S27},
+    has to pass the first code review of a peer Developer and the second one
+    of an Architect. Once a pull request is submitted Zerocrat finds the
+    most suitable code reviewer, assigns to the task, and makes sure the
+    rewards are paid accordingly.
+  }
+  \topic{zgreen}{Registers Impediments}{
+    Some tasks may have dependencies, which have to be resolved
+    prior to the continuation of the task in hands. Per \href{http://www.zerocracy.com/policy.html\#9}{\S9}
+    Zerocrat allows a Developer to put any task on hold for some time, to
+    prevent it being taken away and re-assigned. Further, Zerocrat applies certain limitations
+    to prevent the task of being held for too long and to prevent
+    deadlocks.
+  }
+  \topic{zgreen}{Reminds}{
+    Zerocrat remembers the deadlines for each task and reminds its performers
+    when time is over or close to that point. Zerocrat has an internal
+    reminders management sub-system to make those reminders most effective.
+  }
+  \topic{zred}{Sequences Tasks}{
+    According to the priorities, inter-dependencies, and resources availability
+    Zerocrat decides which tasks must be completed first and which ones
+    can wait. The decisions made affect the schedule of the project and
+    tasks assignments.
+  }
+  \topic{zorange}{Labels Tasks}{
+    Zerocrat utilizes management features of the ticket tracking system,
+    like badges, labels, priorities, assignees, projects, milestones, and so on,
+    in order to make its integration with the human community seamless.
+  }
+\end{multicols}}
+
+\slide{
+  Rewards
+  \begin{multicols}{3}
   \topic{zgreen}{Rewards a Task}{
     When a \href{https://www.yegor256.com/2017/11/28/microtasking.html}{microtask}
     is completed Zerocrat pays the developer via
@@ -99,34 +141,10 @@
     else. A certain amount of negative reputation points go to the guilty
     delayer, as per \href{http://www.zerocracy.com/policy.html\#8}{\S8}.
   }
-  \topic{zgreen}{Pays For Bugs}{
-    According to \href{http://www.zerocracy.com/policy.html\#29}{\S29} Zerocrat
-    rewards everybody who manages to submit a defect, which is approved
-    by the Architect and got in to the project scope, be it a Tester, Developer,
-    or even a Product Owner. The logic behind this was explained in
-    \href{https://www.yegor256.com/2018/02/06/where-to-find-more-bugs.html}{\emph{More Bugs, Please}}
-    blog post, with a few practical examples.
-  }
-  \topic{zgreen}{Pequests Code Reviews}{
-    Each pull request, according to \href{http://www.zerocracy.com/policy.html\#27}{\S27},
-    has to pass the first code review of a peer Developer and the second one
-    of an Architect. Once a pull request is submitted Zerocrat finds the
-    most suitable code reviewer, assigns to the task, and makes sure the
-    rewards are paid accordingly.
-  }
-  \topic{zgreen}{Pays Bonuses}{
-    There are situations when a Developer deserves a bonus, either in
-    reputation points or monetary ones. For example, for completing
-    a task faster than usual, as \href{http://www.zerocracy.com/policy.html\#36}{\S36}
-    explains.
-  }
-  \topic{zgreen}{Registers Impediments}{
-    Some tasks may have dependencies, which have to be resolved
-    prior to the continuation of the task in hands. Per \href{http://www.zerocracy.com/policy.html\#9}{\S9}
-    Zerocrat allows a Developer to put any task on hold for some time, to
-    prevent it being taken away and re-assigned. Further, Zerocrat applies certain limitations
-    to prevent the task of being held for too long and to prevent
-    deadlocks.
+  \topic{zgreen}{Penalizes Slow Reviews}{
+    Slow code reviews, while sometimes perfectly justified, often become
+    a bottleneck for a project that runs forward. Zerocrat punishes the Architect
+    if a slow code review is detected, as per \href{http://www.zerocracy.com/policy.html\#55}{\S55}.
   }
   \topic{zgreen}{Boosts a Budget}{
     As per \href{http://www.zerocracy.com/policy.html\#5}{\S5}, an Architect
@@ -136,6 +154,12 @@
     \emph{and} impossible to break down into smaller increments. Statistically speaking,
     boosting is required in less than 3\% of all tasks.
   }
+  \topic{zgreen}{Pays Bonuses}{
+    There are situations when a Developer deserves a bonus, either in
+    reputation points or monetary ones. For example, for completing
+    a task faster than usual, as \href{http://www.zerocracy.com/policy.html\#36}{\S36}
+    explains.
+  }
   \topic{zgreen}{Pays Extra}{
     The Architect may instruct Zerocrat to send an arbitrary amount
     of cash to any Developer, when the Architect feels like this, as per
@@ -143,6 +167,14 @@
     feature is strongly discouraged to use, since it goes against the
     XDSD philosophy of money per result only. However, sometimes it's
     necessary to use this feature, especially in exceptional situations.
+  }
+  \topic{zgreen}{Pays For Bugs}{
+    According to \href{http://www.zerocracy.com/policy.html\#29}{\S29} Zerocrat
+    rewards everybody who manages to submit a defect, which is approved
+    by the Architect and got in to the project scope, be it a Tester, Developer,
+    or even a Product Owner. The logic behind this was explained in
+    \href{https://www.yegor256.com/2018/02/06/where-to-find-more-bugs.html}{\emph{More Bugs, Please}}
+    blog post, with a few practical examples.
   }
   \topic{zgreen}{Rewards a Releases}{
     Every time a new version is released, Zerocrat rewards the Architect
@@ -193,6 +225,11 @@
     which completely eliminates the necessity of recruting, hiring, interviewing
     and so on.
   }
+  \topic{zorange}{Spies on the Team}{
+    Zerocrat observes the performance of the team and reports to the Architect
+    when someone is underperforming or any other human resource management
+    indicators fall of the expected borders.
+  }
   \topic{zred}{Invites}{
     Observing the situation in different projects Zerocrat decides
     which ones are in need of programmers and which Developers are most
@@ -218,12 +255,17 @@
     in each project. It affects the marketable rate of each Developer,
     while the local rate stays in hands of the Product Owner.
   }
+  \topic{zgreen}{Vacations}{
+    A Developer may decide to go on vacation and ask Zerocrat to stop
+    assigning new tasks. This process is penalty free and may be used
+    freely by Developers in order to manage their work time as they wish.
+  }
 \end{multicols}}
 
 \slide{
   Forecasts
   \begin{multicols}{3}
-  \topic{zred}{Collects Metrics}{
+  \topic{zorange}{Collects Metrics}{
     Zerocrat, via a constatly growing collection of adapters, collects
     metrics from the platforms where the code is being developed and programmers
     communicate, e.g. Git, \href{https://www.github.com}{GitHub},
@@ -242,7 +284,7 @@
   }
   \topic{zred}{Determines Budget}{
     Using 1) project metrics, 3) benchmarking data across all projects in
-    the platform, and 3) estimates provided by Developers, Zerocrat recalculates
+    the platform, 3) risks, and 4) estimates provided by Developers, Zerocrat recalculates
     the future of the project and determines the budget, with certain
     accuracy and precision. The budget is recalculated multiple times a day,
     helping the Product Owner stay on top of the current project situation.
@@ -252,6 +294,17 @@
     using statistical information and estimates. The schedule is also
     delivered to the Product Owner with certain accuracy and precision.
   }
+  \topic{zred}{Estimates Change Requests}{
+    Zerocrat can take a change request, with modifications to key project
+    parameters, runs full estimate of the the budget, scope, and costs,
+    and demonstrate the outcome.
+  }
+  \topic{zred}{Analyses Risks}{
+    Any project stakeholder may register a number of risks, with their key
+    qualitantive and quantitative characteristics. Zerocrat analyses the
+    risk register and converts its fallback and mitigation plans in to tasks
+    of the scope.
+  }
   \topic{zred}{Benchmarks}{
     Zerocrat manages hundreds of projects at the same time and thus has
     direct access to the metrics in all of them. Using this data Zerocrat
@@ -259,7 +312,7 @@
     and makes recommendations to the Architect and the Product Owner to help
     them make preventive and responsive corrective actions.
   }
-  \topic{zred}{Calibrates}{
+  \topic{zorange}{Calibrates}{
     Zerocrat enables calibration and fine-tuning of key performance
     parameters, according to the learnings obtained during the course of
     the project and to the input of the Product Owner and the Architect.
@@ -269,16 +322,29 @@
 \slide{
   Process
   \begin{multicols}{3}
-  \topic{zgreen}{Enforces Policy}{
-    There are multiple rules in the Policy, which have to be enforced in order
+  \topic{zgreen}{Enforces Rules}{
+    There are multiple rules in the \href{https://www.zerocracy.com/policy.html}{Policy},
+    which have to be enforced in order
     to make sure the methodology works. For example, Zerocrat punishes
     for \href{http://www.zerocracy.com/policy.html\#6}{tasks refusal},
+  }
+  \topic{zgreen}{Reads the Policy}{
+    Zerocrat doesn't have any hard-coded parameters inside. Everything that is
+    needed for its work decisions it takes form the \href{https://www.zerocracy.com/policy.html}{Policy},
+    which is published online as an HTML document and is ``open source.''
+    The community of programmers actively contributes to the Policy,
+    to make it better, more fair and more effective.
   }
   \topic{zgreen}{Reviews Quality}{
     The Quality Assurance reviews every completed micro-task and gives
     their ``quality verdict,'' which affects the rewarding formula
     Zerocrat uses to compensate the work of Developers and code reviewers,
     as in \href{http://www.zerocracy.com/policy.html\#30}{\S30}.
+  }
+  \topic{zred}{Self-Reflects}{
+    Zerocrat looks back at the actions performed by people and by the robot
+    and makes decisions about the quality of them. The decisions are then
+    presented to Zerocracy management team for corrective actions.s
   }
 \end{multicols}}
 
@@ -287,8 +353,18 @@
   \begin{multicols}{3}
   \topic{zgreen}{Bootstraps a Project}{
     Each project in order to be started, as explained in \href{http://www.zerocracy.com/policy.html\#12}{\S12},
-    has to be configured. The Architect earns a commission from all
+    has to be configured, connected with the ticket tracking system,
+    granted proper permissions,
+    and so on. The Architect earns a commission from all
     funds spent in the project.
+  }
+  \topic{zgreen}{Dispatches RfPs}{
+    In order to find an Architect the Product Owner can submit
+    a short summary of their project requirements to the ``Request for Proposal'' management
+    subsystem. Zerocrat will announce the project among the most
+    reputable Developers and one of them will pick the project up.
+    This process is described in \href{http://www.zerocracy.com/policy.html\#40}{\S40} and
+    \href{http://www.zerocracy.com/policy.html\#41}{\S41}.
   }
   \topic{zgreen}{Funds the Project}{
     The Product Owner may add funds to the project via credit card
@@ -298,11 +374,28 @@
     unused funds, in case of project termination, can be refunded to the Product
     Owner, as per for \href{http://www.zerocracy.com/policy.html\#22}{\S22}.
   }
+  \topic{zgreen}{Refunds}{
+    Zerocrat automatically re-charges the credit card of the Product Owner when
+    the project runs out of funds, as explained in
+    \href{http://www.zerocracy.com/policy.html\#21}{\S21}.
+    To stop that the Product Owner has to put the project on pause and then restart it.
+  }
+  \topic{zgreen}{Sends Money}{
+    Zerocrat accumulates micro payments and sends them out when the transaction
+    amount is large enough. Zerocrat is integrated with payment processing
+    systems via their APIs.
+  }
   \topic{zgreen}{Pauses a Project}{
     The Product Owner can put the entire project on hold at any moment, just
     by asking Zerocrat to do that, as explained in \href{http://www.zerocracy.com/policy.html\#24}{\S24}.
     The project can also be resumed any time. When the project is on pause,
     no funds will be spent, except for the tasks assigned before.
+  }
+  \topic{zgreen}{Reports}{
+    Zerocrat reports to the Product Owner during the course of the project,
+    both via a chatbot and via HTML documents in the dashboard. The majority
+    of project documents are stored in XML files and can be dowloaded ``as is''
+    from the dashboard.
   }
   \topic{zgreen}{Vests Equity}{
     The Product Owner can rewards Developers not only with money,
@@ -310,12 +403,17 @@
     equity in micro installments when tasks are getting completed,
     as explained in \href{http://www.zerocracy.com/policy.html\#37}{\S37}.
   }
-  \topic{zgreen}{Destroy the Project}{
+  \topic{zgreen}{Destroys the Project}{
     The Product Owner can terminate the project and entirely remove
     the data from Zerocracy servers, as promised in
     \href{http://www.zerocracy.com/policy.html\#25}{\S25}.
   }
 \end{multicols}}
+
+\slide{
+  There are over a hundred micro robots inside Zerocrat, which
+  perform the described operations, and the number of them is growing.
+}
 
 \tailslide
 

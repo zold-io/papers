@@ -13,6 +13,7 @@
   \definecolor{zred}{HTML}{6A041D}
   \definecolor{zgreen}{HTML}{386150}
   \definecolor{zblue}{HTML}{27213C}
+  \definecolor{zorange}{HTML}{B86F52} % FF8552
   \definecolor{zlightblue}{HTML}{476C9B}
   \definecolor{rupbody}{rgb}{1,1,0.8}
   \definecolor{rupborder}{rgb}{0.6039,0,0.2}
