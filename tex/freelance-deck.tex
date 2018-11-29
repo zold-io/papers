@@ -6,52 +6,6 @@
 \headslide{Freelance vs. Outsourcing}
 
 \slide{
-  \newcommand{\dt}[2]{
-    \draw +(0,#1)
-      node[circle, inner sep=0mm, minimum width=3pt, fill=zblue, draw=none] {}
-      node[anchor=east] {\scriptsize #1}
-      node[anchor=west] {\scriptsize #2};
-  }
-  \newcommand\graph[1]{\vbox{
-    \begin{tikzpicture}[y=0.16cm]
-      \draw[-triangle 60] +(0,1968) -- +(0,2018);
-      #1
-    \end{tikzpicture}
-  }}
-  The Evolution of Software Development:
-  \begin{multicols}{2}
-    \graph{
-      \dt{1970}{Waterfall}
-      \dt{1980}{V-Model}
-      \dt{1982}{CASE}
-      \dt{1987}{PMBOK}
-      \dt{1989}{PRINCE2}
-      \dt{1991}{RAD}
-      \dt{1993}{MSF}
-      \dt{1995}{Scrum}
-      \dt{1999}{XP}
-      \dt{2001}{Agile}
-      \dt{2003}{RUP}
-      \dt{2010}{\colorbox{zgreen}{\color{white}{XDSD}}}
-    }
-    \graph{
-      \dt{1970}{Capgemini}
-      \dt{1975}{Wipro}
-      \dt{1989}{Accenture}
-      \dt{1993}{EPAM Systems}
-      \dt{1999}{Elance/oDesk/Upwork}
-      \dt{2001}{Crossover}
-      \dt{2010}{Toptal}
-      \dt{2016}{\colorbox{zgreen}{\color{white}{Zerocracy}}}
-    }
-  \end{multicols}
-  \Large
-  eXtremely Distributed Software Development (\href{https://www.xdsd.org}{XDSD}) methodology was
-  invented by Yegor Bugayenko in 2010. Six years later he founded
-  Zerocracy in order to apply XDSD to the growing market of freelancers.
-}
-
-\slide{
   Gallup \href{https://www.cnbc.com/2018/05/30/70-percent-of-people-globally-work-remotely-at-least-once-a-week-iwg-study.html}{recently found out}
   that the number of American employees
   working remotely rose to 43 percent in 2016 from 39 percent in 2012.
@@ -515,6 +469,52 @@
 \slide{The future of software development will certainly depend on freelancers working remotely.
   The question is who will be able to find a way to manage them effectively.
   Zerocracy is doing it already.}
+
+\slide{
+  \newcommand{\dt}[2]{
+    \draw +(0,#1)
+      node[circle, inner sep=0mm, minimum width=3pt, fill=zblue, draw=none] {}
+      node[anchor=east] {\scriptsize #1}
+      node[anchor=west] {\scriptsize #2};
+  }
+  \newcommand\graph[1]{\vbox{
+    \begin{tikzpicture}[y=0.16cm]
+      \draw[-triangle 60] +(0,1968) -- +(0,2018);
+      #1
+    \end{tikzpicture}
+  }}
+  The Evolution of Software Development:
+  \begin{multicols}{2}
+    \graph{
+      \dt{1970}{Waterfall}
+      \dt{1980}{V-Model}
+      \dt{1982}{CASE}
+      \dt{1987}{PMBOK}
+      \dt{1989}{PRINCE2}
+      \dt{1991}{RAD}
+      \dt{1993}{MSF}
+      \dt{1995}{Scrum}
+      \dt{1999}{XP}
+      \dt{2001}{Agile}
+      \dt{2003}{RUP}
+      \dt{2010}{\colorbox{zgreen}{\color{white}{XDSD}}}
+    }
+    \graph{
+      \dt{1970}{Capgemini}
+      \dt{1975}{Wipro}
+      \dt{1989}{Accenture}
+      \dt{1993}{EPAM Systems}
+      \dt{1999}{Elance/oDesk/Upwork}
+      \dt{2001}{Crossover}
+      \dt{2010}{Toptal}
+      \dt{2016}{\colorbox{zgreen}{\color{white}{Zerocracy}}}
+    }
+  \end{multicols}
+  \Large
+  eXtremely Distributed Software Development (\href{https://www.xdsd.org}{XDSD}) methodology was
+  invented by Yegor Bugayenko in 2010. Six years later he founded
+  Zerocracy in order to apply XDSD to the growing market of freelancers.
+}
 
 \slide{
   What Are the Next Steps?
