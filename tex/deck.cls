@@ -93,6 +93,6 @@
 \include{_version}
 \AtBeginDocument{%
   \tikzstyle{block} = [draw=rupborder, fill=rupbody, inner sep=0.4cm, thick]%
-  \tikzstyle{ln} = [->, very thick]%
+  \tikzstyle{ln} = [->, very thick, arrows={-triangle 90}]%
 }
 \endinput

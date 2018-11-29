@@ -25,6 +25,7 @@
   };
 }
 
+
 \slide{%
   Key Components
   \vspace{1em}
@@ -40,9 +41,9 @@
     \component{farm}{8,4}{Farm}
     \draw [ln] (claims) -- (farm);
     \draw [ln] (farm) -- (tts);
-    \component{xocuments}{15,4}{Xocuments}
+    \component{xocuments}{14,4}{Xocuments}
     \draw [ln] (farm) -- (xocuments);
-    \component{dash}{15,7}{Dashboard}
+    \component{dash}{14,8}{Dashboard}
     \draw [ln] (dash) -- (xocuments);
     \draw [ln] (dash) -- (claims);
     \component{policy}{3,5}{Policy}
@@ -54,7 +55,7 @@
   Claims
 
   \begin{multicols}{2}
-  \begin{tikzpicture}
+  \begin{tikzpicture}[scale=0.75, every node/.style={scale=0.75}]
     \component{queue}{8,8}{SQS Queue}
     \component{sanitizer}{8,12}{Sanitizer}
     \draw [ln] (sanitizer) -- (queue);
@@ -62,8 +63,6 @@
     \draw [ln] (queue) -- (dispatcher);
     \component{footprint}{2,6}{Footprint}
     \component{logs}{3,2}{Logs}
-    \component{cleaner}{13,6}{Cleaner}
-    \draw [ln] (cleaner) -- (queue);
     \component{farm}{8,0}{Farm}
     \draw [ln] (dispatcher) -- (farm);
     \draw [ln] (dispatcher) -- (logs);
@@ -88,11 +87,6 @@
     structure, validated against XSD Schema. It includes information
     about the source of the event, the time and date, the type of
     request, and the list of supplementary arguments.}
-  \topic{zblue}{Expirations}{%
-    A claim may have a special ``expire'' attribute which indicates
-    that the claim should be removed from the queue if it wasn't
-    processed in time. If not specified, each claim stays in the queue
-    until it's processed, no matter how long.}
   \topic{zblue}{Footprint}{%
     There is a MongoDB database with a single table that records every
     claim that has been seen in the queue. Later, the footprint is
@@ -116,7 +110,7 @@
   Radar
 
   \begin{multicols}{2}
-  \begin{tikzpicture}
+  \begin{tikzpicture}[scale=0.75, every node/.style={scale=0.75}]
     \component{slack-radar}{4,8}{Slack Radar}
     \component{github-radar}{8,8}{GitHub Radar}
     \component{telegram-radar}{12,8}{Telegram Radar}
@@ -124,9 +118,9 @@
     \draw [ln] (slack-radar) -- (claims);
     \draw [ln] (github-radar) -- (claims);
     \draw [ln] (telegram-radar) -- (claims);
-    \node (slack) at (4,12) {\includegraphics[height=3em]{../images/slack.pdf}};
-    \node (github) at (8,12) {\includegraphics[height=3em]{../images/github.pdf}};
-    \node (telegram) at (12,12) {\includegraphics[height=3em]{../images/telegram.pdf}};
+    \node (slack) at (4,12) {\includegraphics[height=2em]{../images/slack.pdf}};
+    \node (github) at (8,12) {\includegraphics[height=2em]{../images/github.pdf}};
+    \node (telegram) at (12,12) {\includegraphics[height=2em]{../images/telegram.pdf}};
     \draw [ln] (slack) -- (slack-radar);
     \draw [ln] (github) -- (github-radar);
     \draw [ln] (telegram) -- (telegram-radar);
@@ -166,7 +160,7 @@
   Farm
 
   \begin{multicols}{2}
-  \begin{tikzpicture}
+  \begin{tikzpicture}[scale=0.75, every node/.style={scale=0.75}]
     \component{stk}{8,8}{Stakeholders}
     \component{xocuments}{12,4}{Xocuments}
     \component{claims}{4,12}{Claims}
