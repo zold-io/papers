@@ -6,7 +6,9 @@
 \headslide{Key Features}
 
 \slide{
-  Zerocrat is a chatbot that automates routine project
+  \includegraphics[height=5em]{../images/zerocrat.pdf}
+
+  Zerocrat is a chatbot that automates \underline{routine} project
   management operations for key software project stakeholders.
 
   \vspace{2em}\large
@@ -46,6 +48,12 @@
     usually include 10-30 people. Smaller teams tend to be slower than
     expected, while larger ones experience too many deadlocks
     and communication clashes.
+  }
+  \topic{zblue}{Reviewer}{
+    Reviews pull requests and suggests corrections,
+    gives those pull requests the green light for merging.
+    Zerocract selects reviewers semi-randomly from the entire project
+    pool of Developers.
   }
   \topic{zblue}{Tester}{
     Attempts to break the product,
@@ -110,7 +118,7 @@
     According to the priorities, inter-dependencies, and resources availability
     Zerocrat decides which tasks must be completed first and which ones
     can wait. The decisions made affect the schedule of the project and
-    tasks assignments.
+    task assignments.
   }
   \topic{zorange}{Labels Tasks}{
     Zerocrat utilizes management features of the ticket tracking system,
@@ -305,6 +313,12 @@
     risk register and converts its fallback and mitigation plans in to tasks
     of the scope.
   }
+  \topic{zred}{Identifies Risks}{
+    By looking at the current situation in the project and the history
+    of all previous projects under management Zerocrat predicts what events
+    may occur and what are the probability and impact of them, and registers
+    them as risks in the project risk register.
+  }
   \topic{zred}{Benchmarks}{
     Zerocrat manages hundreds of projects at the same time and thus has
     direct access to the metrics in all of them. Using this data Zerocrat
@@ -326,14 +340,30 @@
     There are multiple rules in the \href{https://www.zerocracy.com/policy.html}{Policy},
     which have to be enforced in order
     to make sure the methodology works. For example, Zerocrat punishes
-    for \href{http://www.zerocracy.com/policy.html\#6}{tasks refusal},
+    for tasks refusal per \href{http://www.zerocracy.com/policy.html\#6}{\S6},
+    for manual task assignment per \href{http://www.zerocracy.com/policy.html\#19}{\S19},
+    task boosting per \href{http://www.zerocracy.com/policy.html\#15}{\S15},
+    and so on.
   }
   \topic{zgreen}{Reads the Policy}{
     Zerocrat doesn't have any hard-coded parameters inside. Everything that is
     needed for its work decisions it takes form the \href{https://www.zerocracy.com/policy.html}{Policy},
     which is published online as an HTML document and is ``open source.''
     The community of programmers actively contributes to the Policy,
-    to make it better, more fair and more effective.
+    to make it better, more fair, and more effective.
+  }
+  \topic{zred}{Demands Bureaucracy}{
+    Aside from writing code the process must include a certain amount of
+    procedures, which must be regularly completed by project stakeholders
+    and produce reports. \href{https://cmmiinstitute.com/cmmi/dev}{CMMI-Dev}
+    is a perfect example of a set of rules
+    Zerocrat may apply to a software team.
+    \href{https://en.wikipedia.org/wiki/Rational_Unified_Process}{RUP} and
+    \href{https://en.wikipedia.org/wiki/Microsoft_Solutions_Framework}{MSF}
+    are also good examples.
+    The reports may be related to the
+    architectural decisions made, requirements definition and acceptance,
+    supplier management, and many other process areas.
   }
   \topic{zgreen}{Reviews Quality}{
     The Quality Assurance reviews every completed micro-task and gives
@@ -341,12 +371,24 @@
     Zerocrat uses to compensate the work of Developers and code reviewers,
     as in \href{http://www.zerocracy.com/policy.html\#30}{\S30}.
   }
+  \topic{zred}{Trains}{
+    Zerocrat analyses the behavior of all project stakeholders and suggests
+    corrective and preventive actions, related to the quality of process
+    they are supposed to follow.
+  }
   \topic{zred}{Self-Reflects}{
     Zerocrat looks back at the actions performed by people and by the robot
     and makes decisions about the quality of them. The decisions are then
-    presented to Zerocracy management team for corrective actions.s
+    presented to Zerocracy management team for corrective actions.
   }
-\end{multicols}}
+  \end{multicols}
+
+  \vspace{2em}\large
+  The ultimate goal is to make Zerocrat fully compliant with
+  \href{https://www.iso.org/iso-9001-quality-management.html}{ISO 9001} and
+  \href{https://en.wikipedia.org/wiki/Capability_Maturity_Model_Integration}{CMMI}
+  standards.
+}
 
 \slide{
   Scaffolding
@@ -391,7 +433,7 @@
     The project can also be resumed any time. When the project is on pause,
     no funds will be spent, except for the tasks assigned before.
   }
-  \topic{zgreen}{Reports}{
+  \topic{zorange}{Reports}{
     Zerocrat reports to the Product Owner during the course of the project,
     both via a chatbot and via HTML documents in the dashboard. The majority
     of project documents are stored in XML files and can be dowloaded ``as is''
