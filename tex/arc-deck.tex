@@ -5,18 +5,6 @@
 
 \headslide{Zerocrat Architecture}
 
-\slide{%
-  \includegraphics[height=5em]{../images/zerocrat.pdf}
-
-  Zerocrat is a chatbot that automates \underline{routine} project
-  management operations for key software project stakeholders.
-
-  \vspace{2em}\large
-  The \colorbox{zgreen}{\color{white}{green}} features are implemented already,
-  \colorbox{zorange}{\color{white}{orange}} ones are in progress, while the
-  \colorbox{zred}{\color{white}{red}} ones are still in the backlog.
-}
-
 \newcommand\component[3]{
   % #1 - Tikz name
   % #2 - Location
@@ -50,6 +38,8 @@
     \component{dash}{15,7}{Dashboard}
     \draw [ln] (dash) -- (xocuments);
     \draw [ln] (dash) -- (claims);
+    \component{policy}{3,5}{Policy}
+    \draw [ln] (farm) -- (policy);
   \end{tikzpicture}
 }
 
@@ -75,6 +65,12 @@
   \vfill
   \columnbreak
   \begin{multicols}{2}
+  \topic{zblue}{Java}{%
+    The main programming language of the system is Java 8. The build
+    system is Maven 3. The deployment is automated by \href{http://www.rultor.com}{Rultor}.
+    Continuous integration is done by \href{https://travis-ci.org}{Travis}.
+    Static analysis is performed by \href{http://www.qulice.com}{Qulice},
+    an aggregator of Checkstyle and PMD.}
   \topic{zblue}{SQS Queue}{%
     It is a large global cross-projects queue of claims, maintained
     in the AWS SQS. Anyone can drop
@@ -109,24 +105,102 @@
 }
 
 
+\slide{%
+  Radar
 
-        % There is a collection of 150+ micro
-        % robots, also known as stakeholders,
-        % which perform individual management operations;
-        % the more complex is the Policy, the bigger the number
-        % of stakeholders.
-
-        % There are multiple chat platforms and ticket tracking systems, which
-        % allow chat bots to talk to people (Zerocrat will be available in all of them eventually):\\[1em]
-        % \includegraphics[height=3em]{../images/github.pdf}
-        % \includegraphics[height=3em]{../images/telegram.pdf}
-        % \includegraphics[height=3em]{../images/slack.pdf}
-        % \includegraphics[height=3em]{../images/jira.pdf}
-        % \includegraphics[height=3em]{../images/trello.pdf}
-
+  \begin{multicols}{2}
+  \begin{tikzpicture}
+    \component{slack-radar}{4,8}{Slack Radar}
+    \component{github-radar}{8,8}{GitHub Radar}
+    \component{telegram-radar}{12,8}{Telegram Radar}
+    \component{claims}{8,4}{Claims}
+    \draw [ln] (slack-radar) -- (claims);
+    \draw [ln] (github-radar) -- (claims);
+    \draw [ln] (telegram-radar) -- (claims);
+    \node (slack) at (4,12) {\includegraphics[height=3em]{../images/slack.pdf}};
+    \node (github) at (8,12) {\includegraphics[height=3em]{../images/github.pdf}};
+    \node (telegram) at (12,12) {\includegraphics[height=3em]{../images/telegram.pdf}};
+    \draw [ln] (slack) -- (slack-radar);
+    \draw [ln] (github) -- (github-radar);
+    \draw [ln] (telegram) -- (telegram-radar);
+  \end{tikzpicture}
+  \vfill
+  \columnbreak
+  \begin{multicols}{2}
+    \topic{zblue}{Webhooks}{%
+      Most radars receive events through pre-configured ``webhooks,''
+      which send events in JSON format via RESTful API, which Zerocrat
+      provides for them. For higher stability \href{http://www.rehttp.net}{ReHTTP}
+      web service is used
+      as a relay between chat platforms and radars.}
+    \topic{zblue}{DSL}{%
+      Each chat platform speaks its own language, while claims must have
+      specifically unified types. The domain specific language claims speak
+      is understood by all Stakeholders in the Farm.}
+    \topic{zblue}{Decoupling}{%
+      The way chat hubs are decoupled from Farm through the queue of claims
+      gives a number of architectural benefits. First of all, the scalability
+      is much higher, because the server doesn't need to reply immediately
+      especially when the request are coming in parallel. Second, longer
+      response time is expectable by the user and the server can do many
+      validating operations, no matter how complex is the request. The
+      advantage of the chatbot architecture was explained in...}
+    \topic{zblue}{Modular Architecture}{%
+      The number of external systems is growing and eventually Zerocrat will
+      be integrated with a few dozens of them. Even though the complexity of each of
+      them is not high, dealing with many of them at the same time is
+      a serious challenge for the development team. Modular architecture
+      simplified this task and makes the system more extendable.}
+  \end{multicols}
+  \end{multicols}
+}
 
 \slide{%
-  TBD...
+  Farm
+
+  \begin{multicols}{2}
+  \begin{tikzpicture}
+    \component{stk}{8,8}{Stakeholders}
+    \component{xocuments}{12,4}{Xocuments}
+    \component{claims}{4,12}{Claims}
+    \component{policy}{3,5}{Policy}
+    \draw [ln] (claims) -- (stk);
+    \draw [ln] (stk) -- (xocuments);
+    \draw [ln] (stk) -- (policy);
+  \end{tikzpicture}
+  \vfill
+  \columnbreak
+  \begin{multicols}{2}
+    \topic{zblue}{Groovy}{%
+      Each stakeholder is a simple procedure, usually 100-200 lines long,
+      in Groovy. Each stakeholder is responsible for its own narrow and isolated
+      operation, which is processing of a claim and submitting new claims to
+      the queue. Stakeholders ``talk'' to each other only through the queue
+      of claims.}
+    \topic{zblue}{Brigade}{%
+      There is a collection of 150+ stakeholders (micro scripts), also known as ``brigade,''
+      which perform individual management operations;
+      the more complex is the Policy, the bigger the number
+      of stakeholders.}
+    \topic{zblue}{Configuration}{%
+      The behavior of stakeholders is configured via the \href{https://www.zerocracy.com/policy.html}{Policy},
+      an HTML document publicly hosted at \href{https://www.zerocracy.com}{zerocracy.com}.
+      The document is a mix of plain English text and placeholders
+      for configuration parameters. Once a change is submitted to the
+      Policy, the behavior of stakeholders change immediately.}
+    \topic{zblue}{XML}{%
+      XML is the format of data for all project files (except the Ledger,
+      which stays in the PostgreSQL database because of its very relational
+      nature). The files are stored in AWS S3.}
+    \topic{zblue}{XSD Schema}{%
+      Each XML document in the storage is validated against its corresonding
+      XSD Schema and is rejected if there are any issues. Thanks to this
+      validation all documents in the storage are always valid and correct.}
+    \topic{zblue}{XSLT}{%
+      Each XML document in the storage has a corresponding XSLT stylesheet
+      to convert it to HTML and render in the dashboard.}
+  \end{multicols}
+  \end{multicols}
 }
 
 \tailslide
