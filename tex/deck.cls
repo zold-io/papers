@@ -74,24 +74,10 @@
     \normalsize\texttt{\zoldversion\qquad\today}
   }
 }
-\newcommand\pack[3]{
-  % #1 - TIKZ name of the element
-  % #2 - coordinates
-  % #3 - text to render
-  % for example: \pack{tickets}{2,2}{Tickets}
-  \node [outer sep=1mm] at (#2) (#1) {
-    \begin{tikzpicture}
-      \draw
-        (0,0) node [block, text=rupbody] {#3}
-        +(0.07,0.07) node [block, text=rupbody] {#3}
-        +(0.14,0.14) node [block] {#3};
-    \end{tikzpicture}
-  };
-}
 \newcommand\actor[3]{
   % #1 - TIKZ name of the element
-  % #2 - coordinates
-  % #3 - text to render
+  % #2 - Coordinates
+  % #3 - Text to render
   % for example: \actor{alex}{2,2}{Alex Smith}
   \node [outer sep=-1mm] at (#2) (#1) {
     \tikz \draw [thick] (0,0) -- +(0,-0.5) % body
@@ -99,7 +85,7 @@
       +(0,-0.5) -- +(0.5,-1) % right leg
       +(-0.5,-0.1) -- +(0.5,-0.1) % hands
       +(0,+0.25) circle (0.25) %head
-      +(0,-1) node [anchor=north] {#3};
+      +(0,-1) node [anchor=north] {\large\texttt{#3}};
   };
 }
 \pagecolor{white}

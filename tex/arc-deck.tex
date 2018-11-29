@@ -1,0 +1,134 @@
+\documentclass{deck}
+\usepackage[american]{babel}
+\usepackage{merriweather}
+\begin{document}
+
+\headslide{Zerocrat Architecture}
+
+\slide{%
+  \includegraphics[height=5em]{../images/zerocrat.pdf}
+
+  Zerocrat is a chatbot that automates \underline{routine} project
+  management operations for key software project stakeholders.
+
+  \vspace{2em}\large
+  The \colorbox{zgreen}{\color{white}{green}} features are implemented already,
+  \colorbox{zorange}{\color{white}{orange}} ones are in progress, while the
+  \colorbox{zred}{\color{white}{red}} ones are still in the backlog.
+}
+
+\newcommand\component[3]{
+  % #1 - Tikz name
+  % #2 - Location
+  % #3 - Body
+  % for example: \component{farm}{2,2}{Farm}
+  \node [outer sep=1mm] at (#2) (#1) {
+    \tikz \node[block, inner sep=12pt] (r) {\large\texttt{#3}};
+    % \tikz \node at (r.north east) {
+    %   \tikz \draw[thick, draw=rupborder] (0,0) -- ++(0.5,0) -- ++(0,0.5) -- ++(-0.5,0) -- ++(0,-0.5);
+    % };
+  };
+}
+
+\slide{%
+  Key Components
+  \vspace{1em}
+
+  \begin{tikzpicture}
+    \component{claims}{8,8}{Claims}
+    \component{radar}{8,12}{Radar}
+    \draw [ln] (radar) -- (claims);
+    \component{tts}{2,11}{TTS}
+    \draw [ln] (tts) -- (radar);
+    \actor{user}{-2,8}{User}
+    \draw [ln] (user) -- (tts);
+    \component{farm}{8,4}{Farm}
+    \draw [ln] (claims) -- (farm);
+    \draw [ln] (farm) -- (tts);
+    \component{xocuments}{15,4}{Xocuments}
+    \draw [ln] (farm) -- (xocuments);
+    \component{dash}{15,7}{Dashboard}
+    \draw [ln] (dash) -- (xocuments);
+    \draw [ln] (dash) -- (claims);
+  \end{tikzpicture}
+}
+
+\slide{%
+  Claims
+
+  \begin{multicols}{2}
+  \begin{tikzpicture}
+    \component{queue}{8,8}{SQS Queue}
+    \component{sanitizer}{8,12}{Sanitizer}
+    \draw [ln] (sanitizer) -- (queue);
+    \component{dispatcher}{8,4}{Dispatcher}
+    \draw [ln] (queue) -- (dispatcher);
+    \component{footprint}{2,6}{Footprint}
+    \component{logs}{3,2}{Logs}
+    \component{cleaner}{13,6}{Cleaner}
+    \draw [ln] (cleaner) -- (queue);
+    \component{farm}{8,0}{Farm}
+    \draw [ln] (dispatcher) -- (farm);
+    \draw [ln] (dispatcher) -- (logs);
+    \draw [ln] (dispatcher) -- (footprint);
+  \end{tikzpicture}
+  \vfill
+  \columnbreak
+  \begin{multicols}{2}
+  \topic{zblue}{SQS Queue}{%
+    It is a large global cross-projects queue of claims, maintained
+    in the AWS SQS. Anyone can drop
+    a claim into the queue, it is a very fast operation. The processing
+    of the claims happen later, when the dispatcher is up to it.}
+  \topic{zblue}{XML}{%
+    Each claim is a short XML document with a pre-defined
+    structure, validated against XSD Schema. It includes information
+    about the source of the event, the time and date, the type of
+    request, and the list of supplementary arguments.}
+  \topic{zblue}{Expirations}{%
+    A claim may have a special ``expire'' attribute which indicates
+    that the claim should be removed from the queue if it wasn't
+    processed in time. If not specified, each claim stays in the queue
+    until it's processed, no matter how long.}
+  \topic{zblue}{Footprint}{%
+    There is a MongoDB database with a single table that records every
+    claim that has been seen in the queue. Later, the footprint is
+    accessible via the Dashboard, for monitoring and tracking purposes.
+    The database is backed up every hour/day/week via \href{https://www.threecopies.com}{ThreeCopies}.}
+  \topic{zblue}{Cloud Logging}{%
+    Each claim, after its processing via the Farm, produces logs, which
+    are sent to the \href{https://papertrailapp.com}{PaperTrail} for
+    monitoring purposes. On top of them, every exception is logged to
+    \href{https://www.sentry.io}{Sentry}.}
+  \topic{zblue}{XSL Sanitizer}{%
+    Before a claim gets into the queue it is validated for its correctness
+    by a series of XSL sanitizer. A claim may be rejected, for example,
+    it misspells the type or the login of the author.}
+  \end{multicols}
+  \end{multicols}
+}
+
+
+
+        % There is a collection of 150+ micro
+        % robots, also known as stakeholders,
+        % which perform individual management operations;
+        % the more complex is the Policy, the bigger the number
+        % of stakeholders.
+
+        % There are multiple chat platforms and ticket tracking systems, which
+        % allow chat bots to talk to people (Zerocrat will be available in all of them eventually):\\[1em]
+        % \includegraphics[height=3em]{../images/github.pdf}
+        % \includegraphics[height=3em]{../images/telegram.pdf}
+        % \includegraphics[height=3em]{../images/slack.pdf}
+        % \includegraphics[height=3em]{../images/jira.pdf}
+        % \includegraphics[height=3em]{../images/trello.pdf}
+
+
+\slide{%
+  TBD...
+}
+
+\tailslide
+
+\end{document}
