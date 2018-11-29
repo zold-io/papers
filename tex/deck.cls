@@ -88,6 +88,25 @@
       +(0,-1) node [anchor=north] {\large\texttt{#3}};
   };
 }
+\newcommand\component[4][]{
+  % #1 (optional) - Additional style for the node
+  % #1 - Tikz name
+  % #2 - Location
+  % #3 - Body
+  % for example: \component{farm}{2,2}{Farm}
+  \node [outer sep=1mm] at (#3) (#2) {
+    \tikz {
+      \node[block, inner sep=24pt, #1] (r) {\large\texttt{#4}};
+      \node[anchor=north east, outer sep=0] at (r.north east) {
+        \tikz {
+          \draw[thick, draw=rupborder] (0,0) rectangle +(0.5,0.5);
+          \draw[thick, draw=rupborder, fill=white] (-0.15,0.1) rectangle +(0.3,0.1);
+          \draw[thick, draw=rupborder, fill=white] (-0.15,0.3) rectangle +(0.3,0.1);
+        }
+      }
+    }
+  };
+}
 \pagecolor{white}
 \date{\today}
 \include{_version}
