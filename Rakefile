@@ -8,7 +8,7 @@ titles = {
   'executive-summary' => 'Zerocracy Executive Summary',
   'zerocracy-deck' => 'Zerocracy Pitch Deck',
   'freelance-deck' => 'Freelance vs Outsourcing Comparison Deck',
-  'feature-deck' => 'Zerocrat Features',
+  'features-deck' => 'Zerocrat Features',
   'arc-deck' => 'Zerocracy Architecture',
   'green-paper' => 'Zold Green Paper'
 }
