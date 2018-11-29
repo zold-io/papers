@@ -5,16 +5,23 @@
 
 \headslide{Zerocrat Architecture}
 
-\newcommand\component[3]{
+\newcommand\component[4][]{
+  % #1 (optional) - Additional style for the node
   % #1 - Tikz name
   % #2 - Location
   % #3 - Body
   % for example: \component{farm}{2,2}{Farm}
-  \node [outer sep=1mm] at (#2) (#1) {
-    \tikz \node[block, inner sep=12pt] (r) {\large\texttt{#3}};
-    % \tikz \node at (r.north east) {
-    %   \tikz \draw[thick, draw=rupborder] (0,0) -- ++(0.5,0) -- ++(0,0.5) -- ++(-0.5,0) -- ++(0,-0.5);
-    % };
+  \node [outer sep=1mm] at (#3) (#2) {
+    \tikz {
+      \node[block, inner sep=24pt, #1] (r) {\large\texttt{#4}};
+      \node[anchor=north east, outer sep=0] at (r.north east) {
+        \tikz {
+          \draw[thick, draw=rupborder] (0,0) rectangle +(0.5,0.5);
+          \draw[thick, draw=rupborder, fill=white] (-0.15,0.1) rectangle +(0.3,0.1);
+          \draw[thick, draw=rupborder, fill=white] (-0.15,0.3) rectangle +(0.3,0.1);
+        }
+      }
+    }
   };
 }
 
@@ -26,7 +33,7 @@
     \component{claims}{8,8}{Claims}
     \component{radar}{8,12}{Radar}
     \draw [ln] (radar) -- (claims);
-    \component{tts}{2,11}{TTS}
+    \component[fill=white]{tts}{2,11}{TTS}
     \draw [ln] (tts) -- (radar);
     \actor{user}{-2,8}{User}
     \draw [ln] (user) -- (tts);
