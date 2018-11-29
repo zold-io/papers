@@ -341,52 +341,6 @@
   will greately benefit any smart software company.}
 
 \slide{
-  How Does It Work, Technically?
-  \vspace{1em}
-
-  \large
-  \begin{tikzpicture}
-    \pack{farm}{8,13.5}{
-      \begin{minipage}{12em}
-        \texttt{Farm}\\[1em]
-        \footnotesize\raggedright
-        There is a collection of 150+ micro
-        robots, also known as stakeholders,
-        which perform individual management operations;
-        the more complex is the Policy, the bigger the number
-        of stakeholders.
-      \end{minipage}
-    };
-    \node[block] (hub) at +(8,8) {
-      \begin{minipage}{14em}
-        \texttt{Hub}\\[1em]
-        \footnotesize\raggedright
-        There are multiple chat platforms and ticket tracking systems, which
-        allow chat bots to talk to people (Zerocrat will be available in all of them eventually):\\[1em]
-        \includegraphics[height=3em]{../images/github.pdf}
-        \includegraphics[height=3em]{../images/telegram.pdf}
-        \includegraphics[height=3em]{../images/slack.pdf}
-        \includegraphics[height=3em]{../images/jira.pdf}
-        \includegraphics[height=3em]{../images/trello.pdf}
-      \end{minipage}
-    };
-    \node[block] (radars) at +(8,10) {\texttt{Radars}};
-    \actor{po}{1,8}{\texttt{Product Owner}};
-    \actor{arc}{15,10}{\texttt{Architect}};
-    \actor{dev}{17,6}{\texttt{Developers}};
-    \draw [ln] (farm) -- (radars);
-    \draw [ln] (po) -- node [fill=white, draw=rupborder] {1} (hub);
-    \draw [ln] (arc) -- node [fill=white, draw=rupborder] {2} (hub);
-    \draw [ln] (dev) -- node [fill=white, draw=rupborder] {3}  (hub);
-  \end{tikzpicture}
-
-  \raggedright
-  1) The Product Owner submits requirements as tickets;
-  2) The Architect reviews all new tickets and approves correct ones;
-  3) Developers implement the requirements, close tickets, and submit new ones.
-}
-
-\slide{
   What About Security And IPR?
   \begin{multicols}{3}
   \topic{zblue}{NDAs}{
