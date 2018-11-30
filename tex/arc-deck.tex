@@ -63,7 +63,7 @@
     of the claims happen later, when the dispatcher is up to it.}
   \topic{zblue}{XML}{%
     Each claim is a short XML document with a pre-defined
-    structure, validated against XSD Schema. It includes information
+    structure, validated against a XSD Schema. It includes information
     about the source of the event, the time and date, the type of
     request, and the list of supplementary arguments.}
   \topic{zblue}{Footprint}{%
@@ -78,8 +78,8 @@
     \href{https://www.sentry.io}{Sentry}.}
   \topic{zblue}{XSL Sanitizer}{%
     Before a claim gets into the queue it is validated for its correctness
-    by a series of XSL sanitizer. A claim may be rejected, for example,
-    it misspells the type or the login of the author.}
+    by a series of XSL sanitizers. A claim may be rejected, for example,
+    if it misspells the type or the login of the author.}
   \end{multicols}
   \end{multicols}
 }
@@ -121,7 +121,7 @@
       The way chat hubs are decoupled from Farm through the queue of claims
       gives a number of architectural benefits. First of all, the scalability
       is much higher, because the server doesn't need to reply immediately
-      especially when the request are coming in parallel. Second, longer
+      especially when the requests are coming in parallel. Second, longer
       response time is expectable by the user and the server can do many
       validating operations, no matter how complex is the request. The
       advantage of the chatbot architecture was explained in...}
@@ -173,12 +173,12 @@
       which stays in the PostgreSQL database because of its very relational
       nature). The files are stored in AWS S3.}
     \topic{zblue}{XSD Schema}{%
-      Each XML document in the storage is validated against its corresonding
+      Each XML document in the storage is validated against its corresponding
       XSD Schema and is rejected if there are any issues. Thanks to this
       validation all documents in the storage are always valid and correct.}
     \topic{zblue}{XSLT}{%
       Each XML document in the storage has a corresponding XSLT stylesheet
-      to convert it to HTML and render in the dashboard.}
+      to convert it to HTML and render it in the dashboard.}
   \end{multicols}
   \end{multicols}
 }
