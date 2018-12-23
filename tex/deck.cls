@@ -6,6 +6,7 @@
   \WarningFilter{latex}{You have requested package}
 \RequirePackage{microtype}
 \RequirePackage{multicol}
+\RequirePackage{setspace}
 \RequirePackage[landscape]{geometry}
 \RequirePackage{hyperref}
   \hypersetup{colorlinks=true,allcolors=zlightblue}
@@ -14,6 +15,7 @@
   \definecolor{zgreen}{HTML}{386150}
   \definecolor{zblue}{HTML}{27213C}
   \definecolor{zorange}{HTML}{B86F52} % FF8552
+  \definecolor{zyellow}{HTML}{F9E784}
   \definecolor{zlightblue}{HTML}{476C9B}
   \definecolor{rupbody}{rgb}{1,1,0.8}
   \definecolor{rupborder}{rgb}{0.6039,0,0.2}

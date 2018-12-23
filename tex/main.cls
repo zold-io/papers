@@ -2,13 +2,14 @@
 \ProvidesClass{main}[8/6/2016 Papers for Zerocracy]
 \LoadClass[12pt,oneside]{article}
 \RequirePackage[utf8]{inputenc}
-\RequirePackage[T2A]{fontenc}
 \RequirePackage{silence}
   \WarningFilter{latex}{You have requested package}
 \RequirePackage{bookmark}
 \RequirePackage{microtype}
 \RequirePackage{amsmath}
+\RequirePackage{multicol}
 \RequirePackage{mdframed}
+\RequirePackage{setspace}
 \RequirePackage{pgfplots}
 \usepackage[style=authoryear,sorting=nyt,backend=biber,
   hyperref=true,abbreviate=true,
@@ -28,9 +29,9 @@
   \AfterEndEnvironment{minted}{\end{mdframed}}
 \RequirePackage{graphicx}
 \RequirePackage{xcolor}
-  \definecolor{dgreen}{RGB}{62,100,62}
+  \definecolor{zred}{HTML}{6A041D}
+  \definecolor{zgreen}{HTML}{386150}
   \definecolor{lgreen}{RGB}{249,255,249}
-  \definecolor{dred}{RGB}{139,0,0}
 \newcommand\dd[1]{\colorbox{gray!30}{\texttt{#1}}}
 \RequirePackage{hyperref}
   \hypersetup{colorlinks=true,allcolors=blue!40!black}
