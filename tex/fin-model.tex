@@ -1,0 +1,76 @@
+\documentclass{deck}
+\usepackage[american]{babel}
+\usepackage{merriweather}
+\definecolor{background}{HTML}{EAFCFF}\pagecolor{background}
+\begin{document}
+
+\tikzstyle{point} = [draw=rupborder, fill=white, outer sep=0, inner sep=2pt, thin, font={\small\ttfamily\color{rupborder}}, circle]
+\newcommand\pnt[1]{ \tikz{\node[scale=0.75,point]{#1};}}
+
+\slide{%
+  \begin{multicols}{2}
+  \begin{tikzpicture}[scale=0.75, every node/.style={scale=0.75}]
+    \actor{investor}{0,0}{Investors}
+    \rect{zerocracy}{[xshift=125]investor}{Zerocracy}
+    \draw [ln] (investor) -- node[point]{3} (zerocracy);
+    \rect[fill=none, draw=none]{biz}{[xshift=150, yshift=-50]zerocracy}{%
+      \begin{minipage}{3cm}Business\\Development\end{minipage}}
+    \draw [ln] (zerocracy) -- node[point]{4} (biz);
+    \rect{btc}{[yshift=-100]zerocracy}{BTC Wallet}
+    \draw [ln] (zerocracy) -- node[point]{4} (btc);
+    \actor{sellers}{[yshift=-75, xshift=-125]btc}{Sellers}
+    \draw [ln] (btc) -- node[point]{5} (sellers);
+    \actor{buyers}{[yshift=-75, xshift=125]btc}{Buyers}
+    \draw [ln] (buyers) -- node[point]{2} (btc);
+    \rect{root}{[yshift=-50]btc}{Root Wallet}
+    \rect{office}{[yshift=-100]root}{Office Wallet}
+    \draw [ln] (root) -- node[point]{1} (office);
+    \draw [ln] (sellers) -- node[point]{5} (office);
+    \draw [ln] (office) -- node[point]{2} (buyers);
+    \rect{fees}{[yshift=-75]office}{Fees Wallet}
+    \draw [ln] (sellers) -- node[point]{5} (fees);
+    \draw [ln] (buyers) -- node[point]{2} (fees);
+    \actor{hosters}{[xshift=125]fees}{Hosters}
+    \draw [ln] (fees) -- node[point]{6} (hosters);
+  \end{tikzpicture}
+  \vfill
+  \columnbreak
+  \begin{multicols}{2}
+  \topic{zblue}{Emission\pnt{1}}{%
+    Zerocracy sends zolds from its Root Wallet to the Office Wallet
+    where they can be \href{https://blog.zold.io/2018/12/09/btc-to-zld.html}{purchased} by the Buyers.}
+  \topic{zblue}{Buy to Gain\pnt{2}}{%
+    The Buyer sends bitcoins to the public BTC Wallet and receives
+    zolds to their own ZLD wallet; the commission is paid to the
+    Fees Wallet; the intent of the Buyer is to gain profit from selling zolds later.}
+  \topic{zblue}{Venture Capital\pnt{3}}{%
+    An Investor purchases shares of stock of Zerocracy with an intent
+    to sell them later, when the capitalization of the company grows,
+    or to earn dividends.}
+  \topic{zblue}{Donations\pnt{4}}{%
+    In order to increase the exchange rate of ZLD to BTC, Zerocracy donates a portion
+    of investment received into the BTC wallet; the rest of the money
+    is spent on business development, R\&D, and marketing.}
+  \topic{zblue}{Sell to Return\pnt{5}}{%
+    The Seller, when the exchange rate is high enough, converts
+    their zolds to bitcoins;
+    the total amount of bitcoins in Zerocracy's posession divided by the total
+    emission of zolds is the current exchange rate.}
+  \topic{zblue}{Exchange Fees\pnt{6}}{%
+    Every buying and selling transaction deducts an exchange
+    fee, which is accumulated in a special ZLD wallet;
+    Hosters, who run the network, are getting regular
+    \href{https://blog.zold.io/2018/08/14/hosting-bonuses.html}{bonuses}
+    from that wallet, on top of taxes.}
+  \end{multicols}
+  \end{multicols}
+}
+
+\begin{textblock}{7}[1,1](15,15){\begin{flushright}
+  \ttfamily\small\color{gray}
+  \href{https://www.zerocracy.com}{\includegraphics[height=24pt]{../images/zerocracy-logo.pdf}}
+  \href{https://www.zold.io}{\includegraphics[height=24pt]{../images/logo.pdf}}\\
+  \today\quad\zoldversion
+\end{flushright}}\end{textblock}
+
+\end{document}

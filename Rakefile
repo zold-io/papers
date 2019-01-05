@@ -7,9 +7,11 @@ titles = {
   'wp' => 'Zold White Paper',
   'executive-summary' => 'Zerocracy Executive Summary',
   'zerocracy-deck' => 'Zerocracy Pitch Deck',
-  'freelance-deck' => 'Freelance vs Outsourcing Comparison Deck',
   'features-deck' => 'Zerocrat Features',
+  'freelance-deck' => 'Freelance vs Outsourcing Comparison Deck',
   'arc-deck' => 'Zerocracy Architecture',
+  'fin-model' => 'Zold Fin Model',
+  'offer' => 'Zerocracy Investment Offer',
   'green-paper' => 'Zold Green Paper'
 }
 
@@ -48,11 +50,8 @@ task :html => [:pdf, :thumbs] do
       'index.html',
       IO.read('index.html').gsub(
         'PDFs',
-        Dir['*.pdf'].sort.map do |p|
-          name = File.basename(p, '.pdf')
-          title = titles[name]
-          next unless title
-          "<li class='thumb'><a href='#{p}'><img src='#{name}.png'/></a><br/>#{title}</li>"
+        titles.map do |k, v|
+          "<li class='thumb'><a href='#{k}.pdf'><img src='#{k}.png'/></a><br/>#{v}</li>"
         end.join
       )
     )
@@ -68,7 +67,11 @@ task :thumbs => :pdf do
         puts "Thumb is up to date: #{png}"
         next
       end
-      run("convert -density 300 -quality 100 #{pdf}[0] #{png}")
+      begin
+        run("convert -density 300 -quality 100 #{pdf}[0] #{png}")
+      rescue StandardError => e
+        raise e unless ARGV.include?('--quiet')
+      end
     end
   end
 end

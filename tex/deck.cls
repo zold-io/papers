@@ -32,6 +32,7 @@
 \RequirePackage{graphicx}
 \RequirePackage{makecell}
 \pagestyle{empty}
+\RequirePackage[absolute]{textpos}\TPGrid{16}{16}
 \newcommand\topic[3]{\vbox{\raggedright{\normalsize\colorbox{#1}{\color{white}{#2}}}\newline\footnotesize#3\vspace{4pt}}}
 \newcommand\slide[1]{%
   \pagebreak\topskip0pt\vspace*{\fill}%
@@ -90,11 +91,23 @@
       +(0,-1) node [anchor=north] {\large\texttt{#3}};
   };
 }
+\newcommand\rect[4][]{
+  % #1 (optional) - Additional style for the node
+  % #2 - Tikz name
+  % #3 - Location
+  % #4 - Body
+  % for example: \rect{farm}{2,2}{Farm}
+  \node [outer sep=1pt] at (#3) (#2) {
+    \tikz {
+      \node[block, inner sep=12pt, #1] (r) {\large\texttt{#4}};
+    }
+  };
+}
 \newcommand\component[4][]{
   % #1 (optional) - Additional style for the node
-  % #1 - Tikz name
-  % #2 - Location
-  % #3 - Body
+  % #2 - Tikz name
+  % #3 - Location
+  % #4 - Body
   % for example: \component{farm}{2,2}{Farm}
   \node [outer sep=1mm] at (#3) (#2) {
     \tikz {
@@ -115,5 +128,6 @@
 \AtBeginDocument{%
   \tikzstyle{block} = [draw=rupborder, fill=rupbody, inner sep=0.4cm, thick]%
   \tikzstyle{ln} = [->, very thick, arrows={-triangle 90}]%
+  \setlength{\parindent}{0pt} % indent first line
 }
 \endinput
