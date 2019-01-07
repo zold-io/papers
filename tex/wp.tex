@@ -177,8 +177,7 @@ EOS, NEO, Loki,%
 }
 and many others.
 The only way to get ZLD is to receive it from someone else.
-The root wallet belongs to the issuer and may have a negative balance,
-which can grow according to a pre-defined restrictive formula, explained in Section~\ref{sec:formula}.
+The root wallet belongs to the issuer and may have a negative balance.
 All other wallets can only have positive balances.
 
 \textbf{Taxes}.
@@ -404,40 +403,6 @@ For example, this text may be used as a signing input:
 Each transaction takes 1284 symbols at most.
 
 The order of transactions is not important, as long as the final balance is positive.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Mining Formula}\label{sec:formula}
-
-The only way to get ZLD is to receive it from the \emph{root} wallet
-with a system pre-defined ID \dd{0000000000000000}.
-This is the only wallet on the Zold network that can carry a negative balance.
-However, to prevent an uncontrolled emission of ZLD, the balance
-of this wallet must satisfy the following formula:
-
-\begin{equation}
-t = \frac{h}{24 \times 1024}; \quad z = 2^{63} \times (1 - 2^{-t}).
-\end{equation}
-
-Here $h$ is the age of the root wallet in hours and $z$ is the maximum
-amount of zents it can issue at that moment. The first
-six years will look like this:
-
-\vspace{\parskip}\begin{center}\begin{tabular}{lrr}
-\hline
-Year & ZLD & Share \\
-\hline
-1st & 470m & 22\% \\
-2nd & 837m & 39\% \\
-3rd & 1.1b & 52\%\\
-4th & 1.3b & 63\% \\
-5th & 1.5b & 71\% \\
-6th & 1.7b & 77\% \\
-\hline
-\end{tabular}\end{center}
-
-The limitation is hardwired in Zold software and can't be eliminated.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
