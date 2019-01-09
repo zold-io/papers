@@ -29,7 +29,6 @@
     \draw [ln] (office) -- node[point]{2} (buyers);
     \rect{fees}{[yshift=-75]office}{Fees Wallet}
     \draw [ln] (sellers) -- node[point]{5} (fees);
-    \draw [ln] (buyers) -- node[point]{2} (fees);
     \actor{hosters}{[xshift=125]fees}{Hosters}
     \draw [ln] (fees) -- node[point]{6} (hosters);
   \end{tikzpicture}
@@ -41,8 +40,8 @@
     where they can be \href{https://blog.zold.io/2018/12/09/btc-to-zld.html}{purchased} by the Buyers.}
   \topic{zblue}{Buy to Gain\pnt{2}}{%
     The Buyer sends bitcoins to the public BTC Wallet and receives
-    zolds to their own ZLD wallet; the commission is paid to the
-    Fees Wallet; the intent of the Buyer is to gain profit from selling zolds later.}
+    zolds to their own ZLD wallet;
+    the intent of the Buyer is to gain profit from selling zolds later.}
   \topic{zblue}{Venture Capital\pnt{3}}{%
     An Investor purchases shares of stock of Zerocracy with an intent
     to sell them later, when the capitalization of the company grows,
