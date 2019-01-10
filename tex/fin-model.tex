@@ -28,7 +28,7 @@
     \draw [ln] (sellers) -- node[point]{5} (office);
     \draw [ln] (office) -- node[point]{2} (buyers);
     \rect{fees}{[yshift=-75]office}{Fees Wallet}
-    \draw [ln] (sellers) -- node[point]{5} (fees);
+    \draw [ln] (sellers) -- node[point]{6} (fees);
     \actor{hosters}{[xshift=125]fees}{Hosters}
     \draw [ln] (fees) -- node[point]{6} (hosters);
   \end{tikzpicture}
@@ -56,7 +56,7 @@
     the total amount of bitcoins in Zerocracy's posession divided by the total
     emission of zolds is the current exchange rate.}
   \topic{zblue}{Exchange Fees\pnt{6}}{%
-    Every buying and selling transaction deducts an exchange
+    Every selling transaction deducts an exchange
     fee, which is accumulated in a special ZLD wallet;
     Hosters, who run the network, are getting regular
     \href{https://blog.zold.io/2018/08/14/hosting-bonuses.html}{bonuses}
