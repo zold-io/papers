@@ -10,11 +10,12 @@
 \slide{%
   \begin{multicols}{2}
   \begin{tikzpicture}[scale=0.75, every node/.style={scale=0.75}]
-    \actor{investor}{0,0}{Investors}
-    \rect{zerocracy}{[xshift=125]investor}{Zerocracy}
+    \rect{zerocracy}{0,0}{Zerocracy}
+    \actor{investor}{[yshift=-50, xshift=-125]zerocracy}{%
+      \begin{minipage}{6em}\begin{center}Strategic\\Investors\end{center}\end{minipage}}
     \draw [ln] (investor) -- node[point]{3} (zerocracy);
     \rect[fill=none, draw=none]{biz}{[xshift=150, yshift=-50]zerocracy}{%
-      \begin{minipage}{3cm}Business\\Development\end{minipage}}
+      \begin{minipage}{6em}\begin{center}Business\\Development\end{center}\end{minipage}}
     \draw [ln] (zerocracy) -- node[point]{4} (biz);
     \rect{btc}{[yshift=-100]zerocracy}{BTC Wallet}
     \draw [ln] (zerocracy) -- node[point]{4} (btc);
@@ -27,9 +28,9 @@
     \draw [ln] (root) -- node[point]{1} (office);
     \draw [ln] (sellers) -- node[point]{5} (office);
     \draw [ln] (office) -- node[point]{2} (buyers);
-    \rect{fees}{[yshift=-75]office}{Fees Wallet}
+    \rect{fees}{[yshift=-75, xshift=-50]office}{Fees Wallet}
     \draw [ln] (sellers) -- node[point]{6} (fees);
-    \actor{hosters}{[xshift=125]fees}{Hosters}
+    \actor{hosters}{[xshift=150]fees}{Hosters}
     \draw [ln] (fees) -- node[point]{6} (hosters);
   \end{tikzpicture}
   \vfill
@@ -48,7 +49,7 @@
     or to earn dividends.}
   \topic{zblue}{Donations\pnt{4}}{%
     In order to increase the exchange rate of ZLD to BTC, Zerocracy donates a portion
-    of investment received into the BTC wallet; the rest of the money
+    of investment received into the BTC Wallet; the rest of the money
     is spent on business development, R\&D, and marketing.}
   \topic{zblue}{Sell to Return\pnt{5}}{%
     The Seller, when the exchange rate is high enough, converts
@@ -65,11 +66,16 @@
   \end{multicols}
 }
 
-\begin{textblock}{7}[1,1](15,15){\begin{flushright}
-  \ttfamily\small\color{gray}
+\begin{textblock}{7}[1,1](15,15){%
+  \raggedleft\ttfamily\small\color{gray}%
   \href{https://www.zerocracy.com}{\includegraphics[height=24pt]{../images/zerocracy-logo.pdf}}
   \href{https://www.zold.io}{\includegraphics[height=24pt]{../images/logo.pdf}}\\
-  \today\quad\zoldversion
-\end{flushright}}\end{textblock}
+  \today\quad\zoldversion\\%
+}\end{textblock}
+
+\begin{textblock}{7}[0,1](1,15){%
+  \ttfamily\small\color{gray}%
+  Actual numbers are here: \href{https://wts.zold.io/rate}{https://wts.zold.io/rate}%
+}\end{textblock}
 
 \end{document}
