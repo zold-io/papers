@@ -80,7 +80,7 @@ task :pdf do
   FileUtils.mkdir_p('target')
   Dir.chdir('tex') do
     opts = "-shell-escape -halt-on-error -interaction=errorstopmode -output-directory=../target"
-    Dir['*.tex'].each do |f|
+    Dir['**/*.tex'].each do |f|
       next if f.start_with?('_')
       name = File.basename(f, '.tex')
       pdf = "../target/#{name}.pdf"

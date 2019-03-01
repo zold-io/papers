@@ -1,0 +1,258 @@
+\documentclass{deck}
+\usepackage[american]{babel}
+\usepackage{merriweather}
+\usepackage{amssymb}
+\usepackage[absolute]{textpos}\TPGrid{16}{16}
+\title{Zerocracy, January 2019}
+\newcommand\fact[3]{\vbox{\raggedright{\small\colorbox{#1}{\color{white}{#2}}}\vspace{3pt}\newline\normalsize#3\vspace{18pt}}}
+\newcommand\new{\color{zyellow}{\textbf{new!}}}
+\newcommand\up[1]{{\color{zgreen}$\blacktriangle$#1}}
+\newcommand\down[1]{{\color{zred}$\blacktriangledown$#1}}
+\begin{document}
+
+\headslide{
+  {\huge Investor Snapshot no.4}
+  \\
+  {\huge\colorbox{zgreen}{\color{white}{\textbf{Jan 2019}}}}
+  \\[24pt]
+  {\small This document is stictly confidential and for private use only.
+  It is not allowed to share it with anyone or make available in public
+  Internet. If you received it by mistake, please delete it and email the author
+  immediately at \href{mailto:ceo@zerocracy.com}{ceo@zerocracy.com}.}
+  \vspace{24pt}%
+}
+
+\slide{
+  What Was Done in January?
+  \begin{multicols}{3}
+  \fact{zgreen}{Zold SDK}{%
+    We created a Software Development Kit (\href{https://github.com/zold-io/zold-ruby-sdk}{SDK}) for Zold online
+    wallet management system, \href{https://wts.zold.io}{WTS}. Thanks
+    to this SDK, Zold can be seamlessly integrated into a crypto-exchange,
+    a mobile wallet, or an online shop, to receive and send payments
+    in ZLD. Open source enthusiasts are working already on a Java
+    copy of the SDK. More programming languages are coming.}
+  \fact{zgreen}{Zold memory leakage fixed}{%
+    Over the last few months we've had a very annoying
+    technical issue in Zold software, our experimental non-Blockchain
+    cryptocurrency. Simply put, our nodes were running out of memory
+    every few hours and had to be rebooted. A long investigation
+    helped us reveal a bug in Ruby, and we managed to implement
+    a workaround, which stabilized all nodes enormously. At the moment
+    they run for days without any issues. We still have some technical
+    problems in Zold software, they are listed in the
+    \href{https://blog.zold.io/roadmap.html}{Roadmap} (was updated recently).}
+  \fact{zgreen}{YouTube video blogging}{%
+    Yegor Bugayenko, our CEO, started a regular video blogging in
+    his YouTube channel, focusing mostly on management questions
+    and the process Zerocracy is developing. The feedback is very
+    positive up to date, we are getting new sign-ups from programmers,
+    new potential investor requests, and our overall media coverage
+    is growing, thanks to this initiative. Aside from that Yegor is
+    now publishing weekly reports about our business and technical
+    progress, subscribe to our \href{https://www.youtube.com/channel/UCxZAzmY_OPw40I1-YStWqhw}{YouTube channel}
+    to follow.}
+\end{multicols}}
+
+\slide{
+  Facts
+  \begin{multicols}{3}
+  \fact{zblue}{Entity}{%
+    Zerocracy, Inc.\\
+    Delaware C-Corp}
+  \fact{zblue}{Founded on}{%
+    August 4, 2016}
+  \fact{zblue}{Coordinates}{%
+    555 Bryant, Ste 470\\
+    CA 94301, USA\\
+    408.692.4742\\
+    \href{mailto:ceo@zerocracy.com}{ceo@zerocracy.com}}
+  \fact{zblue}{Documents}{%
+    \href{http://papers.zold.io/zerocracy-deck.pdf}{Pitch Deck}\\
+    \href{http://papers.zold.io/executive-summary.pdf}{Executive Summary}\\
+    \href{http://papers.zold.io/fin-model.pdf}{Fin Model} \new \\
+    \href{http://papers.zold.io/offer.pdf}{Investment Offer} \\
+    \href{http://papers.zold.io/features-deck.pdf}{Zerocrat Features} \\
+    \href{http://papers.zold.io/freelance-deck.pdf}{Freelance Deck} \\
+    \href{http://papers.zold.io/arc-deck.pdf}{Zerocracy Architecture} \\}
+  \fact{zblue}{Business}{%
+    Zerocracy is an AI-empowered project management chatbot that automates
+    routine processes in software development projects, helping managers
+    coordinate programmers in distributed and co-located teams.}
+  \fact{zblue}{CEO}{%
+    \href{https://www.yegor256.com/about-me.html}{Yegor Bugayenko} \\
+    \href{https://twitter.com/intent/follow?screen_name=yegor256}{\includegraphics[height=1em]{../images/twitter.pdf}}
+    \href{https://github.com/yegor256}{\includegraphics[height=1em]{../images/github.pdf}}
+    \href{https://www.facebook.com/yegor256}{\includegraphics[height=1em]{../images/facebook.pdf}}
+    \href{https://www.linkedin.com/in/yegor256}{\includegraphics[height=1em]{../images/linkedin.pdf}}}
+  \fact{zblue}{Team}{%
+    Erik J. Larson, PhD, Advisor\\
+    \href{https://www.linkedin.com/in/erik-larson-b287ba9/}{\includegraphics[height=1em]{../images/linkedin.pdf}}
+
+    Kiril Cherniavsky, Chief Architect\\
+    \href{https://twitter.com/intent/follow?screen_name=kirill_g4s8}{\includegraphics[height=1em]{../images/twitter.pdf}}
+    \href{https://github.com/g4s8}{\includegraphics[height=1em]{../images/github.pdf}}
+
+    Carlos Miranda, Senior Developer\\
+    \href{https://github.com/carlosmiranda}{\includegraphics[height=1em]{../images/github.pdf}}
+    \href{https://www.linkedin.com/in/carlos-miguel-miranda-0b899392/}{\includegraphics[height=1em]{../images/linkedin.pdf}}
+
+    Krzysztof Kraso\'n, Senior Deveoper\\
+    \href{https://github.com/krzyk}{\includegraphics[height=1em]{../images/github.pdf}}
+    \href{https://www.linkedin.com/in/krzyk/}{\includegraphics[height=1em]{../images/linkedin.pdf}}
+
+    George Aristy, Senior Developer\\
+    \href{https://github.com/llorllale}{\includegraphics[height=1em]{../images/github.pdf}}
+    \href{https://www.linkedin.com/in/georgearisty/}{\includegraphics[height=1em]{../images/linkedin.pdf}}
+    }
+\end{multicols}}
+
+\slide{
+  Financials
+  \begin{multicols}{3}
+  \fact{zblue}{Shareholders}{%
+    \renewcommand{\tabcolsep}{0pt}
+    \begin{tabular}{l@{\hskip 6pt}r}
+      Yegor Bugayenko & 80.60\% \\
+      Erik J. Larson & 0.25\% \\
+      Kiril Cherniavsky & 0.18\% \\
+      Carlos Miranda & 0.07\% \\
+      Others & 0.25\% \\
+      Pool & 18.65\% \\
+    \end{tabular}}
+  \fact{zblue}{Total Shares}{%
+    100,000,000}
+  \fact{zblue}{Invested to Date}{%
+    \$925,000 \up{+\$16K}}
+  \fact{zblue}{Pre-Money Cap}{%
+    \$16,000,000}
+  \fact{zblue}{Raising Capital}{%
+    \$400--1,600K}
+  \fact{zblue}{Paying Customers}{%
+    % January
+    % Zold
+    % Farm
+    % Harvest
+    % Python
+    5 }
+  \fact{zblue}{Revenue /mo}{%
+    \$14,300 \up{+10\%}}
+  \fact{zblue}{Income /mo}{%
+    \$2,565}
+  \fact{zblue}{Fixed Costs /mo}{%
+    % Yegor $10k
+    % AWS $300
+    % Marketing guys: $400
+    % Heroku: $400
+    % Promo (buffer.com etc): $200
+    \$11,300}
+  \fact{zblue}{Sandbox Donations /mo}{%
+    \$2,000 \down{-43\%} }
+  \fact{zblue}{Profit /mo}{% Income - FixedCost - Sandbox
+    -\$10,735 \up{+12\%}}
+\end{multicols}
+
+\large
+All interval ``/mo'' metrics are related to the last calendar month.}
+
+\slide{
+  \begin{textblock}{2}[1,0](15,1)
+    \includegraphics[height=64pt]{/code/zold/papers/images/zerocrat.pdf}
+  \end{textblock}
+  Zerocrat Tech Summary
+  \begin{multicols}{3}
+  \fact{zblue}{Version}{%
+    \href{https://github.com/zerocracy/farm/releases}{0.40.15} \up{+15}\\
+    Released on Jan-29 (3 days ago)}
+  \fact{zblue}{Top Programmers}{%
+    \href{https://www.0crat.com/team}{16}}
+  \fact{zblue}{Active Programmers}{%
+    \href{https://www.0crat.com/team}{59} \down{+28\%}}
+  \fact{zblue}{Total Reputation}{%
+    \href{https://www.0crat.com/team}{+54,645} \up{+16\%}}
+  \fact{zblue}{Projects}{%
+    33 \up{+10\%}}
+  \fact{zblue}{Hits-of-code}{%
+    \renewcommand{\tabcolsep}{0pt}
+    \begin{tabular}{l@{\hskip 6pt}r}
+      \href{https://github.com/zerocracy/farm}{zerocracy/farm} & 190K \\
+      \href{https://github.com/zerocracy/datum}{zerocracy/datum} & 19K \\
+      \href{https://github.com/yegor256/0pdd}{yegor256/0pdd} & 15K \\
+      \href{https://github.com/yegor256/pdd}{yegor256/pdd} & 12K \\
+    \end{tabular}}
+\end{multicols}}
+
+\slide{
+  \begin{textblock}{2}[1,0](15,1)
+    \includegraphics[height=64pt]{/code/zold/papers/images/logo.pdf}
+  \end{textblock}
+  Zold Cryptocurrency Tech/Fin Summary
+  \begin{multicols}{3}
+  \fact{zblue}{Version}{%
+    \href{https://github.com/zold-io/zold/releases}{0.22.8} \up{+12}\\
+    Released on 30-Jan (2 days ago)}
+  \fact{zblue}{Total Emission}{%
+    131,072}
+  \fact{zblue}{Total Fund}{%
+    0.65 BTC}
+  \fact{zblue}{Deficit}{%
+    4.64 BTC}
+  \fact{zblue}{Cash Collected}{%
+    \$13,050}
+  \fact{zblue}{ZLD Rate}{%
+    \href{https://wts.zold.io/rate}{0.00025 BTC}}
+  \fact{zblue}{ZLD Price}{%
+    \href{https://wts.zold.io/rate}{\$0.89}}
+  \fact{zblue}{Nodes}{%
+    18}
+  \fact{zblue}{Hits-of-code}{%
+    \renewcommand{\tabcolsep}{0pt}
+    \begin{tabular}{l@{\hskip 6pt}r}
+      \href{https://github.com/zold-io/zold}{zold-io/zold} & 46K \\
+      \href{https://github.com/zold-io/zold-stress}{zold-io/zold-stress} & 3K \\
+      \href{https://github.com/zold-io/zold-score}{zold-io/zold-score} & 1K \\
+      \href{https://github.com/zold-io/wts.zold.io}{zold-io/wts} & 11K \\
+      \href{https://github.com/zold-io/zold.github.io}{zold-io/zold.github.io} & 32K \\
+    \end{tabular}}
+\end{multicols}}
+
+\slide{
+  Marketing and Promotion
+  \begin{multicols}{3}
+  \fact{zblue}{Active Users /mo}{%
+    \renewcommand{\tabcolsep}{0pt}
+    \begin{tabular}{l@{\hskip 6pt}r}
+      \href{https://www.zerocracy.com}{zerocracy.com} & \up{+18\%} 1946 \\
+      \href{https://www.zold.io}{zold.io} & \up{-10\%} 618 \\
+    \end{tabular}}
+  \fact{zblue}{Blog Posts}{%
+    \renewcommand{\tabcolsep}{0pt}
+    \begin{tabular}{l@{\hskip 6pt}r}
+      \href{https://www.zerocracy.com/blog.html}{zerocracy.com/blog.html} & 5 \\
+      \href{https://blog.zold.io}{blog.zold.io} & \up{+5} 25 \\
+    \end{tabular}}
+  \fact{zblue}{Social Followers}{%
+    \renewcommand{\tabcolsep}{0pt}
+    \begin{tabular}{l@{\hskip 6pt}r}
+      \href{https://www.facebook.com/zerocracy/}{Facebook} & \up{+19\%} 454 \\
+      \href{https://twitter.com/0crat}{Twitter} & \up{+10\%} 788 \\
+      \href{https://www.linkedin.com/company/zerocracy/}{LinkedIn} & 58 \\
+      \href{https://www.youtube.com/channel/UCxZAzmY_OPw40I1-YStWqhw}{YouTube} & 114 \\
+    \end{tabular}}
+  \fact{zblue}{GitHub Stars}{%
+    472 \up{+3\%}}
+  \fact{zblue}{Website Leads /mo}{%
+    553 \down{-16\%}}
+  \fact{zblue}{Conferences /mo}{%
+    none
+    % \href{https://youtu.be/y0X-WQ1bOUI}{\emph{Software Testing Philosophy}}\\
+    % BeeMobile Meetup, Moscow, Russia\\
+  }
+  \end{multicols}
+
+  \large All interval ``/mo'' metrics are related to the last calendar month.
+}
+
+\tailslide
+
+\end{document}
