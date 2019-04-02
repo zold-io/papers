@@ -27,5 +27,5 @@ You should get `.pdf` files in the `target` directory. If something
 goes wrong, don't hesitate to [submit a ticket](https://github.com/zold-io/papers/issues).
 
 If you find a typo in any document, please let us know via a new ticket.
-If you want to contribute, you are more the welcome. The White Paper (`wp.tex`)
+If you want to contribute, you are more than welcome. The White Paper (`wp.tex`)
 is the main document here, this is where you can contribute.
