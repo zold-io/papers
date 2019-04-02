@@ -6,6 +6,8 @@ assets:
 install: |
   sudo apt-get -y update
   sudo apt-get -y install imagemagick
+  export GEM_HOME=~/.ruby
+  export GEM_PATH=$GEM_HOME:$GEM_PATH
   bundle update
 merge:
   script: |
@@ -17,7 +19,7 @@ release:
     sed -i "s/0\.0\.0/${tag}/g" html/index.html
     git add tex/_version.tex html/index.html
     git commit -m "Version set to ${tag}"
-    rake
+    bundle exec rake
     mkdir -p ~/.ssh
     mv ../id_rsa ../id_rsa.pub ~/.ssh
     chmod -R 600 ~/.ssh/*
