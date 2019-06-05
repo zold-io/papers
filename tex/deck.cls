@@ -56,6 +56,8 @@
     \Large
       \href{https://twitter.com/0crat}{Twitter}
       \quad
+      \href{https://instagram.com/zerocracy}{Instagram}
+      \quad
       \href{https://facebook.com/zerocracy}{Facebook}
       \quad
       \href{https://www.zerocracy.com/blog.html}{Blog}
