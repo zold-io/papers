@@ -1,12 +1,11 @@
 <img src="http://www.zold.io/logo.svg" width="92px" height="92px"/>
 
 [![Build Status](https://travis-ci.org/zold-io/papers.svg?branch=master)](https://travis-ci.org/zold-io/papers)
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/yegor256/takes/blob/master/LICENSE.txt)
 
 Here is the [White Paper](https://papers.zold.io/wp.pdf).
 
 Join our [Telegram group](https://t.me/zold_io) to discuss it all live.
-
-The license is [MIT](https://github.com/zold-io/zold/blob/master/LICENSE.txt).
 
 The documentation here is created in [LaTeX](https://www.latex-project.org/).
 In order to compile these `.tex` files in to `.pdf` you have to
