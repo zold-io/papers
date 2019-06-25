@@ -6,7 +6,7 @@ assets:
 install: |
   sudo apt-get -y update
   sudo apt-get -y install imagemagick
-  gem install bundler
+  sudo gem install bundler
   bundle install --no-color
 merge:
   script: |
