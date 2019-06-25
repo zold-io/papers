@@ -21,4 +21,4 @@ source 'https://rubygems.org'
 ruby '~>2.3'
 
 gem 'rainbow', '~>3.0'
-gem 'rake', '12.3.1', require: false
+gem 'rake', '12.3.1'
