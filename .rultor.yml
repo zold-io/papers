@@ -9,7 +9,7 @@ install: |
   bundle update
 merge:
   script: |
-    rake
+    bundle exec rake
 release:
   script: |
     [[ "${tag}" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]] || exit -1
@@ -36,4 +36,7 @@ release:
     git add .
     git commit -am "New papers, version ${tag}"
     git push origin gh-pages
-
+deploy:
+  script: |
+    echo 'There is nothing to deploy'
+    exit -1
