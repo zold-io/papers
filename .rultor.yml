@@ -6,10 +6,7 @@ assets:
 install: |
   sudo apt-get -y update
   sudo apt-get -y install imagemagick
-  sudo rvm install ruby-2.6.0
-  rvm use 2.6.0
-  export GEM_HOME=~/.ruby
-  export GEM_PATH=$GEM_HOME:$GEM_PATH
+  gem install bundler
   bundle install --no-color
 merge:
   script: |
