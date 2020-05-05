@@ -11,7 +11,7 @@ titles = {
   'freelance-deck' => 'Freelance vs Outsourcing Comparison Deck',
   'arc-deck' => 'Zerocracy Architecture',
   'fin-model' => 'Zold Fin Model',
-  'offer' => 'Zerocracy Investment Offer',
+  # 'offer' => 'Zerocracy Investment Offer',
   'green-paper' => 'Zold Green Paper'
 }
 
