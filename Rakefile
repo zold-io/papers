@@ -10,7 +10,7 @@ titles = {
   'features-deck' => 'Zerocrat Features',
   'freelance-deck' => 'Freelance vs Outsourcing Comparison Deck',
   'arc-deck' => 'Zerocracy Architecture',
-  'fin-model' => 'Zold Fin Model',
+  # 'fin-model' => 'Zold Fin Model',
   # 'offer' => 'Zerocracy Investment Offer',
   'green-paper' => 'Zold Green Paper'
 }
