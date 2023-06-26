@@ -18,7 +18,7 @@
 # SOFTWARE.
 
 source 'https://rubygems.org'
-ruby '~>2.3'
+ruby '~>3.0'
 
 gem 'rainbow', '~>3.0'
 gem 'rake', '12.3.1'
