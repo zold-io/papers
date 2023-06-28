@@ -2,6 +2,8 @@
 \ProvidesClass{deck}[8/6/2016 Slides for Zerocracy]
 \LoadClass{article}
 \RequirePackage[utf8]{inputenc}
+\RequirePackage[T1]{fontenc}
+\RequirePackage{lmodern}
 \RequirePackage{silence}
   \WarningFilter{latex}{You have requested package}
 \RequirePackage{microtype}

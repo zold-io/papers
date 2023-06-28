@@ -2,6 +2,8 @@
 \ProvidesClass{main}[8/6/2016 Papers for Zerocracy]
 \LoadClass[12pt,oneside]{article}
 \RequirePackage[utf8]{inputenc}
+\RequirePackage[T1]{fontenc}
+\RequirePackage{lmodern}
 \RequirePackage{silence}
   \WarningFilter{latex}{You have requested package}
 \RequirePackage{bookmark}
