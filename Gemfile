@@ -1,4 +1,4 @@
-# Copyright (c) 2018-2020 Yegor Bugayenko
+# Copyright (c) 2018-2023 Zerocracy
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the 'Software'), to deal
@@ -18,7 +18,6 @@
 # SOFTWARE.
 
 source 'https://rubygems.org'
-ruby '~>2.3'
 
-gem 'rainbow', '~>3.0'
-gem 'rake', '12.3.1'
+gem 'rainbow', '3.1.1'
+gem 'rake', '13.0.6'

@@ -126,8 +126,8 @@
 }
 \pagecolor{white}
 \date{\today}
-\include{_version}
 \AtBeginDocument{%
+  \input{_version}%
   \tikzstyle{block} = [draw=rupborder, fill=rupbody, inner sep=0.4cm, thick]%
   \tikzstyle{ln} = [->, very thick, arrows={-triangle 90}]%
   \setlength{\parindent}{0pt} % indent first line

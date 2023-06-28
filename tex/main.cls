@@ -40,6 +40,8 @@
 \setlength{\parskip}{6pt} % before par
 \let\oldsection\section\renewcommand\section{\newpage\oldsection}
 \date{\today}
-\include{_version}
-\AtBeginDocument{\raggedbottom}
+\AtBeginDocument{%
+  \input{_version}%
+  \raggedbottom%
+}
 \endinput
