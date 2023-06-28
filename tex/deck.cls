@@ -76,7 +76,11 @@
       408.692.4742\\
       \href{mailto:team@zerocracy.com}{team@zerocracy.com}
     \\[1em]
-    \normalsize\texttt{\zoldversion\qquad\today}
+    \normalsize\texttt{
+      \zoldversion
+      \qquad
+      July 6, 2019
+    }
   }
 }
 \newcommand\actor[3]{

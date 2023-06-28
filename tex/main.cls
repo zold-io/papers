@@ -39,7 +39,6 @@
 \setlength{\parindent}{0pt} % indent first line
 \setlength{\parskip}{6pt} % before par
 \let\oldsection\section\renewcommand\section{\newpage\oldsection}
-\date{\today}
 \AtBeginDocument{%
   \input{_version}%
   \raggedbottom%
