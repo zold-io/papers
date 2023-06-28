@@ -12,7 +12,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-20.04]
-        ruby: ['2.7', '3.0']
+        ruby: ['3.0']
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v3
@@ -20,8 +20,7 @@ jobs:
       - uses: teatimeguest/setup-texlive-action@v2.6.0
         with:
           update-all-packages: true
-          package-file: DEPENDS.txt
-          packages: scheme-basic xetex ffcode libertine microtype hypdoc l3build href-ul newtx biblatex biber verbatimcopy pgfopts
+          packages: scheme-basic xetex ffcode libertine microtype hypdoc href-ul newtx biblatex biber verbatimcopy pgfopts
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ matrix.ruby }}
