@@ -31,7 +31,7 @@ Read \href{https://blog.zold.io}{our blog} for more details.
 
 \section{Motivation}
 
-Bitcoin, the first decentralized digital currency, was released in January 2009~\parencite{nakamoto2008}.
+Bitcoin, the first decentralized digital currency, was successfully released in January 2009~\parencite{nakamoto2008}.
 In the following years ``a libertarian fairy tale'' and ``a simple Silicon Valley exercise in hype''
 turned into ``a catalyst to reshape the financial system in ways that are more
 powerful for individuals and businesses alike,'' according to \textcite{andreessen2014}.
@@ -737,9 +737,13 @@ Then, it \emph{promotes} the wallet to all known remote nodes.
 \section{RESTful API}\label{sec:api}
 
 There is a limited set of RESTful API entry points in each node.
-Each response has \dd{Content-Type},
-\dd{Content-Length}, \dd{X-Zold-Protocol}, and \dd{X-Zold-Version}
-HTTP headers.
+Each response has the following HTTP headers:
+\begin{itemize}
+\item \dd{Content-Type},
+\item \dd{Content-Length},
+\item \dd{X-Zold-Protocol}, and
+\item \dd{X-Zold-Version}.
+\end{itemize}
 
 \dd{X-Zold-Protocol} is the protocol version.
 It must be equal to the protocol version embedded in each wallet the
