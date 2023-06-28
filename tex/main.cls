@@ -9,6 +9,7 @@
 \RequirePackage{bookmark}
 \RequirePackage{microtype}
 \RequirePackage{anyfontsize}
+\RequirePackage{csquotes}
 \RequirePackage{amsmath}
 \RequirePackage{multicol}
 \RequirePackage{mdframed}
