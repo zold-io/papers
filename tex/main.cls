@@ -9,7 +9,6 @@
 \RequirePackage{bookmark}
 \RequirePackage{microtype}
 \RequirePackage{anyfontsize}
-\RequirePackage{csquotes}
 \RequirePackage{amsmath}
 \RequirePackage{multicol}
 \RequirePackage{mdframed}
@@ -43,6 +42,7 @@
 \setlength{\parindent}{0pt} % indent first line
 \setlength{\parskip}{6pt} % before par
 \let\oldsection\section\renewcommand\section{\newpage\oldsection}
+\RequirePackage{csquotes}
 \AtBeginDocument{%
   \input{_version}%
   \raggedbottom%

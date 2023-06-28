@@ -8,7 +8,6 @@
   \WarningFilter{latex}{You have requested package}
 \RequirePackage{microtype}
 \RequirePackage{anyfontsize}
-\RequirePackage{csquotes}
 \RequirePackage{multicol}
 \RequirePackage{setspace}
 \RequirePackage[landscape]{geometry}
@@ -134,6 +133,7 @@
 }
 \pagecolor{white}
 \date{\today}
+\RequirePackage{csquotes}
 \AtBeginDocument{%
   \input{_version}%
   \tikzstyle{block} = [draw=rupborder, fill=rupbody, inner sep=0.4cm, thick]%
