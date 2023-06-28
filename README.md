@@ -1,5 +1,6 @@
 <img src="https://www.zold.io/logo.svg" width="92px" height="92px"/>
 
+[![rake](https://github.com/zold-io/papers/actions/workflows/rake.yml/badge.svg)](https://github.com/zold-io/papers/actions/workflows/rake.yml)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/yegor256/takes/blob/master/LICENSE.txt)
 [![Hits-of-Code](https://hitsofcode.com/github/zold-io/papers)](https://hitsofcode.com/view/github/zold-io/papers)
 
