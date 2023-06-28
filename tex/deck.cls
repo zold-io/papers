@@ -7,6 +7,7 @@
 \RequirePackage{silence}
   \WarningFilter{latex}{You have requested package}
 \RequirePackage{microtype}
+\RequirePackage{anyfontsize}
 \RequirePackage{multicol}
 \RequirePackage{setspace}
 \RequirePackage[landscape]{geometry}

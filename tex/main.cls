@@ -8,6 +8,7 @@
   \WarningFilter{latex}{You have requested package}
 \RequirePackage{bookmark}
 \RequirePackage{microtype}
+\RequirePackage{anyfontsize}
 \RequirePackage{amsmath}
 \RequirePackage{multicol}
 \RequirePackage{mdframed}
