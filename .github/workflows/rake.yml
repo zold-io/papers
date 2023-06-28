@@ -20,7 +20,7 @@ jobs:
       - uses: teatimeguest/setup-texlive-action@v2.6.0
         with:
           update-all-packages: true
-          packages: scheme-basic xetex ffcode libertine microtype hypdoc href-ul newtx biblatex biber verbatimcopy pgfopts silence setspace makecell textpos merriweather mdframed zref
+          packages: scheme-basic xetex ffcode libertine microtype hypdoc href-ul newtx biblatex biber verbatimcopy pgfopts silence setspace makecell textpos merriweather mdframed zref needspace
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ matrix.ruby }}
