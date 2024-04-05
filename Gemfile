@@ -20,4 +20,4 @@
 source 'https://rubygems.org'
 
 gem 'rainbow', '3.1.1'
-gem 'rake', '13.0.6'
+gem 'rake', '13.2.1'
