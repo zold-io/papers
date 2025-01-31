@@ -8,7 +8,7 @@ assets:
   id_rsa.pub: "zerocracy/home#assets/blog/id_rsa.pub"
 install: |
   sudo apt-get -y update
-  sudo apt-get -y install imagemagick
+  sudo apt-get install --yes imagemagick
   sudo bundle install --no-color "--gemfile=$(pwd)/Gemfile"
 merge:
   script: |
