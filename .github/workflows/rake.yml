@@ -15,7 +15,7 @@ jobs:
         ruby: [3.3]
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - run: sudo apt-get install --yes ghostscript
       - uses: teatimeguest/setup-texlive-action@v2.6.0
         with:
