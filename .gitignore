@@ -9,3 +9,4 @@ wp.run.xml
 target/
 Gemfile.lock
 missfont.log
+vendor/
