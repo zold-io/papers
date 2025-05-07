@@ -1,11 +1,11 @@
-.DS_Store
+_minted-wp/
 .bundle/
+.DS_Store
 .idea/
 .yardoc/
-Gemfile.lock
-_minted-wp/
 coverage/
 doc/
+Gemfile.lock
 missfont.log
 node_modules/
 rdoc/
