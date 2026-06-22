@@ -24,7 +24,7 @@ different markets. Most of the technologies available at the moment are
 based on the principles of Blockchain architecture, including
 dominating currencies like Bitcoin and Ethereum. Despite its
 popularity, Blockchain is not the best possible solution for all scenarios.
-One such example is for fast micro-payments.
+One such example is fast micro-payments.
 Zold is an \emph{experimental} alternative that enables distributed transactions between
 anonymous users, making micro-payments financially feasible and fast.
 It borrows the ``proof of work'' principle from Bitcoin,
@@ -67,7 +67,7 @@ including different ``proof-of-X'' alternatives.%
   dedicated hard drive space, the higher probability of mining
   the next block and earning a reward.
   ``Proof-of-Elapsed-Time'': one uses a Trusted Execution Environment or TEE
-  to ensure a random looter production.
+  to ensure a random leader election.
 }
 For example, \textcite{everaere2010} gave
 a summary of them and introduced their own,
@@ -79,11 +79,11 @@ to be ``the world's first mass-adopted public distributed ledger.''~\parencite{h
 and so on.
 
 Zold is also a decentralized digital currency that maintains its ledgers
-through an unpredictable amount of anonymous and untrustable server nodes, trying to guarantee
+through an unpredictable number of anonymous and untrusted server nodes, trying to guarantee
 data consistency.
 The development of Zold was motivated by the desire to overcome
 two obvious disadvantages present in the majority of all existing
-Blockchain-based cryptocyrrencies:
+Blockchain-based cryptocurrencies:
 
 The first problem is that transaction processing is rather slow.%
 \footnote{%
@@ -137,7 +137,7 @@ To make a payment a user \emph{fetches} a wallet from the network,
 makes as many payments from the wallet to other wallets as necessary,
 and \emph{pushes} the wallet back to the network.
 Thanks to that, there are no technical limitations to
-the amount of transactions the network can process per second.
+the number of transactions the network can process per second.
 Section~\ref{sec:fetch} explains the details.
 
 \textbf{Root Wallet}.
@@ -187,12 +187,12 @@ All other wallets can only have positive balances.
 \textbf{Taxes}.
 Unlike many other payment systems, Zold doesn't require its users
 to pay transaction fees. Instead, wallets have to pay regular ``taxes'' for their maintenance.
-The amount of Taxes depends two factors: 1) the number
+The amount of taxes depends on two factors: 1) the number
 of transactions in a particular wallet and 2) the age of the wallet.
 Section~\ref{sec:taxes} provides more details.
 
 \textbf{No Trust}.
-The network of communicating nodes maintain the wallets of Zold users.
+The network of communicating nodes maintains the wallets of Zold users.
 Anyone can add a node to the network.
 It is assumed that any node may contain corrupted data, either by mistake or intentionally.
 Section~\ref{sec:remotes} explains how nodes communicate and rate each other.
@@ -205,7 +205,7 @@ GitHub OAuth login: \href{https://wts.zold.io}{wts.zold.io}.
 
 \textbf{Capacity}.
 One currency unit is called ZLD.
-One ZLD by convention equals to $2^{32}$ \emph{zents} (4,294,967,296).
+One ZLD by convention equals $2^{32}$ \emph{zents} (4,294,967,296).
 All amounts are stored as signed 64-bit integers.
 Therefore, the technical capacity of the currency is 2,147,483,648 ZLD (two billion).%
 \footnote{%
@@ -232,7 +232,7 @@ A user may make up any number, even using
 The system consists of nodes (server machines), which maintain the data.
 In order to guarantee data consistency among all distributed nodes
 there has to be an algorithm of data segregation.
-Corrupted data must be detected earlier and filtered out as quickly as possible.
+Corrupted data must be detected early and filtered out as quickly as possible.
 Bitcoin employed this algorithm, which was originally introduced and labeled as
 \emph{proof of work} by \textcite{back1997}.
 
@@ -248,7 +248,7 @@ will quickly dominate the former and the nodes with corrupted data will
 be ostracized and eventually ignored~\parencite{nakamoto2008}.
 
 Zold has borrowed elements of this principle, but has also modified it. Zold also requires
-its nodes to invest their CPU power into meaningless and repetative
+its nodes to invest their CPU power into meaningless and repetitive
 calculations in order to identify which part of the network they belong to:
 corrupted or not. Each Zold node has to calculate its \emph{score},
 which is indicative of the CPU power the node has invested into its calculation.
@@ -265,7 +265,7 @@ separated by spaces:
 \item The invoice.
 \end{enumerate}
 
-The host name and the IP are used in the prefix in order to prevent Sybil attack,
+The host name and the IP are used in the prefix in order to prevent a Sybil attack,
 as explained by~\textcite{douceur2002},
 where one server reuses the same score multiple times at different IP addresses
 and/or TCP ports, representing itself as multiple servers.
@@ -294,7 +294,7 @@ The hash of this text will be (pay attention to the trailing zeroes)%
 c9c72efbf6beeea13408c5e720ec42aec017c11c3db335e05595c03755000000
 \end{minted}
 
-The node attempts to try different sufficies until one of them produces
+The node tries different suffixes until one of them produces
 a hash that ends with a few trailing zeroes. The one above ends
 with six zeroes.
 
@@ -315,12 +315,12 @@ ends with six zeroes:
 e04ab4e69f86aa17be1316a52148e7bc3187c6d3df581d885a862d8850000000
 \end{minted}
 
-And so on. All hashes must have the same amount of trailing zeroes to make
+And so on. All hashes must have the same number of trailing zeroes to make
 the score valid.
 
 The score is only valid when the starting time is earlier than
 the current time, but not earlier than 24 hours ago. The \emph{strength} of the score
-is the amount of trailing zeros in the hash. In the example above the
+is the number of trailing zeros in the hash. In the example above the
 strength is six. The larger the strength, the more CPU power it takes to earn
 the score. All nodes in the network must have the same strength of their scores.
 
@@ -329,10 +329,10 @@ However, a node must aim for larger values of the score, in order
 to win a priority among all other nodes and earn more taxes,
 as explained in Section~\ref{sec:taxes}.
 
-Similar to Bitcoin network, which, according to~\textcite{hayes2017},
+Similar to the Bitcoin network, which, according to~\textcite{hayes2017},
 ``automatically adjusts the difficulty
 variable so that one block of bitcoins is found, on average, every ten minutes,''
-Zold network may use the strength in order to calibrate itself.
+the Zold network may use the strength in order to calibrate itself.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -383,7 +383,7 @@ contains fields separated by a semi-colon:
     684 symbols in \href{https://en.wikipedia.org/wiki/Base64}{Base64}.
 \end{enumerate}
 
-Transactions with positive amount don't have signatures.
+Transactions with a positive amount don't have signatures.
 Their IDs point to ID fields of corresponding beneficiaries' wallets.
 
 The \dd{prefix} is a piece of text randomly selected from the RSA key
@@ -427,7 +427,7 @@ of holders or misuse, ``will be compensated for by not having
 a limit on the total amount of ether that will be created.''~\parencite{fekkes2018}.
 
 In Zold, as explained in Section~\ref{sec:wallets}, any particular transaction can
-transfer up to $2^{63}$ zents, which is, by convention, is $2^{32}$ ZLD.
+transfer up to $2^{63}$ zents, which, by convention, is $2^{32}$ ZLD.
 Thus, technically, a summary of transactions in a wallet may be larger
 than $2^{63}$. However, the software will complain and reject a wallet
 if such an overflow happens. The minimum balance of a wallet is $-2^{63}$
@@ -458,8 +458,8 @@ the oldest transactions in the wallet.
 $T$ is the total number of transactions in the wallet.
 $F$ is the fee per transaction/hour, which is equal to 1917 zents.
 
-A one-year-old wallet with 4096 transactions will pay approximately 16 ZLD taxes annually
-(1 ZLD equals to $2^{32}$ zents):
+A one-year-old wallet with 4096 transactions will pay approximately 16 ZLD in taxes annually
+(1 ZLD equals $2^{32}$ zents):
 
 \begin{equation}
 \begin{split}
@@ -478,7 +478,7 @@ to that node. The score with exactly 16 suffixes
 has to be placed into the details of the transaction,
 prefixed by \dd{TAXES }.
 
-The most active remote node will be selected as tax receiver.
+The most active remote node will be selected as the tax receiver.
 It's up to the payer which node to select. This situation is similar
 to Bitcoin, where ``a miner's chance of winning the
 competition is (roughly, and with some caveats) equal to the proportion of the total computing
@@ -487,8 +487,8 @@ power that they control,'' according to~\textcite{foroglou2015}.
 All tax payments inside a wallet must have unique scores.
 Duplicate tax payments are ignored.
 
-The following comparison demonstrates the cost of a thousand transactions
-processing in different payment systems, including Zold. We have included both well-established systems and relatively new ones.
+The following comparison demonstrates the cost of processing a thousand transactions
+in different payment systems, including Zold. We have included both well-established systems and relatively new ones.
 It is assumed that a Zold wallet is one year old
 and 1 ZLD is worth \$1. Transaction fee costs in USD are approximate and are taken from the \href{https://bitinfocharts.com/}{BitInfoCharts} website. Where applicable, footnotes in the \textit{Price} column link to pages showing how transaction fees are calculated.
 
@@ -608,7 +608,7 @@ Cryptocurrency & Price & Date & Total cost \\
   \url{https://goo.gl/TLWtmf}.
 }
 
-The comparison demonstrates that Zold is one of the most cost effective cryptocurrency payment system in the market.
+The comparison demonstrates that Zold is one of the most cost-effective cryptocurrency payment systems on the market.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -617,7 +617,7 @@ The comparison demonstrates that Zold is one of the most cost effective cryptocu
 
 Each node maintains a list of \emph{remote nodes} (their host names and TCP port numbers),
 their scores and their availability information. When the node is first installed,
-the list contains a limited amount of pre-defined addresses%
+the list contains a limited number of pre-defined addresses%
 \footnote{\url{https://github.com/zold-io/zold/blob/master/resources/remotes}}.
 The list is updated by manual user request and automatically in order to give priority
 to high-score nodes and the nodes with the highest availability.
@@ -629,19 +629,19 @@ remote node \emph{quality} (in order of importance):
 
 \begin{enumerate}
   \item Visibility: the payer has to know the node;
-  \item Availability: the amount of errors seen recently;
-  \item Knowledgeability: the amount of nodes this node is aware of;
+  \item Availability: the number of errors seen recently;
+  \item Knowledgeability: the number of nodes this node is aware of;
   \item Activity: the frequency of push requests the node originates;
   \item Score: the one reported during the most recent handshake.
 \end{enumerate}
 
 Every time a node receives an HTTP request from anyone, it reads the
-`X-Zold-Score` HTTP header. The header, if it exists, may include
+\dd{X-Zold-Score} HTTP header. The header, if it exists, may include
 the text representation of a score of another node, which is making
 the request. The request receiver validates the score and, if its
 value is bigger than three, adds node coordinates (which are
 available in the score) to the local list of remote nodes. Thanks to this
-auto-discovery mechanism nodes become aware of each others presence
+auto-discovery mechanism nodes become aware of each other's presence
 in the network.
 
 Each node runs a ``reconnect'' procedure every minute, updating the list
@@ -769,7 +769,7 @@ further versions):
 \begin{minted}{json}
 {
   "version": "0.6.1",
-  "protocol: "1",
+  "protocol": "1",
   "score": {
     "value": 3,
     "host": "b2.zold.io",
@@ -788,7 +788,7 @@ in JSON/\href{https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1}
 \begin{minted}{json}
 {
   "version": "0.6.1",
-  "protocol: "1",
+  "protocol": "1",
   "all": [
     { "host": "b2.zold.io", "port": 4096 },
     { "host": "b1.zold.io", "port": 80 }
@@ -801,7 +801,7 @@ JSON/\href{https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1}{20
 \begin{minted}{json}
 {
   "version": "0.6.1",
-  "protocol: "1",
+  "protocol": "1",
   "body": "..."
 }\end{minted}
 
@@ -868,14 +868,14 @@ taxes to it.
 What is the incentive to advertise other remote nodes via the \dd{/remotes} RESTful
 entry point and why can't a node always return an empty list, expecting its clients
 to always pay taxes to it? The software automatically prioritizes remote
-nodes by the amount of other remote nodes it promotes. The longer the list a node
+nodes by the number of other remote nodes it promotes. The longer the list a node
 returns, the higher its chance to be at the top of the list.
 
 \subsection{To Promote Wallets}
 
 What is the incentive to promote wallets to remote nodes, spending network
 traffic for this operation? Each node also ranks its remote nodes by the
-amount of push requests they send. Thus, in order to stay on top of these rankings
+number of push requests they send. Thus, in order to stay on top of these rankings
 each node is interested in pushing wallets further.
 
 
@@ -888,7 +888,7 @@ It is obvious that a distributed system that consists of anonymous nodes
 even theoretically can't be 100\% safe, reliable, secure and trustworthy.
 Zold is not an exception. However, it's designed in an honest attempt
 to mitigate all critical threats and make the system ``reliable enough.''
-This Section summarizes the most import of those threads and explains
+This Section summarizes the most important of those threats and explains
 how Zold responds to them.
 
 \subsection{Double Spending Attack}
@@ -896,9 +896,9 @@ how Zold responds to them.
 It is possible to submit the same spending transaction to the same wallet
 and then push it to two different nodes in different parts of the network.
 They won't know about each other and will propagate those spending
-transactions to other wallets. Both two owners of those money receiving
+transactions to other wallets. Both owners of these money-receiving
 wallets will think that their money arrived, while only one of them is
-a legit receiver, the other transaction is fraudulent.
+a legitimate receiver; the other transaction is fraudulent.
 
 This will happen, but very soon one part of the network will dominate the other
 one, and one of the transactions will be rejected from the wallet, after
@@ -940,11 +940,11 @@ wallet owners must keep safe.
 
 \section{Conclusion}
 
-The proposed architecture has two obvious advantages comparing to many other
+The proposed architecture has two obvious advantages over many other
 similar solutions: it is low-latency and inexpensive. First, the speed of transaction processing
 literally has no limits, because all payments are made locally, on users'
 machines. Then, they push their wallets to the network and the network accepts
-them. It is possible to make a large amount of payments in one batch and
+them. It is possible to make a large number of payments in one batch and
 submit them to the network in just one RESTful PUT request, as explained
 in Section~\ref{sec:pay}. Second, the cost of transaction processing
 is lower than most other payment systems can offer, as Section~\ref{sec:taxes}
