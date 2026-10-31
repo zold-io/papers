@@ -19,11 +19,28 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
-      - run: sudo apt-get install --yes ghostscript
-      - uses: teatimeguest/setup-texlive-action@v3.3.4
+      - run: |
+          sudo apt-get update --yes
+          sudo apt-get install --yes ghostscript imagemagick
+          sudo sed -i '/pattern="PDF"/d' /etc/ImageMagick-6/policy.xml
+      - uses: zauguin/install-texlive@v4.5.0
         with:
-          update-all-packages: true
-          packages: scheme-basic xetex ffcode libertine microtype hypdoc href-ul newtx biblatex biber verbatimcopy pgfopts silence setspace makecell textpos merriweather mdframed zref needspace pgf pgfplots babel-russian cyrillic lh cm-super anyfontsize csquotes
+          packages: >
+            amsfonts amsmath anyfontsize auxhook babel babel-english
+            babel-russian biber biblatex bigintcalc bitset bookmark
+            catchfile cm-super csquotes cyrillic datetime dejavu
+            epstopdf-pkg etexcmds etoolbox everypage fancyvrb ffcode
+            figureversions float fmtcount fontaxes fvextra geometry
+            gettitlestring graphics graphics-cfg graphics-def grfext
+            href-ul hycolor hypdoc hyperref iftex infwarerr intcalc
+            kvdefinekeys kvoptions kvsetkeys l3backend l3kernel
+            l3packages latex latex-bin latex2pydata latexconfig
+            latexminted lh libertine lineno lm logreq ltxcmds makecell
+            mdframed merriweather microtype minted mptopdf needspace
+            newtx pdfescape pdftexcmds pgf pgfopts pgfplots refcount
+            rerunfilecheck scheme-basic setspace silence stringenc
+            textpos tools uniquecounter upquote url verbatimcopy xcolor
+            xetex xkeyval zref
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ matrix.ruby }}
