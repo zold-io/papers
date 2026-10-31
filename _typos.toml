@@ -1,0 +1,11 @@
+# SPDX-FileCopyrightText: Copyright (c) 2024-2026 Yegor Bugayenko
+# SPDX-License-Identifier: MIT
+
+[default]
+extend-ignore-re = [
+  'M\{\\"o\}ser',
+  'Ethe\\-reum',
+  'Mone\\-ro',
+  '\\emph\{SECON\}',
+  'NDAs',
+]

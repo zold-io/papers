@@ -21,13 +21,13 @@ titles = {
 def run(cmd)
   print "#{cmd} "
   out = ''
-  code = Open3.popen2e("#{cmd} 2>&1") do |stdin, stdout, thr|
+  code = Open3.popen2e("#{cmd} 2>&1") do |stdin, stdout, thread|
     stdin.close
     until stdout.eof?
       line = stdout.gets
       out += line
     end
-    thr.value.to_i
+    thread.value.to_i
   end
   if code.zero?
     print "OK\n"
