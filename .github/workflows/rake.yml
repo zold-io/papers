@@ -32,7 +32,7 @@ jobs:
             epstopdf-pkg etexcmds etoolbox everypage fancyvrb ffcode
             figureversions float fmtcount fontaxes fvextra geometry
             gettitlestring graphics graphics-cfg graphics-def grfext
-            href-ul hycolor hypdoc hyperref iftex infwarerr intcalc
+            href-ul hyphen-russian hycolor hypdoc hyperref iftex infwarerr intcalc
             kvdefinekeys kvoptions kvsetkeys l3kernel
             l3packages latex latex-bin latex2pydata latexconfig
             lh libertine lineno lm logreq ltxcmds makecell
