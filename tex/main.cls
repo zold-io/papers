@@ -27,7 +27,7 @@
   {\href{\thefield{url}}{\printnames{labelname}}}
   {\multicitedelim}
   {\usebibmacro{postnote}}
-\RequirePackage[cachedir=../target/minted,outputdir=../target]{minted}
+\RequirePackage{minted}
   \setminted{fontsize=\small}
   \setminted{breaklines}
   \usemintedstyle{bw}
