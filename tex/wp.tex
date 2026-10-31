@@ -917,6 +917,22 @@ This may happen, but a fetching node may always re-validate the entire wallet,
 by checking RSA signatures of all transactions. This will take some time, but will
 provide an extra guarantee to the client.
 
+\subsection{Censorship of Wallets}
+
+A node may accept a push request and then silently delete the wallet,
+or refuse to return it in response to a fetch request, while still
+serving all other wallets. The score of the node doesn't depend on
+the wallets it keeps, so the network keeps treating the node as a valid one.
+A group of such nodes may ignore certain wallets on purpose.
+
+This may happen, but it can't make a wallet disappear from the network.
+The owner of the wallet pushes it to many nodes, and each node that accepts
+it promotes it further, as explained in Section~\ref{sec:pay}.
+A client fetches the wallet from as many nodes as possible,
+as explained in Section~\ref{sec:fetch}, and gets it from any honest one.
+A wallet is lost only if every node the client talks to ignores it,
+which requires the attacker to control all those nodes, similar to the 51\% attack.
+
 \subsection{Fraudulent Tax Refunds}
 
 Some nodes may resell their scores to their affiliated tax payers, and they
