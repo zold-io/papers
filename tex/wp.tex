@@ -397,11 +397,13 @@ The \href{https://en.wikipedia.org/wiki/RSA_(cryptosystem)}{RSA}
 signature is calculated using the private key of the
 wallet and the following fields of transaction, separated by spaces:
 \dd{bnf}, \dd{id}, \dd{time}, \dd{amount}, \dd{prefix}, \dd{bnf}, \dd{details}.
+In this signing input, unlike in the ledger,
+\dd{id} and \dd{amount} are decimal integers, not hex.
 
 For example, this text may be used as a signing input:
 
 \begin{minted}{text}
-12345678abcdef 003a 2017-07-19T21:24:51Z ffffffff9c0ccccd Ui0wpLu7 98bb82c81735c4ee For services
+12345678abcdef 58 2017-07-19T21:24:51Z -1676882739 Ui0wpLu7 98bb82c81735c4ee For services
 \end{minted}
 
 Each transaction takes 1284 symbols at most.
