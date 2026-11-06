@@ -1,4 +1,6 @@
-<img src="https://www.zold.io/logo.svg" width="92px" height="92px"/>
+# Zold Papers
+
+![Zold logo](https://www.zold.io/logo.svg)
 
 [![rake](https://github.com/zold-io/papers/actions/workflows/rake.yml/badge.svg)](https://github.com/zold-io/papers/actions/workflows/rake.yml)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/yegor256/takes/blob/master/LICENSE.txt)
@@ -19,8 +21,8 @@ and
 Then:
 
 ```bash
-$ bundle update
-$ bundle exec rake --quiet
+bundle update
+bundle exec rake --quiet
 ```
 
 You should get `.pdf` files in the `target` directory. If something
